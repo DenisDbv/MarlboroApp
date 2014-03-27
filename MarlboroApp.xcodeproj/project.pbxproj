@@ -1,0 +1,478 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18936E2E18E3F215009D88A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18936E2D18E3F215009D88A6 /* Foundation.framework */; };
+		18936E3018E3F215009D88A6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18936E2F18E3F215009D88A6 /* CoreGraphics.framework */; };
+		18936E3218E3F215009D88A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18936E3118E3F215009D88A6 /* UIKit.framework */; };
+		18936E3418E3F215009D88A6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18936E3318E3F215009D88A6 /* CoreData.framework */; };
+		18936E3A18E3F216009D88A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18936E3818E3F216009D88A6 /* InfoPlist.strings */; };
+		18936E3C18E3F216009D88A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936E3B18E3F216009D88A6 /* main.m */; };
+		18936E4018E3F216009D88A6 /* MRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936E3F18E3F216009D88A6 /* MRAppDelegate.m */; };
+		18936E4318E3F216009D88A6 /* MarlboroApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18936E4118E3F216009D88A6 /* MarlboroApp.xcdatamodeld */; };
+		18936E4518E3F216009D88A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18936E4418E3F216009D88A6 /* Images.xcassets */; };
+		18936E4C18E3F216009D88A6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18936E4B18E3F216009D88A6 /* XCTest.framework */; };
+		18936E4D18E3F216009D88A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18936E2D18E3F215009D88A6 /* Foundation.framework */; };
+		18936E4E18E3F216009D88A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18936E3118E3F215009D88A6 /* UIKit.framework */; };
+		18936E4F18E3F216009D88A6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18936E3318E3F215009D88A6 /* CoreData.framework */; };
+		18936E5718E3F216009D88A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18936E5518E3F216009D88A6 /* InfoPlist.strings */; };
+		18936E5918E3F216009D88A6 /* MarlboroAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936E5818E3F216009D88A6 /* MarlboroAppTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		18936E5018E3F216009D88A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18936E2218E3F215009D88A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18936E2918E3F215009D88A6;
+			remoteInfo = MarlboroApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		18936E2A18E3F215009D88A6 /* MarlboroApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarlboroApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18936E2D18E3F215009D88A6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		18936E2F18E3F215009D88A6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		18936E3118E3F215009D88A6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		18936E3318E3F215009D88A6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		18936E3718E3F216009D88A6 /* MarlboroApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MarlboroApp-Info.plist"; sourceTree = "<group>"; };
+		18936E3918E3F216009D88A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		18936E3B18E3F216009D88A6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		18936E3D18E3F216009D88A6 /* MarlboroApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MarlboroApp-Prefix.pch"; sourceTree = "<group>"; };
+		18936E3E18E3F216009D88A6 /* MRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRAppDelegate.h; sourceTree = "<group>"; };
+		18936E3F18E3F216009D88A6 /* MRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRAppDelegate.m; sourceTree = "<group>"; };
+		18936E4218E3F216009D88A6 /* MarlboroApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarlboroApp.xcdatamodel; sourceTree = "<group>"; };
+		18936E4418E3F216009D88A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		18936E4A18E3F216009D88A6 /* MarlboroAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarlboroAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18936E4B18E3F216009D88A6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		18936E5418E3F216009D88A6 /* MarlboroAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MarlboroAppTests-Info.plist"; sourceTree = "<group>"; };
+		18936E5618E3F216009D88A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		18936E5818E3F216009D88A6 /* MarlboroAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarlboroAppTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18936E2718E3F215009D88A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18936E3018E3F215009D88A6 /* CoreGraphics.framework in Frameworks */,
+				18936E3418E3F215009D88A6 /* CoreData.framework in Frameworks */,
+				18936E3218E3F215009D88A6 /* UIKit.framework in Frameworks */,
+				18936E2E18E3F215009D88A6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18936E4718E3F216009D88A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18936E4C18E3F216009D88A6 /* XCTest.framework in Frameworks */,
+				18936E4F18E3F216009D88A6 /* CoreData.framework in Frameworks */,
+				18936E4E18E3F216009D88A6 /* UIKit.framework in Frameworks */,
+				18936E4D18E3F216009D88A6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18936E2118E3F215009D88A6 = {
+			isa = PBXGroup;
+			children = (
+				18936E3518E3F216009D88A6 /* MarlboroApp */,
+				18936E5218E3F216009D88A6 /* MarlboroAppTests */,
+				18936E2C18E3F215009D88A6 /* Frameworks */,
+				18936E2B18E3F215009D88A6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		18936E2B18E3F215009D88A6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18936E2A18E3F215009D88A6 /* MarlboroApp.app */,
+				18936E4A18E3F216009D88A6 /* MarlboroAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18936E2C18E3F215009D88A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				18936E2D18E3F215009D88A6 /* Foundation.framework */,
+				18936E2F18E3F215009D88A6 /* CoreGraphics.framework */,
+				18936E3118E3F215009D88A6 /* UIKit.framework */,
+				18936E3318E3F215009D88A6 /* CoreData.framework */,
+				18936E4B18E3F216009D88A6 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		18936E3518E3F216009D88A6 /* MarlboroApp */ = {
+			isa = PBXGroup;
+			children = (
+				18936E3E18E3F216009D88A6 /* MRAppDelegate.h */,
+				18936E3F18E3F216009D88A6 /* MRAppDelegate.m */,
+				18936E4418E3F216009D88A6 /* Images.xcassets */,
+				18936E4118E3F216009D88A6 /* MarlboroApp.xcdatamodeld */,
+				18936E3618E3F216009D88A6 /* Supporting Files */,
+			);
+			path = MarlboroApp;
+			sourceTree = "<group>";
+		};
+		18936E3618E3F216009D88A6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				18936E3718E3F216009D88A6 /* MarlboroApp-Info.plist */,
+				18936E3818E3F216009D88A6 /* InfoPlist.strings */,
+				18936E3B18E3F216009D88A6 /* main.m */,
+				18936E3D18E3F216009D88A6 /* MarlboroApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18936E5218E3F216009D88A6 /* MarlboroAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				18936E5818E3F216009D88A6 /* MarlboroAppTests.m */,
+				18936E5318E3F216009D88A6 /* Supporting Files */,
+			);
+			path = MarlboroAppTests;
+			sourceTree = "<group>";
+		};
+		18936E5318E3F216009D88A6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				18936E5418E3F216009D88A6 /* MarlboroAppTests-Info.plist */,
+				18936E5518E3F216009D88A6 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18936E2918E3F215009D88A6 /* MarlboroApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18936E5C18E3F216009D88A6 /* Build configuration list for PBXNativeTarget "MarlboroApp" */;
+			buildPhases = (
+				18936E2618E3F215009D88A6 /* Sources */,
+				18936E2718E3F215009D88A6 /* Frameworks */,
+				18936E2818E3F215009D88A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MarlboroApp;
+			productName = MarlboroApp;
+			productReference = 18936E2A18E3F215009D88A6 /* MarlboroApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		18936E4918E3F216009D88A6 /* MarlboroAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18936E5F18E3F216009D88A6 /* Build configuration list for PBXNativeTarget "MarlboroAppTests" */;
+			buildPhases = (
+				18936E4618E3F216009D88A6 /* Sources */,
+				18936E4718E3F216009D88A6 /* Frameworks */,
+				18936E4818E3F216009D88A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18936E5118E3F216009D88A6 /* PBXTargetDependency */,
+			);
+			name = MarlboroAppTests;
+			productName = MarlboroAppTests;
+			productReference = 18936E4A18E3F216009D88A6 /* MarlboroAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		18936E2218E3F215009D88A6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MR;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = brandmill;
+				TargetAttributes = {
+					18936E4918E3F216009D88A6 = {
+						TestTargetID = 18936E2918E3F215009D88A6;
+					};
+				};
+			};
+			buildConfigurationList = 18936E2518E3F215009D88A6 /* Build configuration list for PBXProject "MarlboroApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 18936E2118E3F215009D88A6;
+			productRefGroup = 18936E2B18E3F215009D88A6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18936E2918E3F215009D88A6 /* MarlboroApp */,
+				18936E4918E3F216009D88A6 /* MarlboroAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		18936E2818E3F215009D88A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18936E3A18E3F216009D88A6 /* InfoPlist.strings in Resources */,
+				18936E4518E3F216009D88A6 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18936E4818E3F216009D88A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18936E5718E3F216009D88A6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18936E2618E3F215009D88A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18936E4318E3F216009D88A6 /* MarlboroApp.xcdatamodeld in Sources */,
+				18936E3C18E3F216009D88A6 /* main.m in Sources */,
+				18936E4018E3F216009D88A6 /* MRAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18936E4618E3F216009D88A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18936E5918E3F216009D88A6 /* MarlboroAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		18936E5118E3F216009D88A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18936E2918E3F215009D88A6 /* MarlboroApp */;
+			targetProxy = 18936E5018E3F216009D88A6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		18936E3818E3F216009D88A6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18936E3918E3F216009D88A6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		18936E5518E3F216009D88A6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18936E5618E3F216009D88A6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		18936E5A18E3F216009D88A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		18936E5B18E3F216009D88A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		18936E5D18E3F216009D88A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MarlboroApp/MarlboroApp-Prefix.pch";
+				INFOPLIST_FILE = "MarlboroApp/MarlboroApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		18936E5E18E3F216009D88A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MarlboroApp/MarlboroApp-Prefix.pch";
+				INFOPLIST_FILE = "MarlboroApp/MarlboroApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		18936E6018E3F216009D88A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MarlboroApp.app/MarlboroApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MarlboroApp/MarlboroApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MarlboroAppTests/MarlboroAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		18936E6118E3F216009D88A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MarlboroApp.app/MarlboroApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MarlboroApp/MarlboroApp-Prefix.pch";
+				INFOPLIST_FILE = "MarlboroAppTests/MarlboroAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18936E2518E3F215009D88A6 /* Build configuration list for PBXProject "MarlboroApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18936E5A18E3F216009D88A6 /* Debug */,
+				18936E5B18E3F216009D88A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18936E5C18E3F216009D88A6 /* Build configuration list for PBXNativeTarget "MarlboroApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18936E5D18E3F216009D88A6 /* Debug */,
+				18936E5E18E3F216009D88A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		18936E5F18E3F216009D88A6 /* Build configuration list for PBXNativeTarget "MarlboroAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18936E6018E3F216009D88A6 /* Debug */,
+				18936E6118E3F216009D88A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		18936E4118E3F216009D88A6 /* MarlboroApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				18936E4218E3F216009D88A6 /* MarlboroApp.xcdatamodel */,
+			);
+			currentVersion = 18936E4218E3F216009D88A6 /* MarlboroApp.xcdatamodel */;
+			path = MarlboroApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 18936E2218E3F215009D88A6 /* Project object */;
+}
