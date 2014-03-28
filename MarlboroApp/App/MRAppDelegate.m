@@ -8,6 +8,12 @@
 
 #import "MRAppDelegate.h"
 
+#import "MRRootViewController.h"
+
+@interface MRAppDelegate ()
+@property (nonatomic, strong) MRRootViewController *rootViewController;
+@end
+
 @implementation MRAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -17,10 +23,35 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    
+    self.rootViewController = [[MRRootViewController alloc] initWithNibName:@"MRRootViewController" bundle:[NSBundle mainBundle]];
+    self.window.rootViewController = self.rootViewController;
+    
     [self.window makeKeyAndVisible];
+    
+    //[self showFontsList];
+    
     return YES;
+}
+
+//OPTIAgency-Gothic
+-(void) showFontsList
+{
+    NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];
+    
+    NSArray *fontNames;
+    NSInteger indFamily, indFont;
+    for (indFamily=0; indFamily<[familyNames count]; ++indFamily)
+    {
+        NSLog(@"Family name: %@", [familyNames objectAtIndex:indFamily]);
+        fontNames = [[NSArray alloc] initWithArray:
+                     [UIFont fontNamesForFamilyName:
+                      [familyNames objectAtIndex:indFamily]]];
+        for (indFont=0; indFont<[fontNames count]; ++indFont)
+        {
+            NSLog(@"    Font name: %@", [fontNames objectAtIndex:indFont]);
+        }
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

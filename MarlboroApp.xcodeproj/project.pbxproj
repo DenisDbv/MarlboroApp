@@ -1,1083 +1,735 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>18936E2118E3F215009D88A6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>18936E3518E3F216009D88A6</string>
-				<string>18936E5218E3F216009D88A6</string>
-				<string>18936E2C18E3F215009D88A6</string>
-				<string>18936E2B18E3F215009D88A6</string>
-				<string>C6EA91B96DAD4324A0FBC225</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E2218E3F215009D88A6</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>CLASSPREFIX</key>
-				<string>MR</string>
-				<key>LastUpgradeCheck</key>
-				<string>0510</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>brandmill</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>18936E4918E3F216009D88A6</key>
-					<dict>
-						<key>TestTargetID</key>
-						<string>18936E2918E3F215009D88A6</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>18936E2518E3F215009D88A6</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>18936E2118E3F215009D88A6</string>
-			<key>productRefGroup</key>
-			<string>18936E2B18E3F215009D88A6</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>18936E2918E3F215009D88A6</string>
-				<string>18936E4918E3F216009D88A6</string>
-			</array>
-		</dict>
-		<key>18936E2518E3F215009D88A6</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>18936E5A18E3F216009D88A6</string>
-				<string>18936E5B18E3F216009D88A6</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>18936E2618E3F215009D88A6</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>18936E4318E3F216009D88A6</string>
-				<string>18936E3C18E3F216009D88A6</string>
-				<string>18936E4018E3F216009D88A6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>18936E2718E3F215009D88A6</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>18936E3018E3F215009D88A6</string>
-				<string>18936E3418E3F215009D88A6</string>
-				<string>18936E3218E3F215009D88A6</string>
-				<string>18936E2E18E3F215009D88A6</string>
-				<string>F41CC02866F74B3182FA8265</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>18936E2818E3F215009D88A6</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>18936E3A18E3F216009D88A6</string>
-				<string>18936E4518E3F216009D88A6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>18936E2918E3F215009D88A6</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>18936E5C18E3F216009D88A6</string>
-			<key>buildPhases</key>
-			<array>
-				<string>C872F9DF778245F69E9A1341</string>
-				<string>18936E2618E3F215009D88A6</string>
-				<string>18936E2718E3F215009D88A6</string>
-				<string>18936E2818E3F215009D88A6</string>
-				<string>66B1734F133442F6AC70BB41</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>MarlboroApp</string>
-			<key>productName</key>
-			<string>MarlboroApp</string>
-			<key>productReference</key>
-			<string>18936E2A18E3F215009D88A6</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>18936E2A18E3F215009D88A6</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>MarlboroApp.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>18936E2B18E3F215009D88A6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>18936E2A18E3F215009D88A6</string>
-				<string>18936E4A18E3F216009D88A6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E2C18E3F215009D88A6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>18936E2D18E3F215009D88A6</string>
-				<string>18936E2F18E3F215009D88A6</string>
-				<string>18936E3118E3F215009D88A6</string>
-				<string>18936E3318E3F215009D88A6</string>
-				<string>18936E4B18E3F216009D88A6</string>
-				<string>C445D8750A3F4388AC0A572B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E2D18E3F215009D88A6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>18936E2E18E3F215009D88A6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>18936E2D18E3F215009D88A6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>18936E2F18E3F215009D88A6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreGraphics.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreGraphics.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>18936E3018E3F215009D88A6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>18936E2F18E3F215009D88A6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>18936E3118E3F215009D88A6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>18936E3218E3F215009D88A6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>18936E3118E3F215009D88A6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>18936E3318E3F215009D88A6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreData.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreData.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>18936E3418E3F215009D88A6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>18936E3318E3F215009D88A6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>18936E3518E3F216009D88A6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>18936E3E18E3F216009D88A6</string>
-				<string>18936E3F18E3F216009D88A6</string>
-				<string>18936E4418E3F216009D88A6</string>
-				<string>18936E4118E3F216009D88A6</string>
-				<string>18936E3618E3F216009D88A6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>MarlboroApp</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E3618E3F216009D88A6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>18936E3718E3F216009D88A6</string>
-				<string>18936E3818E3F216009D88A6</string>
-				<string>18936E3B18E3F216009D88A6</string>
-				<string>18936E3D18E3F216009D88A6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E3718E3F216009D88A6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>MarlboroApp-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E3818E3F216009D88A6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>18936E3918E3F216009D88A6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E3918E3F216009D88A6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E3A18E3F216009D88A6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>18936E3818E3F216009D88A6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>18936E3B18E3F216009D88A6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E3C18E3F216009D88A6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>18936E3B18E3F216009D88A6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>18936E3D18E3F216009D88A6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MarlboroApp-Prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E3E18E3F216009D88A6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MRAppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E3F18E3F216009D88A6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>MRAppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E4018E3F216009D88A6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>18936E3F18E3F216009D88A6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>18936E4118E3F216009D88A6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>18936E4218E3F216009D88A6</string>
-			</array>
-			<key>currentVersion</key>
-			<string>18936E4218E3F216009D88A6</string>
-			<key>isa</key>
-			<string>XCVersionGroup</string>
-			<key>path</key>
-			<string>MarlboroApp.xcdatamodeld</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-			<key>versionGroupType</key>
-			<string>wrapper.xcdatamodel</string>
-		</dict>
-		<key>18936E4218E3F216009D88A6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.xcdatamodel</string>
-			<key>path</key>
-			<string>MarlboroApp.xcdatamodel</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E4318E3F216009D88A6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>18936E4118E3F216009D88A6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>18936E4418E3F216009D88A6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Images.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E4518E3F216009D88A6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>18936E4418E3F216009D88A6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>18936E4618E3F216009D88A6</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>18936E5918E3F216009D88A6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>18936E4718E3F216009D88A6</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>18936E4C18E3F216009D88A6</string>
-				<string>18936E4F18E3F216009D88A6</string>
-				<string>18936E4E18E3F216009D88A6</string>
-				<string>18936E4D18E3F216009D88A6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>18936E4818E3F216009D88A6</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>18936E5718E3F216009D88A6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>18936E4918E3F216009D88A6</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>18936E5F18E3F216009D88A6</string>
-			<key>buildPhases</key>
-			<array>
-				<string>18936E4618E3F216009D88A6</string>
-				<string>18936E4718E3F216009D88A6</string>
-				<string>18936E4818E3F216009D88A6</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>18936E5118E3F216009D88A6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>MarlboroAppTests</string>
-			<key>productName</key>
-			<string>MarlboroAppTests</string>
-			<key>productReference</key>
-			<string>18936E4A18E3F216009D88A6</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>18936E4A18E3F216009D88A6</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>MarlboroAppTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>18936E4B18E3F216009D88A6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>XCTest.framework</string>
-			<key>path</key>
-			<string>Library/Frameworks/XCTest.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>18936E4C18E3F216009D88A6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>18936E4B18E3F216009D88A6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>18936E4D18E3F216009D88A6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>18936E2D18E3F215009D88A6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>18936E4E18E3F216009D88A6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>18936E3118E3F215009D88A6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>18936E4F18E3F216009D88A6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>18936E3318E3F215009D88A6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>18936E5018E3F216009D88A6</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>18936E2218E3F215009D88A6</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>18936E2918E3F215009D88A6</string>
-			<key>remoteInfo</key>
-			<string>MarlboroApp</string>
-		</dict>
-		<key>18936E5118E3F216009D88A6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>18936E2918E3F215009D88A6</string>
-			<key>targetProxy</key>
-			<string>18936E5018E3F216009D88A6</string>
-		</dict>
-		<key>18936E5218E3F216009D88A6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>18936E5818E3F216009D88A6</string>
-				<string>18936E5318E3F216009D88A6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>MarlboroAppTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E5318E3F216009D88A6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>18936E5418E3F216009D88A6</string>
-				<string>18936E5518E3F216009D88A6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E5418E3F216009D88A6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>MarlboroAppTests-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E5518E3F216009D88A6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>18936E5618E3F216009D88A6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E5618E3F216009D88A6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E5718E3F216009D88A6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>18936E5518E3F216009D88A6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>18936E5818E3F216009D88A6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>MarlboroAppTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18936E5918E3F216009D88A6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>18936E5818E3F216009D88A6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>18936E5A18E3F216009D88A6</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>2</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>18936E5B18E3F216009D88A6</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>2</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>18936E5C18E3F216009D88A6</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>18936E5D18E3F216009D88A6</string>
-				<string>18936E5E18E3F216009D88A6</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>18936E5D18E3F216009D88A6</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>C6EA91B96DAD4324A0FBC225</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>MarlboroApp/MarlboroApp-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>MarlboroApp/MarlboroApp-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>18936E5E18E3F216009D88A6</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>C6EA91B96DAD4324A0FBC225</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>MarlboroApp/MarlboroApp-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>MarlboroApp/MarlboroApp-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>18936E5F18E3F216009D88A6</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>18936E6018E3F216009D88A6</string>
-				<string>18936E6118E3F216009D88A6</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>18936E6018E3F216009D88A6</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/MarlboroApp.app/MarlboroApp</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>MarlboroApp/MarlboroApp-Prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>MarlboroAppTests/MarlboroAppTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>18936E6118E3F216009D88A6</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/MarlboroApp.app/MarlboroApp</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>MarlboroApp/MarlboroApp-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>MarlboroAppTests/MarlboroAppTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>66B1734F133442F6AC70BB41</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Pods-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>C445D8750A3F4388AC0A572B</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>C6EA91B96DAD4324A0FBC225</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C872F9DF778245F69E9A1341</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>F41CC02866F74B3182FA8265</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C445D8750A3F4388AC0A572B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>18936E2218E3F215009D88A6</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18936E2E18E3F215009D88A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18936E2D18E3F215009D88A6 /* Foundation.framework */; };
+		18936E3018E3F215009D88A6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18936E2F18E3F215009D88A6 /* CoreGraphics.framework */; };
+		18936E3218E3F215009D88A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18936E3118E3F215009D88A6 /* UIKit.framework */; };
+		18936E3418E3F215009D88A6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18936E3318E3F215009D88A6 /* CoreData.framework */; };
+		18936E3A18E3F216009D88A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18936E3818E3F216009D88A6 /* InfoPlist.strings */; };
+		18936E3C18E3F216009D88A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936E3B18E3F216009D88A6 /* main.m */; };
+		18936E4318E3F216009D88A6 /* MarlboroApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18936E4118E3F216009D88A6 /* MarlboroApp.xcdatamodeld */; };
+		18936E4518E3F216009D88A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18936E4418E3F216009D88A6 /* Images.xcassets */; };
+		18936E4C18E3F216009D88A6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18936E4B18E3F216009D88A6 /* XCTest.framework */; };
+		18936E4D18E3F216009D88A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18936E2D18E3F215009D88A6 /* Foundation.framework */; };
+		18936E4E18E3F216009D88A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18936E3118E3F215009D88A6 /* UIKit.framework */; };
+		18936E4F18E3F216009D88A6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18936E3318E3F215009D88A6 /* CoreData.framework */; };
+		18936E5718E3F216009D88A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18936E5518E3F216009D88A6 /* InfoPlist.strings */; };
+		18936E5918E3F216009D88A6 /* MarlboroAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936E5818E3F216009D88A6 /* MarlboroAppTests.m */; };
+		18936E6918E3FD52009D88A6 /* MRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936E6818E3FD52009D88A6 /* MRAppDelegate.m */; };
+		18936E6F18E3FEBB009D88A6 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936E6E18E3FEBB009D88A6 /* background@2x.png */; };
+		18936E7B18E40637009D88A6 /* MRRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936E7818E40637009D88A6 /* MRRootViewController.m */; };
+		18936E7C18E40637009D88A6 /* MRRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18936E7918E40637009D88A6 /* MRRootViewController.xib */; };
+		18936E8018E4064F009D88A6 /* MRRootMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936E7E18E4064F009D88A6 /* MRRootMenuViewController.m */; };
+		18936E8118E4064F009D88A6 /* MRRootMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18936E7F18E4064F009D88A6 /* MRRootMenuViewController.xib */; };
+		18936E8418E40B32009D88A6 /* opti-agency-gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18936E8318E40B32009D88A6 /* opti-agency-gothic.ttf */; };
+		18936E8718E40CEF009D88A6 /* MRParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936E8618E40CEF009D88A6 /* MRParentViewController.m */; };
+		18936E8918E410B6009D88A6 /* MyriadPro-Cond.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18936E8818E410B6009D88A6 /* MyriadPro-Cond.otf */; };
+		18936E8F18E412DB009D88A6 /* active_barcode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936E8B18E412DB009D88A6 /* active_barcode@2x.png */; };
+		18936E9018E412DB009D88A6 /* active_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936E8C18E412DB009D88A6 /* active_logo@2x.png */; };
+		18936E9118E412DB009D88A6 /* active_print@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936E8D18E412DB009D88A6 /* active_print@2x.png */; };
+		18936E9218E412DB009D88A6 /* active_stamp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936E8E18E412DB009D88A6 /* active_stamp@2x.png */; };
+		18936E9718E42C0D009D88A6 /* PMActivationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936E9618E42C0D009D88A6 /* PMActivationView.m */; };
+		18936E9A18E42E0B009D88A6 /* UIView+GestureBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936E9918E42E0B009D88A6 /* UIView+GestureBlocks.m */; };
+		18936EA218E5318B009D88A6 /* MRRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936EA018E5318B009D88A6 /* MRRegistrationViewController.m */; };
+		18936EA318E5318B009D88A6 /* MRRegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18936EA118E5318B009D88A6 /* MRRegistrationViewController.xib */; };
+		18936EA718E531E6009D88A6 /* MRRegistrationItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936EA618E531E6009D88A6 /* MRRegistrationItemView.m */; };
+		18936EAC18E53D38009D88A6 /* field_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936EAB18E53D38009D88A6 /* field_background@2x.png */; };
+		18936EAF18E53D7D009D88A6 /* exit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936EAE18E53D7D009D88A6 /* exit@2x.png */; };
+		F41CC02866F74B3182FA8265 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C445D8750A3F4388AC0A572B /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		18936E5018E3F216009D88A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18936E2218E3F215009D88A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18936E2918E3F215009D88A6;
+			remoteInfo = MarlboroApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		18936E2A18E3F215009D88A6 /* MarlboroApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarlboroApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18936E2D18E3F215009D88A6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		18936E2F18E3F215009D88A6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		18936E3118E3F215009D88A6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		18936E3318E3F215009D88A6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		18936E3718E3F216009D88A6 /* MarlboroApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MarlboroApp-Info.plist"; sourceTree = "<group>"; };
+		18936E3918E3F216009D88A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		18936E3B18E3F216009D88A6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		18936E3D18E3F216009D88A6 /* MarlboroApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MarlboroApp-Prefix.pch"; sourceTree = "<group>"; };
+		18936E4218E3F216009D88A6 /* MarlboroApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarlboroApp.xcdatamodel; sourceTree = "<group>"; };
+		18936E4418E3F216009D88A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		18936E4A18E3F216009D88A6 /* MarlboroAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarlboroAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18936E4B18E3F216009D88A6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		18936E5418E3F216009D88A6 /* MarlboroAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MarlboroAppTests-Info.plist"; sourceTree = "<group>"; };
+		18936E5618E3F216009D88A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		18936E5818E3F216009D88A6 /* MarlboroAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarlboroAppTests.m; sourceTree = "<group>"; };
+		18936E6418E3FBC6009D88A6 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		18936E6718E3FD52009D88A6 /* MRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRAppDelegate.h; sourceTree = "<group>"; };
+		18936E6818E3FD52009D88A6 /* MRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRAppDelegate.m; sourceTree = "<group>"; };
+		18936E6E18E3FEBB009D88A6 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		18936E7718E40637009D88A6 /* MRRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRRootViewController.h; sourceTree = "<group>"; };
+		18936E7818E40637009D88A6 /* MRRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRRootViewController.m; sourceTree = "<group>"; };
+		18936E7918E40637009D88A6 /* MRRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRRootViewController.xib; sourceTree = "<group>"; };
+		18936E7D18E4064F009D88A6 /* MRRootMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRRootMenuViewController.h; sourceTree = "<group>"; };
+		18936E7E18E4064F009D88A6 /* MRRootMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRRootMenuViewController.m; sourceTree = "<group>"; };
+		18936E7F18E4064F009D88A6 /* MRRootMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRRootMenuViewController.xib; sourceTree = "<group>"; };
+		18936E8318E40B32009D88A6 /* opti-agency-gothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "opti-agency-gothic.ttf"; sourceTree = "<group>"; };
+		18936E8518E40CEF009D88A6 /* MRParentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MRParentViewController.h; path = ../RootMenuController/MRParentViewController.h; sourceTree = "<group>"; };
+		18936E8618E40CEF009D88A6 /* MRParentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MRParentViewController.m; path = ../RootMenuController/MRParentViewController.m; sourceTree = "<group>"; };
+		18936E8818E410B6009D88A6 /* MyriadPro-Cond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Cond.otf"; sourceTree = "<group>"; };
+		18936E8B18E412DB009D88A6 /* active_barcode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active_barcode@2x.png"; sourceTree = "<group>"; };
+		18936E8C18E412DB009D88A6 /* active_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active_logo@2x.png"; sourceTree = "<group>"; };
+		18936E8D18E412DB009D88A6 /* active_print@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active_print@2x.png"; sourceTree = "<group>"; };
+		18936E8E18E412DB009D88A6 /* active_stamp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active_stamp@2x.png"; sourceTree = "<group>"; };
+		18936E9518E42C0D009D88A6 /* PMActivationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMActivationView.h; sourceTree = "<group>"; };
+		18936E9618E42C0D009D88A6 /* PMActivationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMActivationView.m; sourceTree = "<group>"; };
+		18936E9818E42E0B009D88A6 /* UIView+GestureBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GestureBlocks.h"; sourceTree = "<group>"; };
+		18936E9918E42E0B009D88A6 /* UIView+GestureBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GestureBlocks.m"; sourceTree = "<group>"; };
+		18936E9F18E5318B009D88A6 /* MRRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRRegistrationViewController.h; sourceTree = "<group>"; };
+		18936EA018E5318B009D88A6 /* MRRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRRegistrationViewController.m; sourceTree = "<group>"; };
+		18936EA118E5318B009D88A6 /* MRRegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRRegistrationViewController.xib; sourceTree = "<group>"; };
+		18936EA518E531E6009D88A6 /* MRRegistrationItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRRegistrationItemView.h; sourceTree = "<group>"; };
+		18936EA618E531E6009D88A6 /* MRRegistrationItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRRegistrationItemView.m; sourceTree = "<group>"; };
+		18936EAB18E53D38009D88A6 /* field_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "field_background@2x.png"; sourceTree = "<group>"; };
+		18936EAE18E53D7D009D88A6 /* exit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exit@2x.png"; sourceTree = "<group>"; };
+		C445D8750A3F4388AC0A572B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6EA91B96DAD4324A0FBC225 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18936E2718E3F215009D88A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18936E3018E3F215009D88A6 /* CoreGraphics.framework in Frameworks */,
+				18936E3418E3F215009D88A6 /* CoreData.framework in Frameworks */,
+				18936E3218E3F215009D88A6 /* UIKit.framework in Frameworks */,
+				18936E2E18E3F215009D88A6 /* Foundation.framework in Frameworks */,
+				F41CC02866F74B3182FA8265 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18936E4718E3F216009D88A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18936E4C18E3F216009D88A6 /* XCTest.framework in Frameworks */,
+				18936E4F18E3F216009D88A6 /* CoreData.framework in Frameworks */,
+				18936E4E18E3F216009D88A6 /* UIKit.framework in Frameworks */,
+				18936E4D18E3F216009D88A6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18936E2118E3F215009D88A6 = {
+			isa = PBXGroup;
+			children = (
+				18936E3518E3F216009D88A6 /* MarlboroApp */,
+				18936E5218E3F216009D88A6 /* MarlboroAppTests */,
+				18936E2C18E3F215009D88A6 /* Frameworks */,
+				18936E2B18E3F215009D88A6 /* Products */,
+				C6EA91B96DAD4324A0FBC225 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		18936E2B18E3F215009D88A6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18936E2A18E3F215009D88A6 /* MarlboroApp.app */,
+				18936E4A18E3F216009D88A6 /* MarlboroAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18936E2C18E3F215009D88A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				18936E2D18E3F215009D88A6 /* Foundation.framework */,
+				18936E2F18E3F215009D88A6 /* CoreGraphics.framework */,
+				18936E3118E3F215009D88A6 /* UIKit.framework */,
+				18936E3318E3F215009D88A6 /* CoreData.framework */,
+				18936E4B18E3F216009D88A6 /* XCTest.framework */,
+				C445D8750A3F4388AC0A572B /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		18936E3518E3F216009D88A6 /* MarlboroApp */ = {
+			isa = PBXGroup;
+			children = (
+				18936E9318E42BF3009D88A6 /* ViewHelpers */,
+				18936E6618E3FD52009D88A6 /* App */,
+				18936E6518E3FC21009D88A6 /* Resources */,
+				18936E6318E3FBB1009D88A6 /* Common */,
+				18936E7018E401CD009D88A6 /* Controllers */,
+				18936E4418E3F216009D88A6 /* Images.xcassets */,
+				18936E4118E3F216009D88A6 /* MarlboroApp.xcdatamodeld */,
+				18936E3618E3F216009D88A6 /* Supporting Files */,
+			);
+			path = MarlboroApp;
+			sourceTree = "<group>";
+		};
+		18936E3618E3F216009D88A6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				18936E3718E3F216009D88A6 /* MarlboroApp-Info.plist */,
+				18936E3818E3F216009D88A6 /* InfoPlist.strings */,
+				18936E3B18E3F216009D88A6 /* main.m */,
+				18936E3D18E3F216009D88A6 /* MarlboroApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18936E5218E3F216009D88A6 /* MarlboroAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				18936E5818E3F216009D88A6 /* MarlboroAppTests.m */,
+				18936E5318E3F216009D88A6 /* Supporting Files */,
+			);
+			path = MarlboroAppTests;
+			sourceTree = "<group>";
+		};
+		18936E5318E3F216009D88A6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				18936E5418E3F216009D88A6 /* MarlboroAppTests-Info.plist */,
+				18936E5518E3F216009D88A6 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18936E6318E3FBB1009D88A6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				18936E9818E42E0B009D88A6 /* UIView+GestureBlocks.h */,
+				18936E9918E42E0B009D88A6 /* UIView+GestureBlocks.m */,
+				18936E6418E3FBC6009D88A6 /* Global.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		18936E6518E3FC21009D88A6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				18936EAD18E53D60009D88A6 /* Controls */,
+				18936EAA18E53D38009D88A6 /* Registration */,
+				18936E8A18E412DB009D88A6 /* RootMenu */,
+				18936E8218E40B1A009D88A6 /* Font */,
+				18936E6E18E3FEBB009D88A6 /* background@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		18936E6618E3FD52009D88A6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				18936E6718E3FD52009D88A6 /* MRAppDelegate.h */,
+				18936E6818E3FD52009D88A6 /* MRAppDelegate.m */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		18936E7018E401CD009D88A6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				18936E9E18E53174009D88A6 /* Registration */,
+				18936E7A18E40637009D88A6 /* RootMenuController */,
+				18936E7618E40637009D88A6 /* RootController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		18936E7618E40637009D88A6 /* RootController */ = {
+			isa = PBXGroup;
+			children = (
+				18936E7718E40637009D88A6 /* MRRootViewController.h */,
+				18936E7818E40637009D88A6 /* MRRootViewController.m */,
+				18936E7918E40637009D88A6 /* MRRootViewController.xib */,
+				18936E8518E40CEF009D88A6 /* MRParentViewController.h */,
+				18936E8618E40CEF009D88A6 /* MRParentViewController.m */,
+			);
+			path = RootController;
+			sourceTree = "<group>";
+		};
+		18936E7A18E40637009D88A6 /* RootMenuController */ = {
+			isa = PBXGroup;
+			children = (
+				18936E7D18E4064F009D88A6 /* MRRootMenuViewController.h */,
+				18936E7E18E4064F009D88A6 /* MRRootMenuViewController.m */,
+				18936E7F18E4064F009D88A6 /* MRRootMenuViewController.xib */,
+			);
+			path = RootMenuController;
+			sourceTree = "<group>";
+		};
+		18936E8218E40B1A009D88A6 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				18936E8818E410B6009D88A6 /* MyriadPro-Cond.otf */,
+				18936E8318E40B32009D88A6 /* opti-agency-gothic.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		18936E8A18E412DB009D88A6 /* RootMenu */ = {
+			isa = PBXGroup;
+			children = (
+				18936E8B18E412DB009D88A6 /* active_barcode@2x.png */,
+				18936E8C18E412DB009D88A6 /* active_logo@2x.png */,
+				18936E8D18E412DB009D88A6 /* active_print@2x.png */,
+				18936E8E18E412DB009D88A6 /* active_stamp@2x.png */,
+			);
+			path = RootMenu;
+			sourceTree = "<group>";
+		};
+		18936E9318E42BF3009D88A6 /* ViewHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				18936E9418E42C0D009D88A6 /* ActivationView */,
+			);
+			name = ViewHelpers;
+			path = Resources/ViewHelpers;
+			sourceTree = "<group>";
+		};
+		18936E9418E42C0D009D88A6 /* ActivationView */ = {
+			isa = PBXGroup;
+			children = (
+				18936E9518E42C0D009D88A6 /* PMActivationView.h */,
+				18936E9618E42C0D009D88A6 /* PMActivationView.m */,
+			);
+			path = ActivationView;
+			sourceTree = "<group>";
+		};
+		18936E9E18E53174009D88A6 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				18936EA418E531B9009D88A6 /* RegistrationField */,
+				18936E9F18E5318B009D88A6 /* MRRegistrationViewController.h */,
+				18936EA018E5318B009D88A6 /* MRRegistrationViewController.m */,
+				18936EA118E5318B009D88A6 /* MRRegistrationViewController.xib */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		18936EA418E531B9009D88A6 /* RegistrationField */ = {
+			isa = PBXGroup;
+			children = (
+				18936EA518E531E6009D88A6 /* MRRegistrationItemView.h */,
+				18936EA618E531E6009D88A6 /* MRRegistrationItemView.m */,
+			);
+			path = RegistrationField;
+			sourceTree = "<group>";
+		};
+		18936EAA18E53D38009D88A6 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				18936EAB18E53D38009D88A6 /* field_background@2x.png */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		18936EAD18E53D60009D88A6 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				18936EAE18E53D7D009D88A6 /* exit@2x.png */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18936E2918E3F215009D88A6 /* MarlboroApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18936E5C18E3F216009D88A6 /* Build configuration list for PBXNativeTarget "MarlboroApp" */;
+			buildPhases = (
+				C872F9DF778245F69E9A1341 /* Check Pods Manifest.lock */,
+				18936E2618E3F215009D88A6 /* Sources */,
+				18936E2718E3F215009D88A6 /* Frameworks */,
+				18936E2818E3F215009D88A6 /* Resources */,
+				66B1734F133442F6AC70BB41 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MarlboroApp;
+			productName = MarlboroApp;
+			productReference = 18936E2A18E3F215009D88A6 /* MarlboroApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		18936E4918E3F216009D88A6 /* MarlboroAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18936E5F18E3F216009D88A6 /* Build configuration list for PBXNativeTarget "MarlboroAppTests" */;
+			buildPhases = (
+				18936E4618E3F216009D88A6 /* Sources */,
+				18936E4718E3F216009D88A6 /* Frameworks */,
+				18936E4818E3F216009D88A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18936E5118E3F216009D88A6 /* PBXTargetDependency */,
+			);
+			name = MarlboroAppTests;
+			productName = MarlboroAppTests;
+			productReference = 18936E4A18E3F216009D88A6 /* MarlboroAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		18936E2218E3F215009D88A6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MR;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = brandmill;
+				TargetAttributes = {
+					18936E2918E3F215009D88A6 = {
+						DevelopmentTeam = BLTF8P8RTQ;
+					};
+					18936E4918E3F216009D88A6 = {
+						TestTargetID = 18936E2918E3F215009D88A6;
+					};
+				};
+			};
+			buildConfigurationList = 18936E2518E3F215009D88A6 /* Build configuration list for PBXProject "MarlboroApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 18936E2118E3F215009D88A6;
+			productRefGroup = 18936E2B18E3F215009D88A6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18936E2918E3F215009D88A6 /* MarlboroApp */,
+				18936E4918E3F216009D88A6 /* MarlboroAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		18936E2818E3F215009D88A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18936E8F18E412DB009D88A6 /* active_barcode@2x.png in Resources */,
+				18936E8118E4064F009D88A6 /* MRRootMenuViewController.xib in Resources */,
+				18936E6F18E3FEBB009D88A6 /* background@2x.png in Resources */,
+				18936E3A18E3F216009D88A6 /* InfoPlist.strings in Resources */,
+				18936EA318E5318B009D88A6 /* MRRegistrationViewController.xib in Resources */,
+				18936EAF18E53D7D009D88A6 /* exit@2x.png in Resources */,
+				18936E9218E412DB009D88A6 /* active_stamp@2x.png in Resources */,
+				18936EAC18E53D38009D88A6 /* field_background@2x.png in Resources */,
+				18936E8418E40B32009D88A6 /* opti-agency-gothic.ttf in Resources */,
+				18936E9118E412DB009D88A6 /* active_print@2x.png in Resources */,
+				18936E4518E3F216009D88A6 /* Images.xcassets in Resources */,
+				18936E8918E410B6009D88A6 /* MyriadPro-Cond.otf in Resources */,
+				18936E7C18E40637009D88A6 /* MRRootViewController.xib in Resources */,
+				18936E9018E412DB009D88A6 /* active_logo@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18936E4818E3F216009D88A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18936E5718E3F216009D88A6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		66B1734F133442F6AC70BB41 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C872F9DF778245F69E9A1341 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18936E2618E3F215009D88A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18936E6918E3FD52009D88A6 /* MRAppDelegate.m in Sources */,
+				18936EA718E531E6009D88A6 /* MRRegistrationItemView.m in Sources */,
+				18936E9718E42C0D009D88A6 /* PMActivationView.m in Sources */,
+				18936EA218E5318B009D88A6 /* MRRegistrationViewController.m in Sources */,
+				18936E9A18E42E0B009D88A6 /* UIView+GestureBlocks.m in Sources */,
+				18936E8718E40CEF009D88A6 /* MRParentViewController.m in Sources */,
+				18936E4318E3F216009D88A6 /* MarlboroApp.xcdatamodeld in Sources */,
+				18936E3C18E3F216009D88A6 /* main.m in Sources */,
+				18936E7B18E40637009D88A6 /* MRRootViewController.m in Sources */,
+				18936E8018E4064F009D88A6 /* MRRootMenuViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18936E4618E3F216009D88A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18936E5918E3F216009D88A6 /* MarlboroAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		18936E5118E3F216009D88A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18936E2918E3F215009D88A6 /* MarlboroApp */;
+			targetProxy = 18936E5018E3F216009D88A6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		18936E3818E3F216009D88A6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18936E3918E3F216009D88A6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		18936E5518E3F216009D88A6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18936E5618E3F216009D88A6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		18936E5A18E3F216009D88A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		18936E5B18E3F216009D88A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		18936E5D18E3F216009D88A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6EA91B96DAD4324A0FBC225 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MarlboroApp/MarlboroApp-Prefix.pch";
+				INFOPLIST_FILE = "MarlboroApp/MarlboroApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		18936E5E18E3F216009D88A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6EA91B96DAD4324A0FBC225 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MarlboroApp/MarlboroApp-Prefix.pch";
+				INFOPLIST_FILE = "MarlboroApp/MarlboroApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		18936E6018E3F216009D88A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MarlboroApp.app/MarlboroApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MarlboroApp/MarlboroApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MarlboroAppTests/MarlboroAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		18936E6118E3F216009D88A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MarlboroApp.app/MarlboroApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MarlboroApp/MarlboroApp-Prefix.pch";
+				INFOPLIST_FILE = "MarlboroAppTests/MarlboroAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18936E2518E3F215009D88A6 /* Build configuration list for PBXProject "MarlboroApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18936E5A18E3F216009D88A6 /* Debug */,
+				18936E5B18E3F216009D88A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18936E5C18E3F216009D88A6 /* Build configuration list for PBXNativeTarget "MarlboroApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18936E5D18E3F216009D88A6 /* Debug */,
+				18936E5E18E3F216009D88A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18936E5F18E3F216009D88A6 /* Build configuration list for PBXNativeTarget "MarlboroAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18936E6018E3F216009D88A6 /* Debug */,
+				18936E6118E3F216009D88A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		18936E4118E3F216009D88A6 /* MarlboroApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				18936E4218E3F216009D88A6 /* MarlboroApp.xcdatamodel */,
+			);
+			currentVersion = 18936E4218E3F216009D88A6 /* MarlboroApp.xcdatamodel */;
+			path = MarlboroApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 18936E2218E3F215009D88A6 /* Project object */;
+}
