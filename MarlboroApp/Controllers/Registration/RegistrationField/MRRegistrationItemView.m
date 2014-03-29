@@ -7,6 +7,7 @@
 //
 
 #import "MRRegistrationItemView.h"
+#import "PMCustomKeyboard.h"
 
 @interface MRRegistrationItemView()
 @property (nonatomic, strong) UITextField *titleField;
@@ -45,6 +46,34 @@
     titleField.textAlignment = NSTextAlignmentCenter;
     titleField.delegate = self;
     [self addSubview:titleField];
+    
+    PMCustomKeyboard *customKeyboard = [[PMCustomKeyboard alloc] init];
+    [customKeyboard setTextView:titleField];
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if([self.delegate respondsToSelector:@selector(didSelectField:)])
+    {
+        [self.delegate didSelectField:self];
+    }
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    return YES;
+}
+
+-(void) selectField
+{
+    [titleField becomeFirstResponder];
+}
+
+-(void) deselectField
+{
+    [titleField resignFirstResponder];
 }
 
 @end

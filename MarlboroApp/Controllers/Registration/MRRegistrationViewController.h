@@ -7,7 +7,10 @@
 //
 
 #import "MRParentViewController.h"
+#import "PMActivationView.h"
 
 @interface MRRegistrationViewController : MRParentViewController
+
+- (id)initWithActiveID:(ActivationIDs)activeID;
 
 @end

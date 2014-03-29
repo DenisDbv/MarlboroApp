@@ -28,6 +28,8 @@ NSString *const MROnExitClickNotification = @"MROnExitClickNotification";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,12 +58,16 @@ NSString *const MROnExitClickNotification = @"MROnExitClickNotification";
 {
     UIImage *buttonImage = [UIImage imageNamed:@"exit.png"];
     UIButton *exitButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    exitButton.alpha = 1.0f;
+    exitButton.alpha = 0.0f;
     [exitButton addTarget:self action:@selector(onExit:) forControlEvents:UIControlEventTouchUpInside];
     [exitButton setImage:buttonImage forState:UIControlStateNormal];
     [exitButton setImage:buttonImage forState:UIControlStateHighlighted];
     exitButton.frame = CGRectMake(10, 10, buttonImage.size.width, buttonImage.size.height);
     [self.view addSubview:exitButton];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        exitButton.alpha = 1;
+    }];
 }
 
 -(void) hideExitButton
@@ -81,6 +87,13 @@ NSString *const MROnExitClickNotification = @"MROnExitClickNotification";
             [[NSNotificationCenter defaultCenter] postNotificationName:MROnExitClickNotification object:nil];
         }];
     }];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    
+    [self.view endEditing:YES];
 }
 
 @end

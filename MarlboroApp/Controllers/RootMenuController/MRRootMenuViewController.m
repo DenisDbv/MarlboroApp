@@ -153,20 +153,23 @@ void dispatch_repeated(double intervalInSeconds, dispatch_queue_t queue, void(^w
 
 -(void) openRegistrationForm:(ActivationIDs)ids
 {
-    [self hideAllContext];
+    if(ids == eBarcode || ids == eLogo) {
     
-    MRRegistrationViewController *registrationController = [[MRRegistrationViewController alloc] initWithNibName:@"MRRegistrationViewController" bundle:[NSBundle mainBundle]];
-    
-    __weak id wself = self;
-    MZFormSheetController *registraionSheet = [[MZFormSheetController alloc] initWithSize:self.view.bounds.size viewController:registrationController];
-    registraionSheet.willDismissCompletionHandler = ^(UIViewController *presentedFSViewController) {
-        MRRegistrationViewController *regVC = (MRRegistrationViewController*)presentedFSViewController;
-        [wself showAllContext];
-    };
-    
-    [registraionSheet presentFormSheetController:registraionSheet animated:NO completionHandler:^(MZFormSheetController *formSheetController) {
-        NSLog(@"Registartion view controller present");
-    }];
+        [self hideAllContext];
+        
+        MRRegistrationViewController *registrationController = [[MRRegistrationViewController alloc] initWithActiveID:ids];
+        
+        __weak id wself = self;
+        MZFormSheetController *registraionSheet = [[MZFormSheetController alloc] initWithSize:self.view.bounds.size viewController:[[UINavigationController alloc] initWithRootViewController:registrationController]];
+        registraionSheet.willDismissCompletionHandler = ^(UIViewController *presentedFSViewController) {
+            MRRegistrationViewController *regVC = (MRRegistrationViewController*)presentedFSViewController;
+            [wself showAllContext];
+        };
+        
+        [registraionSheet presentFormSheetController:registraionSheet animated:NO completionHandler:^(MZFormSheetController *formSheetController) {
+            NSLog(@"Registartion view controller present");
+        }];
+    }
 }
 
 @end

@@ -8,8 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class MRRegistrationItemView;
+
+@protocol MRRegistrationItemViewDelegate <NSObject>
+-(void) didSelectField:(MRRegistrationItemView*)fieldView;
+@end
+
 @interface MRRegistrationItemView : UIView
 
+@property (nonatomic, strong) id <MRRegistrationItemViewDelegate> delegate;
 - (id)initWithPlaceholder:(NSString*)text;
+
+
+-(void) selectField;
+-(void) deselectField;
 
 @end
