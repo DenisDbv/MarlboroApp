@@ -56,7 +56,7 @@ NSString *const MROnExitClickNotification = @"MROnExitClickNotification";
 #pragma mark - Exit button
 -(void) showExitButton
 {
-    UIImage *buttonImage = [UIImage imageNamed:@"exit.png"];
+    UIImage *buttonImage = [UIImage imageNamed:@"back.png"];
     UIButton *exitButton = [UIButton buttonWithType:UIButtonTypeCustom];
     exitButton.alpha = 0.0f;
     [exitButton addTarget:self action:@selector(onExit:) forControlEvents:UIControlEventTouchUpInside];

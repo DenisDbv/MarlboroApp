@@ -26,10 +26,10 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mdW-SR-DTk">
-                    <rect key="frame" x="402" y="630" width="220" height="70"/>
+                    <rect key="frame" x="348" y="614" width="328" height="118"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" backgroundImage="continue-button.png">
+                    <state key="normal" image="continue_button.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -42,6 +42,6 @@
         </view>
     </objects>
     <resources>
-        <image name="continue-button.png" width="221" height="69"/>
+        <image name="continue_button.png" width="328" height="118"/>
     </resources>
 </document>

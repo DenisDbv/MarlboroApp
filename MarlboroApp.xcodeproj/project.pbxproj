@@ -40,19 +40,19 @@
 		18936EA318E5318B009D88A6 /* MRRegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18936EA118E5318B009D88A6 /* MRRegistrationViewController.xib */; };
 		18936EA718E531E6009D88A6 /* MRRegistrationItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936EA618E531E6009D88A6 /* MRRegistrationItemView.m */; };
 		18936EAC18E53D38009D88A6 /* field_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936EAB18E53D38009D88A6 /* field_background@2x.png */; };
-		18936EAF18E53D7D009D88A6 /* exit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936EAE18E53D7D009D88A6 /* exit@2x.png */; };
 		18936EB418E583BC009D88A6 /* MRChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936EB218E583BC009D88A6 /* MRChooserViewController.m */; };
 		18936EB518E583BC009D88A6 /* MRChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18936EB318E583BC009D88A6 /* MRChooserViewController.xib */; };
 		18936EB918E589AD009D88A6 /* MRCheckItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936EB818E589AD009D88A6 /* MRCheckItem.m */; };
 		18936EBD18E68693009D88A6 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936EBB18E68693009D88A6 /* check@2x.png */; };
 		18936EBE18E68693009D88A6 /* check_frame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936EBC18E68693009D88A6 /* check_frame@2x.png */; };
-		18936EC018E68BF3009D88A6 /* continue-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936EBF18E68BF3009D88A6 /* continue-button@2x.png */; };
 		18936EC618E6C372009D88A6 /* keyboard_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936EC218E6C372009D88A6 /* keyboard_button@2x.png */; };
 		18936EC718E6C372009D88A6 /* keyboard_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936EC318E6C372009D88A6 /* keyboard_delete@2x.png */; };
 		18936EC818E6C372009D88A6 /* keyboard_ru_eng@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936EC418E6C372009D88A6 /* keyboard_ru_eng@2x.png */; };
 		18936EC918E6C372009D88A6 /* keyboard_space@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936EC518E6C372009D88A6 /* keyboard_space@2x.png */; };
 		18936ECE18E6C3BD009D88A6 /* PMCustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936ECC18E6C3BD009D88A6 /* PMCustomKeyboard.m */; };
 		18936ECF18E6C3BD009D88A6 /* PMCustomKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18936ECD18E6C3BD009D88A6 /* PMCustomKeyboard.xib */; };
+		18936ED318E6EA91009D88A6 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936ED118E6EA91009D88A6 /* back@2x.png */; };
+		18936ED418E6EA91009D88A6 /* continue_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936ED218E6EA91009D88A6 /* continue_button@2x.png */; };
 		F41CC02866F74B3182FA8265 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C445D8750A3F4388AC0A572B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -111,7 +111,6 @@
 		18936EA518E531E6009D88A6 /* MRRegistrationItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRRegistrationItemView.h; sourceTree = "<group>"; };
 		18936EA618E531E6009D88A6 /* MRRegistrationItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRRegistrationItemView.m; sourceTree = "<group>"; };
 		18936EAB18E53D38009D88A6 /* field_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "field_background@2x.png"; sourceTree = "<group>"; };
-		18936EAE18E53D7D009D88A6 /* exit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exit@2x.png"; sourceTree = "<group>"; };
 		18936EB118E583BC009D88A6 /* MRChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRChooserViewController.h; sourceTree = "<group>"; };
 		18936EB218E583BC009D88A6 /* MRChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRChooserViewController.m; sourceTree = "<group>"; };
 		18936EB318E583BC009D88A6 /* MRChooserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRChooserViewController.xib; sourceTree = "<group>"; };
@@ -119,7 +118,6 @@
 		18936EB818E589AD009D88A6 /* MRCheckItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCheckItem.m; sourceTree = "<group>"; };
 		18936EBB18E68693009D88A6 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
 		18936EBC18E68693009D88A6 /* check_frame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_frame@2x.png"; sourceTree = "<group>"; };
-		18936EBF18E68BF3009D88A6 /* continue-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "continue-button@2x.png"; sourceTree = "<group>"; };
 		18936EC218E6C372009D88A6 /* keyboard_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_button@2x.png"; sourceTree = "<group>"; };
 		18936EC318E6C372009D88A6 /* keyboard_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_delete@2x.png"; sourceTree = "<group>"; };
 		18936EC418E6C372009D88A6 /* keyboard_ru_eng@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_ru_eng@2x.png"; sourceTree = "<group>"; };
@@ -127,6 +125,8 @@
 		18936ECB18E6C3BD009D88A6 /* PMCustomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCustomKeyboard.h; sourceTree = "<group>"; };
 		18936ECC18E6C3BD009D88A6 /* PMCustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCustomKeyboard.m; sourceTree = "<group>"; };
 		18936ECD18E6C3BD009D88A6 /* PMCustomKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMCustomKeyboard.xib; sourceTree = "<group>"; };
+		18936ED118E6EA91009D88A6 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
+		18936ED218E6EA91009D88A6 /* continue_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "continue_button@2x.png"; sourceTree = "<group>"; };
 		C445D8750A3F4388AC0A572B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6EA91B96DAD4324A0FBC225 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -248,9 +248,9 @@
 		18936E6518E3FC21009D88A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				18936ED018E6EA91009D88A6 /* Controls */,
 				18936EC118E6C372009D88A6 /* Keyboard */,
 				18936EBA18E68693009D88A6 /* Checker */,
-				18936EAD18E53D60009D88A6 /* Controls */,
 				18936EAA18E53D38009D88A6 /* Registration */,
 				18936E8A18E412DB009D88A6 /* RootMenu */,
 				18936E8218E40B1A009D88A6 /* Font */,
@@ -363,18 +363,9 @@
 		18936EAA18E53D38009D88A6 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				18936EBF18E68BF3009D88A6 /* continue-button@2x.png */,
 				18936EAB18E53D38009D88A6 /* field_background@2x.png */,
 			);
 			path = Registration;
-			sourceTree = "<group>";
-		};
-		18936EAD18E53D60009D88A6 /* Controls */ = {
-			isa = PBXGroup;
-			children = (
-				18936EAE18E53D7D009D88A6 /* exit@2x.png */,
-			);
-			path = Controls;
 			sourceTree = "<group>";
 		};
 		18936EB018E58391009D88A6 /* Chooser */ = {
@@ -425,6 +416,15 @@
 				18936ECD18E6C3BD009D88A6 /* PMCustomKeyboard.xib */,
 			);
 			path = KeyboardView;
+			sourceTree = "<group>";
+		};
+		18936ED018E6EA91009D88A6 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				18936ED118E6EA91009D88A6 /* back@2x.png */,
+				18936ED218E6EA91009D88A6 /* continue_button@2x.png */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -514,7 +514,6 @@
 				18936E3A18E3F216009D88A6 /* InfoPlist.strings in Resources */,
 				18936EA318E5318B009D88A6 /* MRRegistrationViewController.xib in Resources */,
 				18936EC618E6C372009D88A6 /* keyboard_button@2x.png in Resources */,
-				18936EAF18E53D7D009D88A6 /* exit@2x.png in Resources */,
 				18936EBE18E68693009D88A6 /* check_frame@2x.png in Resources */,
 				18936E9218E412DB009D88A6 /* active_stamp@2x.png in Resources */,
 				18936EAC18E53D38009D88A6 /* field_background@2x.png in Resources */,
@@ -524,12 +523,13 @@
 				18936EBD18E68693009D88A6 /* check@2x.png in Resources */,
 				18936ECF18E6C3BD009D88A6 /* PMCustomKeyboard.xib in Resources */,
 				18936EC718E6C372009D88A6 /* keyboard_delete@2x.png in Resources */,
-				18936EC018E68BF3009D88A6 /* continue-button@2x.png in Resources */,
+				18936ED318E6EA91009D88A6 /* back@2x.png in Resources */,
 				18936EB518E583BC009D88A6 /* MRChooserViewController.xib in Resources */,
 				18936E4518E3F216009D88A6 /* Images.xcassets in Resources */,
 				18936E8918E410B6009D88A6 /* MyriadPro-Cond.otf in Resources */,
 				18936E7C18E40637009D88A6 /* MRRootViewController.xib in Resources */,
 				18936E9018E412DB009D88A6 /* active_logo@2x.png in Resources */,
+				18936ED418E6EA91009D88A6 /* continue_button@2x.png in Resources */,
 				18936EC918E6C372009D88A6 /* keyboard_space@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
