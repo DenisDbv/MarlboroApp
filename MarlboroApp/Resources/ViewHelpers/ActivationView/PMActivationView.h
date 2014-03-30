@@ -11,6 +11,7 @@
 typedef enum
 {
     eBarcode = 0,
+    eBarcodeSign,
     eLogo,
     eStamp,
     ePrint

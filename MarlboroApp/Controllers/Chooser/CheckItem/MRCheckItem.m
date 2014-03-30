@@ -14,19 +14,21 @@
 @implementation MRCheckItem
 {
     UIImageView *checkImage;
-    BOOL isCheck;
     
     UIButton *checkButton;
     UILabel *titleLabel;
-    MRRegistrationItemView *fieldView;
     
     NSString *_placeholderText;
 }
+@synthesize isCheck;
+@synthesize fieldView;
+@synthesize _key;
 
 - (id)initWithTitle:(NSString*)title byKey:(NSString*)key withPlaceholder:(NSString*)placeholderText
 {
     self = [super initWithFrame:CGRectZero];
     if (self) {
+        _key = key;
         [self initItemWithTitle:title :placeholderText];
     }
     return self;
@@ -68,7 +70,7 @@
     [self addSubview:titleLabel];
     
     fieldView = [[MRRegistrationItemView alloc] initWithPlaceholder:placeholderText];
-    fieldView.delegate = self.rootDelegate;
+    fieldView.delegate = self;
     fieldView.alpha = 0;
     fieldView.frame = CGRectOffset(fieldView.frame, titleLabel.frame.origin.x+DELTA_ANIM_OFFSET, 0);
     [self addSubview:fieldView];
@@ -110,6 +112,12 @@
     } else {
         checkImage.hidden = YES;
         [fieldView deselectField];
+        fieldView.titleField.text = @"";
+    }
+    
+    if([self.rootDelegate respondsToSelector:@selector(didSelectCheckbox:withActive:)])
+    {
+        [self.rootDelegate didSelectCheckbox:self withActive:isCheck];
     }
     
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, titleLabel.frame.origin.x+titleLabel.frame.size.width, checkButton.bounds.size.height);

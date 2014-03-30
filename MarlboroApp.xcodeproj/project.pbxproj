@@ -31,7 +31,6 @@
 		18936E8718E40CEF009D88A6 /* MRParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936E8618E40CEF009D88A6 /* MRParentViewController.m */; };
 		18936E8918E410B6009D88A6 /* MyriadPro-Cond.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18936E8818E410B6009D88A6 /* MyriadPro-Cond.otf */; };
 		18936E8F18E412DB009D88A6 /* active_barcode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936E8B18E412DB009D88A6 /* active_barcode@2x.png */; };
-		18936E9018E412DB009D88A6 /* active_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936E8C18E412DB009D88A6 /* active_logo@2x.png */; };
 		18936E9118E412DB009D88A6 /* active_print@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936E8D18E412DB009D88A6 /* active_print@2x.png */; };
 		18936E9218E412DB009D88A6 /* active_stamp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936E8E18E412DB009D88A6 /* active_stamp@2x.png */; };
 		18936E9718E42C0D009D88A6 /* PMActivationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936E9618E42C0D009D88A6 /* PMActivationView.m */; };
@@ -52,7 +51,20 @@
 		18936ECE18E6C3BD009D88A6 /* PMCustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936ECC18E6C3BD009D88A6 /* PMCustomKeyboard.m */; };
 		18936ECF18E6C3BD009D88A6 /* PMCustomKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18936ECD18E6C3BD009D88A6 /* PMCustomKeyboard.xib */; };
 		18936ED318E6EA91009D88A6 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936ED118E6EA91009D88A6 /* back@2x.png */; };
-		18936ED418E6EA91009D88A6 /* continue_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936ED218E6EA91009D88A6 /* continue_button@2x.png */; };
+		18936ED618E75EA7009D88A6 /* continue_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936ED518E75EA7009D88A6 /* continue_button@2x.png */; };
+		18936EDB18E76EF4009D88A6 /* MRBarcodeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936ED918E76EF4009D88A6 /* MRBarcodeListViewController.m */; };
+		18936EDC18E76EF4009D88A6 /* MRBarcodeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18936EDA18E76EF4009D88A6 /* MRBarcodeListViewController.xib */; };
+		18936EE018E770EF009D88A6 /* UIImage+BarcodeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936EDF18E770EE009D88A6 /* UIImage+BarcodeImage.m */; };
+		18936EE418E774BB009D88A6 /* MRDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936EE318E774BB009D88A6 /* MRDataManager.m */; };
+		18936EE718E7D215009D88A6 /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936EE618E7D215009D88A6 /* texture.png */; };
+		18936EEB18E7D46F009D88A6 /* FuturaDemiC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18936EE818E7D46F009D88A6 /* FuturaDemiC.ttf */; };
+		18936EEC18E7D46F009D88A6 /* PFAgoraSlabPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18936EE918E7D46F009D88A6 /* PFAgoraSlabPro-Black.ttf */; };
+		18936EED18E7D46F009D88A6 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18936EEA18E7D46F009D88A6 /* Roboto-Thin.ttf */; };
+		18936EEF18E7F058009D88A6 /* BarcodeSavedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18936EEE18E7F058009D88A6 /* BarcodeSavedView.xib */; };
+		18936EF218E7F14A009D88A6 /* BarcodeSavedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936EF118E7F14A009D88A6 /* BarcodeSavedView.m */; };
+		18936EF618E7FE62009D88A6 /* PMTimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936EF518E7FE62009D88A6 /* PMTimeManager.m */; };
+		18936EF918E80F5C009D88A6 /* NSString+EngToRu.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936EF818E80F5C009D88A6 /* NSString+EngToRu.m */; };
+		18936EFB18E81B89009D88A6 /* active_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936EFA18E81B89009D88A6 /* active_logo@2x.png */; };
 		F41CC02866F74B3182FA8265 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C445D8750A3F4388AC0A572B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -98,7 +110,6 @@
 		18936E8618E40CEF009D88A6 /* MRParentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MRParentViewController.m; path = ../RootMenuController/MRParentViewController.m; sourceTree = "<group>"; };
 		18936E8818E410B6009D88A6 /* MyriadPro-Cond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Cond.otf"; sourceTree = "<group>"; };
 		18936E8B18E412DB009D88A6 /* active_barcode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active_barcode@2x.png"; sourceTree = "<group>"; };
-		18936E8C18E412DB009D88A6 /* active_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active_logo@2x.png"; sourceTree = "<group>"; };
 		18936E8D18E412DB009D88A6 /* active_print@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active_print@2x.png"; sourceTree = "<group>"; };
 		18936E8E18E412DB009D88A6 /* active_stamp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active_stamp@2x.png"; sourceTree = "<group>"; };
 		18936E9518E42C0D009D88A6 /* PMActivationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMActivationView.h; sourceTree = "<group>"; };
@@ -126,7 +137,26 @@
 		18936ECC18E6C3BD009D88A6 /* PMCustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCustomKeyboard.m; sourceTree = "<group>"; };
 		18936ECD18E6C3BD009D88A6 /* PMCustomKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMCustomKeyboard.xib; sourceTree = "<group>"; };
 		18936ED118E6EA91009D88A6 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
-		18936ED218E6EA91009D88A6 /* continue_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "continue_button@2x.png"; sourceTree = "<group>"; };
+		18936ED518E75EA7009D88A6 /* continue_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "continue_button@2x.png"; sourceTree = "<group>"; };
+		18936ED818E76EF4009D88A6 /* MRBarcodeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBarcodeListViewController.h; sourceTree = "<group>"; };
+		18936ED918E76EF4009D88A6 /* MRBarcodeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBarcodeListViewController.m; sourceTree = "<group>"; };
+		18936EDA18E76EF4009D88A6 /* MRBarcodeListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRBarcodeListViewController.xib; sourceTree = "<group>"; };
+		18936EDE18E770EE009D88A6 /* UIImage+BarcodeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BarcodeImage.h"; sourceTree = "<group>"; };
+		18936EDF18E770EE009D88A6 /* UIImage+BarcodeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BarcodeImage.m"; sourceTree = "<group>"; };
+		18936EE218E774BB009D88A6 /* MRDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRDataManager.h; sourceTree = "<group>"; };
+		18936EE318E774BB009D88A6 /* MRDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRDataManager.m; sourceTree = "<group>"; };
+		18936EE618E7D215009D88A6 /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
+		18936EE818E7D46F009D88A6 /* FuturaDemiC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FuturaDemiC.ttf; sourceTree = "<group>"; };
+		18936EE918E7D46F009D88A6 /* PFAgoraSlabPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PFAgoraSlabPro-Black.ttf"; sourceTree = "<group>"; };
+		18936EEA18E7D46F009D88A6 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		18936EEE18E7F058009D88A6 /* BarcodeSavedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarcodeSavedView.xib; sourceTree = "<group>"; };
+		18936EF018E7F14A009D88A6 /* BarcodeSavedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarcodeSavedView.h; sourceTree = "<group>"; };
+		18936EF118E7F14A009D88A6 /* BarcodeSavedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarcodeSavedView.m; sourceTree = "<group>"; };
+		18936EF418E7FE62009D88A6 /* PMTimeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMTimeManager.h; sourceTree = "<group>"; };
+		18936EF518E7FE62009D88A6 /* PMTimeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMTimeManager.m; sourceTree = "<group>"; };
+		18936EF718E80F5C009D88A6 /* NSString+EngToRu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EngToRu.h"; sourceTree = "<group>"; };
+		18936EF818E80F5C009D88A6 /* NSString+EngToRu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EngToRu.m"; sourceTree = "<group>"; };
+		18936EFA18E81B89009D88A6 /* active_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active_logo@2x.png"; sourceTree = "<group>"; };
 		C445D8750A3F4388AC0A572B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6EA91B96DAD4324A0FBC225 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,6 +224,7 @@
 		18936E3518E3F216009D88A6 /* MarlboroApp */ = {
 			isa = PBXGroup;
 			children = (
+				18936EE118E77401009D88A6 /* Model */,
 				18936E9318E42BF3009D88A6 /* ViewHelpers */,
 				18936E6618E3FD52009D88A6 /* App */,
 				18936E6518E3FC21009D88A6 /* Resources */,
@@ -238,9 +269,12 @@
 		18936E6318E3FBB1009D88A6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				18936EF318E7FE62009D88A6 /* TimeManager */,
 				18936E9818E42E0B009D88A6 /* UIView+GestureBlocks.h */,
 				18936E9918E42E0B009D88A6 /* UIView+GestureBlocks.m */,
 				18936E6418E3FBC6009D88A6 /* Global.h */,
+				18936EF718E80F5C009D88A6 /* NSString+EngToRu.h */,
+				18936EF818E80F5C009D88A6 /* NSString+EngToRu.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -248,6 +282,7 @@
 		18936E6518E3FC21009D88A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				18936EE518E7D215009D88A6 /* Barcode */,
 				18936ED018E6EA91009D88A6 /* Controls */,
 				18936EC118E6C372009D88A6 /* Keyboard */,
 				18936EBA18E68693009D88A6 /* Checker */,
@@ -271,6 +306,7 @@
 		18936E7018E401CD009D88A6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				18936ED718E76ED5009D88A6 /* Barcode */,
 				18936EB018E58391009D88A6 /* Chooser */,
 				18936E9E18E53174009D88A6 /* Registration */,
 				18936E7A18E40637009D88A6 /* RootMenuController */,
@@ -304,6 +340,9 @@
 		18936E8218E40B1A009D88A6 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				18936EE818E7D46F009D88A6 /* FuturaDemiC.ttf */,
+				18936EE918E7D46F009D88A6 /* PFAgoraSlabPro-Black.ttf */,
+				18936EEA18E7D46F009D88A6 /* Roboto-Thin.ttf */,
 				18936E8818E410B6009D88A6 /* MyriadPro-Cond.otf */,
 				18936E8318E40B32009D88A6 /* opti-agency-gothic.ttf */,
 			);
@@ -313,8 +352,8 @@
 		18936E8A18E412DB009D88A6 /* RootMenu */ = {
 			isa = PBXGroup;
 			children = (
+				18936EFA18E81B89009D88A6 /* active_logo@2x.png */,
 				18936E8B18E412DB009D88A6 /* active_barcode@2x.png */,
-				18936E8C18E412DB009D88A6 /* active_logo@2x.png */,
 				18936E8D18E412DB009D88A6 /* active_print@2x.png */,
 				18936E8E18E412DB009D88A6 /* active_stamp@2x.png */,
 			);
@@ -421,10 +460,59 @@
 		18936ED018E6EA91009D88A6 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				18936ED518E75EA7009D88A6 /* continue_button@2x.png */,
 				18936ED118E6EA91009D88A6 /* back@2x.png */,
-				18936ED218E6EA91009D88A6 /* continue_button@2x.png */,
 			);
 			path = Controls;
+			sourceTree = "<group>";
+		};
+		18936ED718E76ED5009D88A6 /* Barcode */ = {
+			isa = PBXGroup;
+			children = (
+				18936EDD18E770CC009D88A6 /* ImageGenerator */,
+				18936ED818E76EF4009D88A6 /* MRBarcodeListViewController.h */,
+				18936ED918E76EF4009D88A6 /* MRBarcodeListViewController.m */,
+				18936EDA18E76EF4009D88A6 /* MRBarcodeListViewController.xib */,
+				18936EF018E7F14A009D88A6 /* BarcodeSavedView.h */,
+				18936EF118E7F14A009D88A6 /* BarcodeSavedView.m */,
+				18936EEE18E7F058009D88A6 /* BarcodeSavedView.xib */,
+			);
+			path = Barcode;
+			sourceTree = "<group>";
+		};
+		18936EDD18E770CC009D88A6 /* ImageGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				18936EDE18E770EE009D88A6 /* UIImage+BarcodeImage.h */,
+				18936EDF18E770EE009D88A6 /* UIImage+BarcodeImage.m */,
+			);
+			path = ImageGenerator;
+			sourceTree = "<group>";
+		};
+		18936EE118E77401009D88A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18936EE218E774BB009D88A6 /* MRDataManager.h */,
+				18936EE318E774BB009D88A6 /* MRDataManager.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18936EE518E7D215009D88A6 /* Barcode */ = {
+			isa = PBXGroup;
+			children = (
+				18936EE618E7D215009D88A6 /* texture.png */,
+			);
+			path = Barcode;
+			sourceTree = "<group>";
+		};
+		18936EF318E7FE62009D88A6 /* TimeManager */ = {
+			isa = PBXGroup;
+			children = (
+				18936EF418E7FE62009D88A6 /* PMTimeManager.h */,
+				18936EF518E7FE62009D88A6 /* PMTimeManager.m */,
+			);
+			path = TimeManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,28 +596,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18936EED18E7D46F009D88A6 /* Roboto-Thin.ttf in Resources */,
 				18936E8F18E412DB009D88A6 /* active_barcode@2x.png in Resources */,
 				18936E8118E4064F009D88A6 /* MRRootMenuViewController.xib in Resources */,
+				18936EEF18E7F058009D88A6 /* BarcodeSavedView.xib in Resources */,
+				18936EDC18E76EF4009D88A6 /* MRBarcodeListViewController.xib in Resources */,
 				18936E6F18E3FEBB009D88A6 /* background@2x.png in Resources */,
 				18936E3A18E3F216009D88A6 /* InfoPlist.strings in Resources */,
 				18936EA318E5318B009D88A6 /* MRRegistrationViewController.xib in Resources */,
+				18936EEB18E7D46F009D88A6 /* FuturaDemiC.ttf in Resources */,
 				18936EC618E6C372009D88A6 /* keyboard_button@2x.png in Resources */,
 				18936EBE18E68693009D88A6 /* check_frame@2x.png in Resources */,
 				18936E9218E412DB009D88A6 /* active_stamp@2x.png in Resources */,
 				18936EAC18E53D38009D88A6 /* field_background@2x.png in Resources */,
 				18936EC818E6C372009D88A6 /* keyboard_ru_eng@2x.png in Resources */,
+				18936EFB18E81B89009D88A6 /* active_logo@2x.png in Resources */,
 				18936E8418E40B32009D88A6 /* opti-agency-gothic.ttf in Resources */,
 				18936E9118E412DB009D88A6 /* active_print@2x.png in Resources */,
 				18936EBD18E68693009D88A6 /* check@2x.png in Resources */,
+				18936EEC18E7D46F009D88A6 /* PFAgoraSlabPro-Black.ttf in Resources */,
 				18936ECF18E6C3BD009D88A6 /* PMCustomKeyboard.xib in Resources */,
+				18936EE718E7D215009D88A6 /* texture.png in Resources */,
 				18936EC718E6C372009D88A6 /* keyboard_delete@2x.png in Resources */,
 				18936ED318E6EA91009D88A6 /* back@2x.png in Resources */,
+				18936ED618E75EA7009D88A6 /* continue_button@2x.png in Resources */,
 				18936EB518E583BC009D88A6 /* MRChooserViewController.xib in Resources */,
 				18936E4518E3F216009D88A6 /* Images.xcassets in Resources */,
 				18936E8918E410B6009D88A6 /* MyriadPro-Cond.otf in Resources */,
 				18936E7C18E40637009D88A6 /* MRRootViewController.xib in Resources */,
-				18936E9018E412DB009D88A6 /* active_logo@2x.png in Resources */,
-				18936ED418E6EA91009D88A6 /* continue_button@2x.png in Resources */,
 				18936EC918E6C372009D88A6 /* keyboard_space@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -585,15 +679,21 @@
 				18936EB918E589AD009D88A6 /* MRCheckItem.m in Sources */,
 				18936E6918E3FD52009D88A6 /* MRAppDelegate.m in Sources */,
 				18936EA718E531E6009D88A6 /* MRRegistrationItemView.m in Sources */,
+				18936EF618E7FE62009D88A6 /* PMTimeManager.m in Sources */,
 				18936E9718E42C0D009D88A6 /* PMActivationView.m in Sources */,
+				18936EE018E770EF009D88A6 /* UIImage+BarcodeImage.m in Sources */,
+				18936EF218E7F14A009D88A6 /* BarcodeSavedView.m in Sources */,
 				18936EA218E5318B009D88A6 /* MRRegistrationViewController.m in Sources */,
 				18936E9A18E42E0B009D88A6 /* UIView+GestureBlocks.m in Sources */,
 				18936E8718E40CEF009D88A6 /* MRParentViewController.m in Sources */,
+				18936EF918E80F5C009D88A6 /* NSString+EngToRu.m in Sources */,
 				18936E4318E3F216009D88A6 /* MarlboroApp.xcdatamodeld in Sources */,
 				18936E3C18E3F216009D88A6 /* main.m in Sources */,
 				18936E7B18E40637009D88A6 /* MRRootViewController.m in Sources */,
 				18936ECE18E6C3BD009D88A6 /* PMCustomKeyboard.m in Sources */,
 				18936E8018E4064F009D88A6 /* MRRootMenuViewController.m in Sources */,
+				18936EDB18E76EF4009D88A6 /* MRBarcodeListViewController.m in Sources */,
+				18936EE418E774BB009D88A6 /* MRDataManager.m in Sources */,
 				18936EB418E583BC009D88A6 /* MRChooserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

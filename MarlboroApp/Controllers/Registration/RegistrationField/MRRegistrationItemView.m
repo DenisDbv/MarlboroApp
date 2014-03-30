@@ -7,10 +7,9 @@
 //
 
 #import "MRRegistrationItemView.h"
-#import "PMCustomKeyboard.h"
 
 @interface MRRegistrationItemView()
-@property (nonatomic, strong) UITextField *titleField;
+
 @end
 
 @implementation MRRegistrationItemView
@@ -26,6 +25,20 @@
         _placeholderText = text;
         
         [self initField];
+    }
+    return self;
+}
+
+- (id)initWithPlaceholder:(NSString*)text withKeyboardLangType:(LanguageType)langType
+{
+    self = [super initWithFrame:CGRectZero];
+    if (self) {
+        _placeholderText = text;
+        
+        [self initField];
+        
+        PMCustomKeyboard *customKeyboard = [[PMCustomKeyboard alloc] initWithLanguageType:langType];
+        [customKeyboard setTextView:titleField];
     }
     return self;
 }
@@ -63,6 +76,10 @@
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
+    if([self.delegate respondsToSelector:@selector(didEndSelectField:)])
+    {
+        [self.delegate didEndSelectField:self];
+    }
     return YES;
 }
 

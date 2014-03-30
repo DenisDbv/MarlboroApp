@@ -126,6 +126,7 @@
         default:
             break;
     }
+    return nil;
 }
 
 -(NSString*) englishDescription
@@ -147,6 +148,7 @@
         default:
             break;
     }
+    return nil;
 }
 
 @end

@@ -7,18 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PMCustomKeyboard.h"
 
 @class MRRegistrationItemView;
 
 @protocol MRRegistrationItemViewDelegate <NSObject>
 -(void) didSelectField:(MRRegistrationItemView*)fieldView;
+-(void) didEndSelectField:(MRRegistrationItemView*)fieldView;
 @end
 
 @interface MRRegistrationItemView : UIView
 
+@property (nonatomic, strong) UITextField *titleField;
 @property (nonatomic, strong) id <MRRegistrationItemViewDelegate> delegate;
-- (id)initWithPlaceholder:(NSString*)text;
 
+- (id)initWithPlaceholder:(NSString*)text;
+- (id)initWithPlaceholder:(NSString*)text withKeyboardLangType:(LanguageType)langType;
 
 -(void) selectField;
 -(void) deselectField;

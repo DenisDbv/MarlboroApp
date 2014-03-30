@@ -7,7 +7,6 @@
 //
 
 #import "MRParentViewController.h"
-#import <ACParallaxView.h>
 
 @interface MRRootViewController : MRParentViewController
 

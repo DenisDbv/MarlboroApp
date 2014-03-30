@@ -8,30 +8,38 @@
 
 #import "MRChooserViewController.h"
 #import "MRCheckItem.h"
+#import "MRBarcodeListViewController.h"
 
 #import <MZFormSheetController/MZFormSheetController.h>
 
-@interface MRChooserViewController ()
-
+@interface MRChooserViewController () <MRCheckItemDelegate>
+@property (nonatomic, strong) IBOutlet UIButton *continueButton;
 @end
 
 @implementation MRChooserViewController
 {
+    ActivationIDs _activeID;
+    
     NSString *_title;
     NSDictionary *_checkListArray;
     NSMutableArray *checkViewArray;
     
     UILabel *titleLabel;
+    
+    BOOL isShowContinueBtn;
 }
+@synthesize continueButton;
 
 //NSDictionary (key => checkbox name)
 //save by pattern (key => bool value)
--(id) initWithTitle:(NSString*)title withCheckboxList:(NSDictionary*)checkListDictionary
+-(id) initWithTitle:(NSString*)title withCheckboxList:(NSDictionary*)checkListDictionary :(ActivationIDs)activeID
 {
     self = [super initWithNibName:@"MRChooserViewController" bundle:[NSBundle mainBundle]];
     if (self) {
         _title = title;
         _checkListArray = checkListDictionary;
+        
+        _activeID = activeID;
     }
     return self;
 }
@@ -39,10 +47,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-}
-
--(void) viewWillAppear:(BOOL)animated
-{
+    
+    continueButton.alpha = 0;
+    isShowContinueBtn = NO;
+    
     titleLabel = [[UILabel alloc] init];
     titleLabel.alpha = 1;
     titleLabel.font = [UIFont fontWithName:@"MyriadPro-Cond" size:30.0];
@@ -58,6 +66,11 @@
     [self.view addSubview:titleLabel];
     
     [self configureChecker];
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [self showAllContext];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:) name:@"UIKeyboardWillShowNotification" object:nil];
@@ -91,9 +104,40 @@
 
 - (void)onExit:(NSNotification*)notification
 {
-    [self.navigationController.formSheetController dismissFormSheetControllerAnimated:NO completionHandler:^(MZFormSheetController *formSheetController) {
-        //
-    }];
+    if(_activeID == eBarcode || _activeID == eLogo) {
+        [self.navigationController.formSheetController dismissFormSheetControllerAnimated:NO completionHandler:^(MZFormSheetController *formSheetController) {
+            //
+        }];
+    } else  {
+        [self hideAllContext];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+-(void) didSelectCheckbox:(MRCheckItem*)item withActive:(BOOL)active
+{
+    BOOL ret = NO;
+    for(MRCheckItem *item in checkViewArray)
+    {
+        if(item.isCheck == YES) {
+            ret = YES;
+            break;
+        }
+    }
+    
+    isShowContinueBtn = ret;
+    [self updateContinueButton];
+}
+
+-(void) updateContinueButton
+{
+    NSLog(@"%i and %f", isShowContinueBtn, self.view.frame.origin.y);
+    
+    if(isShowContinueBtn && self.view.frame.origin.y >= 0)  {
+        continueButton.alpha = 1;
+    } else  {
+        continueButton.alpha = 0;
+    }
 }
 
 - (void)keyboardWillShow:(NSNotification*)notification
@@ -117,6 +161,8 @@
             self.view.frame = rect;
         }];
     }
+    
+    [self updateContinueButton];
 }
 
 - (void)keyboardWillHide:(NSNotification*)notification
@@ -138,6 +184,8 @@
             self.view.frame = rect;
         }];
     }
+    
+    [self updateContinueButton];
 }
 
 -(void) configureChecker
@@ -153,6 +201,10 @@
         MRCheckItem *checkItem = [[MRCheckItem alloc] initWithTitle:[objectItem valueForKey:@"titleKey"] byKey:key withPlaceholder:[objectItem valueForKey:@"placeholderKey"]];
         checkItem.rootDelegate = self;
         
+        if([key isEqualToString:FIO_KEY])   {
+            //
+        }
+        
         if(loop == 0)   {
             centerX = (self.view.bounds.size.width - checkItem.frame.size.width)/2;
         }
@@ -163,6 +215,74 @@
         
         loop++;
     }];
+    
+    MRCheckItem *checkItem = [checkViewArray lastObject];
+    continueButton.frame = CGRectMake((self.view.bounds.size.width - continueButton.frame.size.width)/2,
+                                      checkItem.frame.origin.y+checkItem.frame.size.height+70,
+                                      continueButton.frame.size.width, continueButton.frame.size.height);
+}
+
+- (IBAction)onContinue:(id)sender
+{
+    [self saveData];
+    if(![self dataAccessTrue]) return;
+    
+    [self hideAllContext];
+    
+    if(_activeID == eBarcode)   {
+        
+        //NSLog(@"%@ %@ %i", [[MRDataManager sharedInstance] nameValue], [[MRDataManager sharedInstance] phoneValue], [[MRDataManager sharedInstance] sloganValue]);
+        
+        MRChooserViewController *chooserViewController;
+        NSDictionary *nameDictionary = @{@"titleKey": @"ИМЯ ФАМИЛИЯ", @"placeholderKey": @""};
+        NSDictionary *phoneDictionary = @{@"titleKey": @"ТЕЛЕФОН", @"placeholderKey": @""};
+        NSDictionary *modeDictionary = @{@"titleKey": @"СЛОГАН: EU", @"placeholderKey": @""};
+        NSDictionary *barcodeDictionary = @{FIO_SIGN_KEY: nameDictionary, PHONE_SIGN_KEY: phoneDictionary, SLOGAN_SIGN_KEY:modeDictionary};
+        
+        chooserViewController = [[MRChooserViewController alloc] initWithTitle:@"ВЫБЕРИТЕ ТИП ПОДПИСИ ПОД БАРКОДОМ" withCheckboxList:barcodeDictionary :eBarcodeSign];
+        [self.navigationController pushViewController:chooserViewController animated:YES];
+    } else if (_activeID == eBarcodeSign)   {
+        //NSLog(@"%i %i %i", [[MRDataManager sharedInstance] nameSignValue], [[MRDataManager sharedInstance] phoneSignValue], [[MRDataManager sharedInstance] sloganSignValue]);
+        MRBarcodeListViewController *barcodeListVC = [[MRBarcodeListViewController alloc] initWithNibName:@"MRBarcodeListViewController" bundle:[NSBundle mainBundle]];
+        [self.navigationController pushViewController:barcodeListVC animated:YES];
+    }
+}
+
+-(void) saveData
+{
+    for( MRCheckItem *checkItem in checkViewArray )
+    {
+        if([checkItem._key isEqualToString:FIO_KEY])    {
+            [[MRDataManager sharedInstance] setNameValue:checkItem.fieldView.titleField.text];
+        } else if([checkItem._key isEqualToString:PHONE_KEY]) {
+            [[MRDataManager sharedInstance] setPhoneValue:checkItem.fieldView.titleField.text];
+        } else if([checkItem._key isEqualToString:SLOGAN_KEY]) {
+            [[MRDataManager sharedInstance] setSloganValue:checkItem.isCheck];
+        }
+        else if([checkItem._key isEqualToString:FIO_SIGN_KEY])   {
+            [[MRDataManager sharedInstance] setNameSignValue:checkItem.isCheck];
+        } else if([checkItem._key isEqualToString:PHONE_SIGN_KEY]) {
+            [[MRDataManager sharedInstance] setPhoneSignValue:checkItem.isCheck];
+        } else if([checkItem._key isEqualToString:SLOGAN_SIGN_KEY]) {
+            [[MRDataManager sharedInstance] setSloganSignValue:checkItem.isCheck];
+        }
+    }
+    
+    [[MRDataManager sharedInstance] save];
+}
+
+-(BOOL) dataAccessTrue
+{
+    BOOL ret1 = YES;
+    BOOL ret2 = YES;
+    
+    if([[MRDataManager sharedInstance] nameValue].length == 0)
+        ret1 = NO;
+    
+    if([[MRDataManager sharedInstance] phoneValue].length == 0)
+        ret2 = NO;
+    
+    return (!ret1 && !ret2) ? NO : YES;
 }
 
 @end

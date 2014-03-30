@@ -4,9 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MRChooserViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MRBarcodeListViewController">
             <connections>
-                <outlet property="continueButton" destination="0h2-Si-4hu" id="Kui-mV-MSd"/>
+                <outlet property="carousel" destination="ivp-BE-bvh" id="6U1-es-wUb"/>
+                <outlet property="saveButton" destination="KdX-9u-KV9" id="NX4-hC-KqR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,15 +16,24 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0h2-Si-4hu">
-                    <rect key="frame" x="368" y="512" width="289" height="78"/>
+                <view contentMode="scaleToFill" id="ivp-BE-bvh" customClass="iCarousel">
+                    <rect key="frame" x="0.0" y="114" width="1024" height="607"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="bKv-Rx-Wsw"/>
+                        <outlet property="delegate" destination="-1" id="5dI-Xq-q1E"/>
+                    </connections>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KdX-9u-KV9">
+                    <rect key="frame" x="368" y="670" width="289" height="78"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" image="continue_button.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="onContinue:" destination="-1" eventType="touchUpInside" id="0aA-Ij-S6a"/>
+                        <action selector="onSave:" destination="-1" eventType="touchUpInside" id="E7d-Rx-35E"/>
                     </connections>
                 </button>
             </subviews>

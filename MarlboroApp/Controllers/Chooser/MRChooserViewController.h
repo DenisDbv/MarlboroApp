@@ -7,9 +7,10 @@
 //
 
 #import "MRParentViewController.h"
+#import "PMActivationView.h"
 
 @interface MRChooserViewController : MRParentViewController
 
--(id) initWithTitle:(NSString*)title withCheckboxList:(NSDictionary*)checkListDictionary;
+-(id) initWithTitle:(NSString*)title withCheckboxList:(NSDictionary*)checkListDictionary :(ActivationIDs)activeID;
 
 @end

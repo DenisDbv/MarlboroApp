@@ -15,6 +15,9 @@ NSString *const MROnExitClickNotification = @"MROnExitClickNotification";
 @end
 
 @implementation MRParentViewController
+{
+    UIButton *exitButton;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -56,18 +59,20 @@ NSString *const MROnExitClickNotification = @"MROnExitClickNotification";
 #pragma mark - Exit button
 -(void) showExitButton
 {
-    UIImage *buttonImage = [UIImage imageNamed:@"back.png"];
-    UIButton *exitButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    exitButton.alpha = 0.0f;
-    [exitButton addTarget:self action:@selector(onExit:) forControlEvents:UIControlEventTouchUpInside];
-    [exitButton setImage:buttonImage forState:UIControlStateNormal];
-    [exitButton setImage:buttonImage forState:UIControlStateHighlighted];
-    exitButton.frame = CGRectMake(10, 10, buttonImage.size.width, buttonImage.size.height);
-    [self.view addSubview:exitButton];
-    
-    [UIView animateWithDuration:0.2 animations:^{
-        exitButton.alpha = 1;
-    }];
+    if(exitButton == nil)   {
+        exitButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage *buttonImage = [UIImage imageNamed:@"back.png"];
+        exitButton.alpha = 0.0f;
+        [exitButton addTarget:self action:@selector(onExit:) forControlEvents:UIControlEventTouchUpInside];
+        [exitButton setImage:buttonImage forState:UIControlStateNormal];
+        [exitButton setImage:buttonImage forState:UIControlStateHighlighted];
+        exitButton.frame = CGRectMake(10, 10, buttonImage.size.width, buttonImage.size.height);
+        [self.view addSubview:exitButton];
+        
+        [UIView animateWithDuration:0.2 animations:^{
+            exitButton.alpha = 1;
+        }];
+    }
 }
 
 -(void) hideExitButton

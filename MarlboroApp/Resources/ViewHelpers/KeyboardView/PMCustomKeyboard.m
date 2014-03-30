@@ -25,7 +25,7 @@
 #define kCharDown @[ @"й", @"ц", @"у", @"к", @"е", @"н", @"г", @"ш", @"щ", @"з", @"х", @"ъ", @"ф", @"ы", @"в", @"а", @"п", @"р", @"о", @"л", @"д", @"ж", @"э", @"я", @"ч", @"с", @"м", @"и", @"т", @"ь", @"б", @"ю", @"-", @" " ]
 #define kCharEngDown @[ @"q", @"w", @"e", @"r", @"t", @"y", @"u", @"i", @"o", @"p", @"a", @"s", @"d", @"f", @"g", @"h", @"j", @"k", @"l", @"_", @"z", @"x", @"c", @"v", @"b", @"n", @"m", @".", @"-", @"@", @" "]
 
-- (id)init {
+- (id)init  {
     
 	UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
 	CGRect frame;
@@ -45,6 +45,60 @@
     }
     
     self.isRu = YES;
+    self.isUP = YES;
+    
+    arrowUpDown = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrowUpDown.png"]];
+    arrowUpDown.layer.anchorPoint = CGPointMake(0.5, 0.5);
+    arrowUpDown.center = self.upDownButton.center;
+    [self addSubview:arrowUpDown];
+    
+    CABasicAnimation *animation = [CABasicAnimation   animationWithKeyPath:@"transform.rotation.z"];
+    animation.additive = YES;
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;
+    animation.fromValue = [NSNumber numberWithFloat:DEGREES_TO_RADIANS(0)];
+    animation.toValue = [NSNumber numberWithFloat:DEGREES_TO_RADIANS(180)];
+    [arrowUpDown.layer addAnimation:animation forKey:@"180rotation"];
+	
+    [self loadCharactersWithArray:kChar];
+    [self loadNumberCharactersWithArray:kNumberChar];
+    [self refreshLanguageTitleOnButton];
+    
+    [self.deleteButton setTitle:@"УДАЛИТЬ" forState:UIControlStateNormal];
+    [self.deleteButton.titleLabel setFont:kFont];
+	self.deleteButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+    UIEdgeInsets btnEdge = self.deleteButton.titleEdgeInsets;
+    btnEdge.top += 4;
+    [self.deleteButton setTitleEdgeInsets:btnEdge];
+    
+	return self;
+}
+
+- (id)initWithLanguageType:(LanguageType)langType {
+    UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+	CGRect frame;
+    
+	if(UIDeviceOrientationIsLandscape(orientation))
+        frame = CGRectMake(0, 0, 1024, 352);
+    else
+        frame = CGRectMake(0, 0, 768, 264);
+	
+	self = [super initWithFrame:frame];
+	
+	if (self) {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"PMCustomKeyboard" owner:self options:nil];
+		[[nib objectAtIndex:0] setFrame:frame];
+        self = [nib objectAtIndex:0];
+        self.backgroundColor = [UIColor clearColor];
+    }
+    
+    if(langType == kAll)
+        self.isRu = YES;
+    else if(langType == kENG)
+        self.isRu = NO;
+    else
+        self.isRu = YES;
+    
     self.isUP = YES;
     
     arrowUpDown = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrowUpDown.png"]];

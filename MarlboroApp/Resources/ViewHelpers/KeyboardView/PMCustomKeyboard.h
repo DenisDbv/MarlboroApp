@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
+typedef enum
+{
+    kAll = 0,
+    kRU,
+    kENG
+} LanguageType;
+
 @interface PMCustomKeyboard : UIView <UIInputViewAudioFeedback>
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *characterKeys;
@@ -20,6 +27,8 @@
 
 @property (nonatomic, assign) BOOL isRu;
 @property (nonatomic, assign) BOOL isUP;
+
+- (id)initWithLanguageType:(LanguageType)langType;
 
 - (IBAction)deletePressed:(id)sender;
 - (IBAction)languagePressed:(id)sender;
