@@ -9,6 +9,7 @@
 #import "MRChooserViewController.h"
 #import "MRCheckItem.h"
 #import "MRBarcodeListViewController.h"
+#import "MRLogoListViewController.h"
 
 #import <MZFormSheetController/MZFormSheetController.h>
 
@@ -256,6 +257,10 @@
         MRBarcodeListViewController *barcodeListVC = [[MRBarcodeListViewController alloc] initWithNibName:@"MRBarcodeListViewController" bundle:[NSBundle mainBundle]];
         [self.navigationController pushViewController:barcodeListVC animated:YES];
     }
+    else if(_activeID == eLogo) {
+        MRLogoListViewController *logoListVC = [[MRLogoListViewController alloc] initWithNibName:@"MRLogoListViewController" bundle:[NSBundle mainBundle]];
+        [self.navigationController pushViewController:logoListVC animated:YES];
+    }
 }
 
 -(void) saveData
@@ -283,8 +288,23 @@
 
 -(BOOL) dataAccessTrue
 {
+    if(_activeID == eLogo) {
+        if([MRDataManager sharedInstance].nameValue.length > 0) {
+            NSArray *nameArr;
+            if ([MRDataManager sharedInstance].nameValue.length != 0){
+                nameArr = [[MRDataManager sharedInstance].nameValue componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                if (nameArr.count < 3) {
+                    MRCheckItem *checkItem = [checkViewArray objectAtIndex:0];
+                    [self shakeIt:checkItem withDelta:-2.0];
+                    return NO;
+                }
+            }
+        }
+    }
+    
     BOOL ret1 = YES;
     BOOL ret2 = YES;
+    BOOL ret3 = YES;
     
     if([[MRDataManager sharedInstance] nameValue].length == 0)
         ret1 = NO;
@@ -292,7 +312,24 @@
     if([[MRDataManager sharedInstance] phoneValue].length == 0)
         ret2 = NO;
     
-    return (!ret1 && !ret2) ? NO : YES;
+    if([MRDataManager sharedInstance].sloganValue == NO)
+        ret3 = NO;
+    
+    return (!ret1 && !ret2 && !ret3) ? NO : YES;
+}
+
+-(void) shakeIt:(UIView*)view withDelta:(CGFloat)delta
+{
+    CAKeyframeAnimation *anim = [ CAKeyframeAnimation animationWithKeyPath:@"transform" ];
+    anim.values = [ NSArray arrayWithObjects:
+                   [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(delta, 0.0f, 0.0f) ],
+                   [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(-delta, 0.0f, 0.0f) ],
+                   nil ] ;
+    anim.autoreverses = YES ;
+    anim.repeatCount = 8.0f ;
+    anim.duration = 0.03f ;
+    
+    [view.layer addAnimation:anim forKey:nil ];
 }
 
 @end

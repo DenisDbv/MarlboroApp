@@ -73,6 +73,17 @@
 		18936F1118E86C64009D88A6 /* PMMailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936F1018E86C64009D88A6 /* PMMailManager.m */; };
 		18936F1418E8711D009D88A6 /* NSData+Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936F1318E8711D009D88A6 /* NSData+Base64Additions.m */; };
 		18936F1718E875F1009D88A6 /* Base64Transcoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936F1618E875F1009D88A6 /* Base64Transcoder.m */; };
+		18936F1D18E8B0B4009D88A6 /* MRLogoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936F1B18E8B0B4009D88A6 /* MRLogoListViewController.m */; };
+		18936F1E18E8B0B4009D88A6 /* MRLogoListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18936F1C18E8B0B4009D88A6 /* MRLogoListViewController.xib */; };
+		18936F2218E8B353009D88A6 /* UIImage+LogoImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936F2118E8B353009D88A6 /* UIImage+LogoImage.m */; };
+		18936F2918E8B37A009D88A6 /* logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F2318E8B37A009D88A6 /* logo1.png */; };
+		18936F2A18E8B37A009D88A6 /* logo1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F2418E8B37A009D88A6 /* logo1@2x.png */; };
+		18936F2B18E8B37A009D88A6 /* logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F2518E8B37A009D88A6 /* logo2.png */; };
+		18936F2C18E8B37A009D88A6 /* logo2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F2618E8B37A009D88A6 /* logo2@2x.png */; };
+		18936F2D18E8B37A009D88A6 /* logo3.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F2718E8B37A009D88A6 /* logo3.png */; };
+		18936F2E18E8B37A009D88A6 /* logo3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F2818E8B37A009D88A6 /* logo3@2x.png */; };
+		18936F3118E8CA9F009D88A6 /* LogoSavedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936F3018E8CA9F009D88A6 /* LogoSavedView.m */; };
+		18936F3318E8CAB1009D88A6 /* LogoSavedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18936F3218E8CAB1009D88A6 /* LogoSavedView.xib */; };
 		F41CC02866F74B3182FA8265 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C445D8750A3F4388AC0A572B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -176,6 +187,20 @@
 		18936F1318E8711D009D88A6 /* NSData+Base64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64Additions.m"; sourceTree = "<group>"; };
 		18936F1518E875F1009D88A6 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
 		18936F1618E875F1009D88A6 /* Base64Transcoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Transcoder.m; sourceTree = "<group>"; };
+		18936F1A18E8B0B4009D88A6 /* MRLogoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRLogoListViewController.h; sourceTree = "<group>"; };
+		18936F1B18E8B0B4009D88A6 /* MRLogoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRLogoListViewController.m; sourceTree = "<group>"; };
+		18936F1C18E8B0B4009D88A6 /* MRLogoListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRLogoListViewController.xib; sourceTree = "<group>"; };
+		18936F2018E8B353009D88A6 /* UIImage+LogoImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LogoImage.h"; sourceTree = "<group>"; };
+		18936F2118E8B353009D88A6 /* UIImage+LogoImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LogoImage.m"; sourceTree = "<group>"; };
+		18936F2318E8B37A009D88A6 /* logo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo1.png; sourceTree = "<group>"; };
+		18936F2418E8B37A009D88A6 /* logo1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo1@2x.png"; sourceTree = "<group>"; };
+		18936F2518E8B37A009D88A6 /* logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo2.png; sourceTree = "<group>"; };
+		18936F2618E8B37A009D88A6 /* logo2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo2@2x.png"; sourceTree = "<group>"; };
+		18936F2718E8B37A009D88A6 /* logo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo3.png; sourceTree = "<group>"; };
+		18936F2818E8B37A009D88A6 /* logo3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo3@2x.png"; sourceTree = "<group>"; };
+		18936F2F18E8CA9F009D88A6 /* LogoSavedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoSavedView.h; sourceTree = "<group>"; };
+		18936F3018E8CA9F009D88A6 /* LogoSavedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoSavedView.m; sourceTree = "<group>"; };
+		18936F3218E8CAB1009D88A6 /* LogoSavedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogoSavedView.xib; sourceTree = "<group>"; };
 		C445D8750A3F4388AC0A572B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6EA91B96DAD4324A0FBC225 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -306,6 +331,7 @@
 		18936E6518E3FC21009D88A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				18936F1818E8AF95009D88A6 /* Logo */,
 				18936F0418E85AF5009D88A6 /* result_background.png */,
 				18936EE518E7D215009D88A6 /* Barcode */,
 				18936ED018E6EA91009D88A6 /* Controls */,
@@ -331,6 +357,7 @@
 		18936E7018E401CD009D88A6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				18936F1918E8B08C009D88A6 /* Logo */,
 				18936ED718E76ED5009D88A6 /* Barcode */,
 				18936EB018E58391009D88A6 /* Chooser */,
 				18936E9E18E53174009D88A6 /* Registration */,
@@ -553,6 +580,42 @@
 			path = MailManager;
 			sourceTree = "<group>";
 		};
+		18936F1818E8AF95009D88A6 /* Logo */ = {
+			isa = PBXGroup;
+			children = (
+				18936F2318E8B37A009D88A6 /* logo1.png */,
+				18936F2418E8B37A009D88A6 /* logo1@2x.png */,
+				18936F2518E8B37A009D88A6 /* logo2.png */,
+				18936F2618E8B37A009D88A6 /* logo2@2x.png */,
+				18936F2718E8B37A009D88A6 /* logo3.png */,
+				18936F2818E8B37A009D88A6 /* logo3@2x.png */,
+			);
+			path = Logo;
+			sourceTree = "<group>";
+		};
+		18936F1918E8B08C009D88A6 /* Logo */ = {
+			isa = PBXGroup;
+			children = (
+				18936F1F18E8B320009D88A6 /* ImageGenerator */,
+				18936F1A18E8B0B4009D88A6 /* MRLogoListViewController.h */,
+				18936F1B18E8B0B4009D88A6 /* MRLogoListViewController.m */,
+				18936F1C18E8B0B4009D88A6 /* MRLogoListViewController.xib */,
+				18936F2F18E8CA9F009D88A6 /* LogoSavedView.h */,
+				18936F3018E8CA9F009D88A6 /* LogoSavedView.m */,
+				18936F3218E8CAB1009D88A6 /* LogoSavedView.xib */,
+			);
+			path = Logo;
+			sourceTree = "<group>";
+		};
+		18936F1F18E8B320009D88A6 /* ImageGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				18936F2018E8B353009D88A6 /* UIImage+LogoImage.h */,
+				18936F2118E8B353009D88A6 /* UIImage+LogoImage.m */,
+			);
+			path = ImageGenerator;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -636,6 +699,7 @@
 			files = (
 				18936EED18E7D46F009D88A6 /* Roboto-Thin.ttf in Resources */,
 				18936E8F18E412DB009D88A6 /* active_barcode@2x.png in Resources */,
+				18936F2C18E8B37A009D88A6 /* logo2@2x.png in Resources */,
 				18936E8118E4064F009D88A6 /* MRRootMenuViewController.xib in Resources */,
 				18936EEF18E7F058009D88A6 /* BarcodeSavedView.xib in Resources */,
 				18936F0A18E85BB6009D88A6 /* close_btn_large@2x.png in Resources */,
@@ -645,6 +709,7 @@
 				18936E3A18E3F216009D88A6 /* InfoPlist.strings in Resources */,
 				18936EA318E5318B009D88A6 /* MRRegistrationViewController.xib in Resources */,
 				18936EEB18E7D46F009D88A6 /* FuturaDemiC.ttf in Resources */,
+				18936F2A18E8B37A009D88A6 /* logo1@2x.png in Resources */,
 				18936EC618E6C372009D88A6 /* keyboard_button@2x.png in Resources */,
 				18936EBE18E68693009D88A6 /* check_frame@2x.png in Resources */,
 				18936F0C18E85BB6009D88A6 /* save_btn_large@2x.png in Resources */,
@@ -656,10 +721,16 @@
 				18936EFB18E81B89009D88A6 /* active_logo@2x.png in Resources */,
 				18936E8418E40B32009D88A6 /* opti-agency-gothic.ttf in Resources */,
 				18936E9118E412DB009D88A6 /* active_print@2x.png in Resources */,
+				18936F2D18E8B37A009D88A6 /* logo3.png in Resources */,
+				18936F2918E8B37A009D88A6 /* logo1.png in Resources */,
 				18936EBD18E68693009D88A6 /* check@2x.png in Resources */,
+				18936F3318E8CAB1009D88A6 /* LogoSavedView.xib in Resources */,
+				18936F2B18E8B37A009D88A6 /* logo2.png in Resources */,
 				18936EEC18E7D46F009D88A6 /* PFAgoraSlabPro-Black.ttf in Resources */,
 				18936ECF18E6C3BD009D88A6 /* PMCustomKeyboard.xib in Resources */,
+				18936F1E18E8B0B4009D88A6 /* MRLogoListViewController.xib in Resources */,
 				18936EE718E7D215009D88A6 /* texture.png in Resources */,
+				18936F2E18E8B37A009D88A6 /* logo3@2x.png in Resources */,
 				18936EC718E6C372009D88A6 /* keyboard_delete@2x.png in Resources */,
 				18936ED318E6EA91009D88A6 /* back@2x.png in Resources */,
 				18936ED618E75EA7009D88A6 /* continue_button@2x.png in Resources */,
@@ -721,11 +792,14 @@
 			files = (
 				18936EB918E589AD009D88A6 /* MRCheckItem.m in Sources */,
 				18936E6918E3FD52009D88A6 /* MRAppDelegate.m in Sources */,
+				18936F1D18E8B0B4009D88A6 /* MRLogoListViewController.m in Sources */,
 				18936EA718E531E6009D88A6 /* MRRegistrationItemView.m in Sources */,
 				18936F1418E8711D009D88A6 /* NSData+Base64Additions.m in Sources */,
 				18936EF618E7FE62009D88A6 /* PMTimeManager.m in Sources */,
+				18936F2218E8B353009D88A6 /* UIImage+LogoImage.m in Sources */,
 				18936E9718E42C0D009D88A6 /* PMActivationView.m in Sources */,
 				18936F1118E86C64009D88A6 /* PMMailManager.m in Sources */,
+				18936F3118E8CA9F009D88A6 /* LogoSavedView.m in Sources */,
 				18936EE018E770EF009D88A6 /* UIImage+BarcodeImage.m in Sources */,
 				18936EF218E7F14A009D88A6 /* BarcodeSavedView.m in Sources */,
 				18936EA218E5318B009D88A6 /* MRRegistrationViewController.m in Sources */,

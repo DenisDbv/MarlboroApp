@@ -6,6 +6,7 @@ pod 'ABMultiton'
 pod 'MZFormSheetController'
 pod "iCarousel"
 pod "UIView+NibLoading"
+pod "TYMActivityIndicatorView"
 
 #Barcode
 pod 'ZXingObjC'

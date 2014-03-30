@@ -13,6 +13,7 @@
 #import "PMMailManager.h"
 
 #import <MZFormSheetController/MZFormSheetController.h>
+#import <TYMActivityIndicatorView/TYMActivityIndicatorView.h>
 
 @interface MRBarcodeListViewController () <BarcodeSavedViewDelegate, PMMailManagerDelegate>
 @property (nonatomic, strong) NSArray *barcodeImages;
@@ -32,6 +33,8 @@
     
     UIImageView *selectedBarcodeImage;
     BOOL isPresentImage;
+    
+    TYMActivityIndicatorView *activityIndicator;
 }
 @synthesize carousel;
 @synthesize barcodeImages;
@@ -136,7 +139,17 @@
         view.contentMode = UIViewContentModeCenter;
         
         [view initialiseTapHandler:^(UIGestureRecognizer *sender) {
-            [self presentSelectedImage:((UIImageView*)sender.view).image];
+            [UIView animateWithDuration:0.05 animations:^{
+                view.transform = CGAffineTransformMakeScale(0.90, 0.90);
+            }
+                             completion:^(BOOL finished){
+                                 
+                                 [UIView animateWithDuration:0.05f animations:^{
+                                     view.transform = CGAffineTransformMakeScale(1, 1);
+                                 } completion:^(BOOL finished) {
+                                     [self presentSelectedImage:((UIImageView*)sender.view).image];
+                                 }];
+                             }];
         } forTaps:1];
     //}
     
@@ -195,7 +208,9 @@
     
     selectedBarcodeImage = [[UIImageView alloc] initWithImage:image];
     selectedBarcodeImage.alpha = 0;
+    selectedBarcodeImage.frame = CGRectMake((self.view.bounds.size.width-image.size.width)/2, (self.view.bounds.size.height-image.size.height)/2-80, image.size.width, image.size.height);
     selectedBarcodeImage.center = self.view.center;
+    
     [self.view addSubview:selectedBarcodeImage];
     
     saveButton.frame = CGRectMake((self.view.bounds.size.width-saveButton.frame.size.width)/2,
@@ -226,11 +241,32 @@
     }];
 }
 
--(IBAction)onSave:(id)sender
+-(IBAction)onSave:(UIButton*)button
 {
-    saveButton.enabled = NO;
-    
-    [self generateImage];
+    [UIView animateWithDuration:0.05 animations:^{
+        button.transform = CGAffineTransformMakeScale(0.95, 0.95);
+    }
+                     completion:^(BOOL finished){
+                         
+                         [UIView animateWithDuration:0.05f animations:^{
+                             button.transform = CGAffineTransformMakeScale(1, 1);
+                         } completion:^(BOOL finished) {
+                             __weak id wself = self;
+                             dispatch_async( dispatch_get_main_queue(), ^{
+                                 [saveButton setImage:[UIImage imageNamed:@"field_background.png"] forState:UIControlStateNormal];
+                                 
+                                 activityIndicator = [[TYMActivityIndicatorView alloc] initWithActivityIndicatorStyle:TYMActivityIndicatorViewStyleNormal];
+                                 activityIndicator.center = saveButton.center;
+                                 [self.view addSubview:activityIndicator];
+                                 [activityIndicator startAnimating];
+                             });
+                             
+                             //saveButton.alpha = 0;
+                             saveButton.enabled = NO;
+                             
+                             [self generateImage];
+                         }];
+                     }];
 }
 
 -(void) exitFromFinishView
@@ -264,12 +300,7 @@
         UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
-        UIImageWriteToSavedPhotosAlbum(resultingImage, nil, nil, nil);
-        
-        //__weak id wself = self;
-        //dispatch_sync( dispatch_get_main_queue(), ^{
-        //    [self.view addSubview:[[UIImageView alloc] initWithImage:resultingImage] ];
-        //});
+        //UIImageWriteToSavedPhotosAlbum(resultingImage, nil, nil, nil);
         
         PMMailManager *mailManager = [PMMailManager new];
         mailManager.delegate = self;
@@ -278,6 +309,10 @@
 }
 
 -(void) mailSendSuccessfully    {
+    
+    [activityIndicator stopAnimating];
+    [activityIndicator removeFromSuperview];
+    
     BarcodeSavedView *finishView = [[BarcodeSavedView alloc] initWithFrame:self.view.frame];
     finishView.delegate = self;
     [finishView setDefault];
@@ -287,6 +322,12 @@
 }
 
 -(void) mailSendFailed  {
+    [saveButton setImage:[UIImage imageNamed:@"save_btn_large.png"] forState:UIControlStateNormal];
+    
+    [activityIndicator stopAnimating];
+    [activityIndicator removeFromSuperview];
+    //saveButton.alpha = 1;
+    
     saveButton.enabled = YES;
 }
 
