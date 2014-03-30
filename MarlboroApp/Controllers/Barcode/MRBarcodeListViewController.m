@@ -10,10 +10,11 @@
 #import "UIImage+BarcodeImage.h"
 #import "UIView+GestureBlocks.h"
 #import "BarcodeSavedView.h"
+#import "PMMailManager.h"
 
 #import <MZFormSheetController/MZFormSheetController.h>
 
-@interface MRBarcodeListViewController () <BarcodeSavedViewDelegate>
+@interface MRBarcodeListViewController () <BarcodeSavedViewDelegate, PMMailManagerDelegate>
 @property (nonatomic, strong) NSArray *barcodeImages;
 @property (nonatomic, weak) IBOutlet UIButton *saveButton;
 @end
@@ -227,6 +228,56 @@
 
 -(IBAction)onSave:(id)sender
 {
+    saveButton.enabled = NO;
+    
+    [self generateImage];
+}
+
+-(void) exitFromFinishView
+{
+    [self.navigationController.formSheetController dismissFormSheetControllerAnimated:NO completionHandler:^(MZFormSheetController *formSheetController) {
+     //
+    }];
+}
+
+-(void) generateImage
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        UIImage *backgroundImage = [UIImage imageNamed:@"result_background.png"];
+        UIImage *barcodeImage = selectedBarcodeImage.image;
+        
+        CGRect backgroundRect = CGRectMake(0, 0, backgroundImage.size.width, backgroundImage.size.height);
+        CGRect figureRect = CGRectMake((backgroundRect.size.width - barcodeImage.size.width)/2, (backgroundImage.size.height-barcodeImage.size.height)/2, barcodeImage.size.width, barcodeImage.size.height);
+        
+        UIGraphicsBeginImageContextWithOptions(backgroundImage.size, NO, 2.0);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextTranslateCTM(context, 0, backgroundImage.size.height);
+        CGContextScaleCTM(context, 1.0, -1.0);
+        CGContextDrawImage(context, backgroundRect, backgroundImage.CGImage);
+        CGContextDrawImage(context, figureRect, barcodeImage.CGImage);
+        
+        CGContextTranslateCTM(context, 0, backgroundImage.size.height);
+        CGContextScaleCTM(context, 1.0, -1.0);
+        
+        UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        UIImageWriteToSavedPhotosAlbum(resultingImage, nil, nil, nil);
+        
+        //__weak id wself = self;
+        //dispatch_sync( dispatch_get_main_queue(), ^{
+        //    [self.view addSubview:[[UIImageView alloc] initWithImage:resultingImage] ];
+        //});
+        
+        PMMailManager *mailManager = [PMMailManager new];
+        mailManager.delegate = self;
+        [mailManager sendMessageWithTitle:@"Barcode" text:@"Ваш личный код." image:resultingImage filename:@"barcode.png"];
+    });
+}
+
+-(void) mailSendSuccessfully    {
     BarcodeSavedView *finishView = [[BarcodeSavedView alloc] initWithFrame:self.view.frame];
     finishView.delegate = self;
     [finishView setDefault];
@@ -235,11 +286,8 @@
     [finishView animateView];
 }
 
--(void) exitFromFinishView
-{
-    [self.navigationController.formSheetController dismissFormSheetControllerAnimated:NO completionHandler:^(MZFormSheetController *formSheetController) {
-     //
-    }];
+-(void) mailSendFailed  {
+    saveButton.enabled = YES;
 }
 
 @end

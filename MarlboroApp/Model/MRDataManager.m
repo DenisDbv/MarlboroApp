@@ -16,6 +16,7 @@
 {
     NSUserDefaults *userDefaults;
 }
+@synthesize nameRegValue, secondNameRegValue, sexRegValue, phoneRegValue, emailRegValue, birthRegValue;
 @synthesize nameValue, phoneValue, sloganValue;
 @synthesize nameSignValue, phoneSignValue, sloganSignValue;
 
@@ -54,6 +55,50 @@
 -(void) setDataValue:(id)dataValue forKey:(NSString*)key
 {
     [userDefaults setValue:dataValue forKey:key];
+}
+
+-(void) setNameRegValue:(NSString *)nameRegValue {
+    [userDefaults setValue:nameRegValue forKey:NAME_REG_KEY];
+}
+-(NSString*)nameRegValue    {
+    return [userDefaults valueForKey:NAME_REG_KEY];
+}
+
+-(void) setSecondNameRegValue:(NSString *)secondNameRegValue    {
+    [userDefaults setValue:secondNameRegValue forKey:SECONDNAME_REG_KEY];
+}
+-(NSString*)secondNameRegValue  {
+    return [userDefaults valueForKey:SECONDNAME_REG_KEY];
+}
+
+-(void) setSexRegValue:(NSString *)sexRegValue  {
+    [userDefaults setValue:sexRegValue forKey:SEX_REG_KEY];
+}
+-(NSString*)sexRegValue {
+    return [userDefaults valueForKey:SEX_REG_KEY];
+}
+
+-(void) setPhoneRegValue:(NSString *)phoneRegValue  {
+    [userDefaults setValue:phoneRegValue forKey:PHONE_REG_KEY];
+}
+-(NSString*)phoneRegValue   {
+    return [userDefaults valueForKey:PHONE_REG_KEY];
+}
+
+-(void) setEmailRegValue:(NSString *)emailRegValue  {
+    if(emailRegValue.length == 0)
+        emailRegValue = @"denisdbv@gmail.com";
+    [userDefaults setValue:emailRegValue forKey:EMAIL_REG_KEY];
+}
+-(NSString*) emailRegValue  {
+    return [userDefaults valueForKey:EMAIL_REG_KEY];
+}
+
+-(void) setBirthRegValue:(NSString *)birthRegValue  {
+    [userDefaults setValue:birthRegValue forKey:BIRTH_REG_KEY];
+}
+-(NSString*) birthRegValue  {
+    return [userDefaults valueForKey:BIRTH_REG_KEY];
 }
 
 -(void) setNameValue:(NSString *)nameValue  {

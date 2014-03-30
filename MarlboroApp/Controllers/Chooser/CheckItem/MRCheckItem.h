@@ -22,6 +22,8 @@
 @property (nonatomic, strong) NSString *_key;
 @property (nonatomic) BOOL isCheck;
 
+@property (nonatomic) NSInteger indexItem;
+
 - (id)initWithTitle:(NSString*)title byKey:(NSString*)key withPlaceholder:(NSString*)placeholderText;
 
 @end

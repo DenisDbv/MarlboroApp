@@ -9,3 +9,6 @@ pod "UIView+NibLoading"
 
 #Barcode
 pod 'ZXingObjC'
+
+# Network
+pod "AFNetworking", "~> 2.0"

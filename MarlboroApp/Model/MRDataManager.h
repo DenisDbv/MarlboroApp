@@ -30,6 +30,13 @@
 
 @interface MRDataManager : NSObject <ABMultitonProtocol>
 
+@property (nonatomic, weak) NSString *nameRegValue;
+@property (nonatomic, weak) NSString *secondNameRegValue;
+@property (nonatomic, weak) NSString *sexRegValue;
+@property (nonatomic, weak) NSString *phoneRegValue;
+@property (nonatomic, weak) NSString *emailRegValue;
+@property (nonatomic, weak) NSString *birthRegValue;
+
 @property (nonatomic, weak) NSString *nameValue;
 @property (nonatomic, weak) NSString *phoneValue;
 @property (nonatomic) BOOL sloganValue;

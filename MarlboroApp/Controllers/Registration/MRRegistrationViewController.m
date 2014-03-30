@@ -238,27 +238,41 @@
 
 - (IBAction)onContinue:(id)sender
 {
+    [self saveData];
+    
     [self hideAllContext];
     
     MRChooserViewController *chooserViewController;
     
     if(_activeID == eBarcode)   {
-        NSDictionary *nameDictionary = @{@"titleKey": @"ПО ИМЕНИ", @"placeholderKey": @"ВВЕДИТЕ ИМЯ"};
-        NSDictionary *phoneDictionary = @{@"titleKey": @"ПО ТЕЛЕФОНУ", @"placeholderKey": @"ВВЕДИТЕ ТЕЛЕФОН"};
+        NSDictionary *nameDictionary = @{@"titleKey": @"ПО ИМЕНИ", @"placeholderKey": @"ВВЕДИТЕ ИМЯ", @"indexKey":[NSNumber numberWithInteger:1]};
+        NSDictionary *phoneDictionary = @{@"titleKey": @"ПО ТЕЛЕФОНУ", @"placeholderKey": @"ВВЕДИТЕ ТЕЛЕФОН", @"indexKey":[NSNumber numberWithInteger:2]};
         NSDictionary *barcodeDictionary = @{FIO_KEY: nameDictionary, PHONE_KEY: phoneDictionary};
         
         chooserViewController = [[MRChooserViewController alloc] initWithTitle:@"ВЫБЕРИТЕ ДАННЫЕ ДЛЯ ГЕНЕРАЦИИ БАРКОДА" withCheckboxList:barcodeDictionary :_activeID];
         
     } else if(_activeID == eLogo) {
-        NSDictionary *nameDictionary = @{@"titleKey": @"ИМЯ", @"placeholderKey": @"ВВЕДИТЕ ИМЯ"};
-        NSDictionary *phoneDictionary = @{@"titleKey": @"ТЕЛЕФОН", @"placeholderKey": @"ВВЕДИТЕ ТЕЛЕФОН"};
-        NSDictionary *sloganDictionary = @{@"titleKey": @"СЛОГАН: EU", @"placeholderKey": @""};
+        NSDictionary *nameDictionary = @{@"titleKey": @"ИМЯ", @"placeholderKey": @"ВВЕДИТЕ ИМЯ", @"indexKey":[NSNumber numberWithInteger:1]};
+        NSDictionary *phoneDictionary = @{@"titleKey": @"ТЕЛЕФОН", @"placeholderKey": @"ВВЕДИТЕ ТЕЛЕФОН", @"indexKey":[NSNumber numberWithInteger:2]};
+        NSDictionary *sloganDictionary = @{@"titleKey": @"СЛОГАН: EU", @"placeholderKey": @"", @"indexKey":[NSNumber numberWithInteger:3]};
         NSDictionary *logoDictionary = @{FIO_KEY: nameDictionary, PHONE_KEY: phoneDictionary, SLOGAN_KEY:sloganDictionary};
         
         chooserViewController = [[MRChooserViewController alloc] initWithTitle:@"ВЫБЕРИТЕ ТИП ПОДПИСИ ПОД ЛОГОТИПОМ" withCheckboxList:logoDictionary :_activeID];
     }
     
     [self.navigationController pushViewController:chooserViewController animated:YES];
+}
+
+-(void) saveData
+{
+    [[MRDataManager sharedInstance] setNameRegValue:nameField.titleField.text];
+    [[MRDataManager sharedInstance] setSecondNameRegValue:nameField.titleField.text];
+    [[MRDataManager sharedInstance] setSexRegValue:nameField.titleField.text];
+    [[MRDataManager sharedInstance] setPhoneRegValue:nameField.titleField.text];
+    [[MRDataManager sharedInstance] setEmailRegValue:nameField.titleField.text];
+    [[MRDataManager sharedInstance] setBirthRegValue:nameField.titleField.text];
+    
+    [[MRDataManager sharedInstance] save];
 }
 
 @end

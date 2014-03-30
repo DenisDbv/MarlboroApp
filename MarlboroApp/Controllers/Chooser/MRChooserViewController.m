@@ -191,30 +191,40 @@
 -(void) configureChecker
 {
     checkViewArray = [[NSMutableArray alloc] init];
-    NSInteger marginTop = titleLabel.frame.origin.y + titleLabel.frame.size.height + 70;
     
-    __block int centerX = 0;
-    __block int loop = 0;
     [_checkListArray enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         NSDictionary *objectItem = obj;
         
         MRCheckItem *checkItem = [[MRCheckItem alloc] initWithTitle:[objectItem valueForKey:@"titleKey"] byKey:key withPlaceholder:[objectItem valueForKey:@"placeholderKey"]];
         checkItem.rootDelegate = self;
+        checkItem.indexItem = [[objectItem valueForKey:@"indexKey"] integerValue];
         
-        if([key isEqualToString:FIO_KEY])   {
-            //
-        }
-        
+        [checkViewArray addObject:checkItem];
+    }];
+    
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"indexItem" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *sortedArray;
+    sortedArray = [checkViewArray sortedArrayUsingDescriptors:sortDescriptors];
+    
+    checkViewArray = [[NSMutableArray alloc] initWithArray:sortedArray];
+    
+    
+    NSInteger marginTop = titleLabel.frame.origin.y + titleLabel.frame.size.height + 70;
+    
+    __block int centerX = 0;
+    __block int loop = 0;
+    for(MRCheckItem *checkItem in checkViewArray)   {
         if(loop == 0)   {
             centerX = (self.view.bounds.size.width - checkItem.frame.size.width)/2;
         }
         
         checkItem.frame = CGRectOffset(checkItem.frame, centerX, (loop * (checkItem.frame.size.height+27)) + marginTop);
         [self.view addSubview:checkItem];
-        [checkViewArray addObject:checkItem];
         
         loop++;
-    }];
+    }
     
     MRCheckItem *checkItem = [checkViewArray lastObject];
     continueButton.frame = CGRectMake((self.view.bounds.size.width - continueButton.frame.size.width)/2,
@@ -234,9 +244,9 @@
         //NSLog(@"%@ %@ %i", [[MRDataManager sharedInstance] nameValue], [[MRDataManager sharedInstance] phoneValue], [[MRDataManager sharedInstance] sloganValue]);
         
         MRChooserViewController *chooserViewController;
-        NSDictionary *nameDictionary = @{@"titleKey": @"ИМЯ ФАМИЛИЯ", @"placeholderKey": @""};
-        NSDictionary *phoneDictionary = @{@"titleKey": @"ТЕЛЕФОН", @"placeholderKey": @""};
-        NSDictionary *modeDictionary = @{@"titleKey": @"СЛОГАН: EU", @"placeholderKey": @""};
+        NSDictionary *nameDictionary = @{@"titleKey": @"ИМЯ ФАМИЛИЯ", @"placeholderKey": @"", @"indexKey":[NSNumber numberWithInteger:1]};
+        NSDictionary *phoneDictionary = @{@"titleKey": @"ТЕЛЕФОН", @"placeholderKey": @"", @"indexKey":[NSNumber numberWithInteger:2]};
+        NSDictionary *modeDictionary = @{@"titleKey": @"СЛОГАН: EU", @"placeholderKey": @"", @"indexKey":[NSNumber numberWithInteger:3]};
         NSDictionary *barcodeDictionary = @{FIO_SIGN_KEY: nameDictionary, PHONE_SIGN_KEY: phoneDictionary, SLOGAN_SIGN_KEY:modeDictionary};
         
         chooserViewController = [[MRChooserViewController alloc] initWithTitle:@"ВЫБЕРИТЕ ТИП ПОДПИСИ ПОД БАРКОДОМ" withCheckboxList:barcodeDictionary :eBarcodeSign];

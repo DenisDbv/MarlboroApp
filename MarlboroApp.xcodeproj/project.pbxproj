@@ -65,6 +65,14 @@
 		18936EF618E7FE62009D88A6 /* PMTimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936EF518E7FE62009D88A6 /* PMTimeManager.m */; };
 		18936EF918E80F5C009D88A6 /* NSString+EngToRu.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936EF818E80F5C009D88A6 /* NSString+EngToRu.m */; };
 		18936EFB18E81B89009D88A6 /* active_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936EFA18E81B89009D88A6 /* active_logo@2x.png */; };
+		18936F0518E85AF5009D88A6 /* result_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F0418E85AF5009D88A6 /* result_background.png */; };
+		18936F0A18E85BB6009D88A6 /* close_btn_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F0618E85BB6009D88A6 /* close_btn_large@2x.png */; };
+		18936F0B18E85BB6009D88A6 /* close_btn_short@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F0718E85BB6009D88A6 /* close_btn_short@2x.png */; };
+		18936F0C18E85BB6009D88A6 /* save_btn_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F0818E85BB6009D88A6 /* save_btn_large@2x.png */; };
+		18936F0D18E85BB6009D88A6 /* save_btn_short@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F0918E85BB6009D88A6 /* save_btn_short@2x.png */; };
+		18936F1118E86C64009D88A6 /* PMMailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936F1018E86C64009D88A6 /* PMMailManager.m */; };
+		18936F1418E8711D009D88A6 /* NSData+Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936F1318E8711D009D88A6 /* NSData+Base64Additions.m */; };
+		18936F1718E875F1009D88A6 /* Base64Transcoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936F1618E875F1009D88A6 /* Base64Transcoder.m */; };
 		F41CC02866F74B3182FA8265 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C445D8750A3F4388AC0A572B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -157,6 +165,17 @@
 		18936EF718E80F5C009D88A6 /* NSString+EngToRu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EngToRu.h"; sourceTree = "<group>"; };
 		18936EF818E80F5C009D88A6 /* NSString+EngToRu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EngToRu.m"; sourceTree = "<group>"; };
 		18936EFA18E81B89009D88A6 /* active_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active_logo@2x.png"; sourceTree = "<group>"; };
+		18936F0418E85AF5009D88A6 /* result_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = result_background.png; sourceTree = "<group>"; };
+		18936F0618E85BB6009D88A6 /* close_btn_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_btn_large@2x.png"; sourceTree = "<group>"; };
+		18936F0718E85BB6009D88A6 /* close_btn_short@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_btn_short@2x.png"; sourceTree = "<group>"; };
+		18936F0818E85BB6009D88A6 /* save_btn_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "save_btn_large@2x.png"; sourceTree = "<group>"; };
+		18936F0918E85BB6009D88A6 /* save_btn_short@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "save_btn_short@2x.png"; sourceTree = "<group>"; };
+		18936F0F18E86C64009D88A6 /* PMMailManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMMailManager.h; sourceTree = "<group>"; };
+		18936F1018E86C64009D88A6 /* PMMailManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMMailManager.m; sourceTree = "<group>"; };
+		18936F1218E8711D009D88A6 /* NSData+Base64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64Additions.h"; sourceTree = "<group>"; };
+		18936F1318E8711D009D88A6 /* NSData+Base64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64Additions.m"; sourceTree = "<group>"; };
+		18936F1518E875F1009D88A6 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
+		18936F1618E875F1009D88A6 /* Base64Transcoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Transcoder.m; sourceTree = "<group>"; };
 		C445D8750A3F4388AC0A572B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6EA91B96DAD4324A0FBC225 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -269,6 +288,11 @@
 		18936E6318E3FBB1009D88A6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				18936F1518E875F1009D88A6 /* Base64Transcoder.h */,
+				18936F1618E875F1009D88A6 /* Base64Transcoder.m */,
+				18936F1218E8711D009D88A6 /* NSData+Base64Additions.h */,
+				18936F1318E8711D009D88A6 /* NSData+Base64Additions.m */,
+				18936F0E18E86C64009D88A6 /* MailManager */,
 				18936EF318E7FE62009D88A6 /* TimeManager */,
 				18936E9818E42E0B009D88A6 /* UIView+GestureBlocks.h */,
 				18936E9918E42E0B009D88A6 /* UIView+GestureBlocks.m */,
@@ -282,6 +306,7 @@
 		18936E6518E3FC21009D88A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				18936F0418E85AF5009D88A6 /* result_background.png */,
 				18936EE518E7D215009D88A6 /* Barcode */,
 				18936ED018E6EA91009D88A6 /* Controls */,
 				18936EC118E6C372009D88A6 /* Keyboard */,
@@ -460,6 +485,10 @@
 		18936ED018E6EA91009D88A6 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				18936F0618E85BB6009D88A6 /* close_btn_large@2x.png */,
+				18936F0718E85BB6009D88A6 /* close_btn_short@2x.png */,
+				18936F0818E85BB6009D88A6 /* save_btn_large@2x.png */,
+				18936F0918E85BB6009D88A6 /* save_btn_short@2x.png */,
 				18936ED518E75EA7009D88A6 /* continue_button@2x.png */,
 				18936ED118E6EA91009D88A6 /* back@2x.png */,
 			);
@@ -513,6 +542,15 @@
 				18936EF518E7FE62009D88A6 /* PMTimeManager.m */,
 			);
 			path = TimeManager;
+			sourceTree = "<group>";
+		};
+		18936F0E18E86C64009D88A6 /* MailManager */ = {
+			isa = PBXGroup;
+			children = (
+				18936F0F18E86C64009D88A6 /* PMMailManager.h */,
+				18936F1018E86C64009D88A6 /* PMMailManager.m */,
+			);
+			path = MailManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -600,16 +638,21 @@
 				18936E8F18E412DB009D88A6 /* active_barcode@2x.png in Resources */,
 				18936E8118E4064F009D88A6 /* MRRootMenuViewController.xib in Resources */,
 				18936EEF18E7F058009D88A6 /* BarcodeSavedView.xib in Resources */,
+				18936F0A18E85BB6009D88A6 /* close_btn_large@2x.png in Resources */,
 				18936EDC18E76EF4009D88A6 /* MRBarcodeListViewController.xib in Resources */,
+				18936F0518E85AF5009D88A6 /* result_background.png in Resources */,
 				18936E6F18E3FEBB009D88A6 /* background@2x.png in Resources */,
 				18936E3A18E3F216009D88A6 /* InfoPlist.strings in Resources */,
 				18936EA318E5318B009D88A6 /* MRRegistrationViewController.xib in Resources */,
 				18936EEB18E7D46F009D88A6 /* FuturaDemiC.ttf in Resources */,
 				18936EC618E6C372009D88A6 /* keyboard_button@2x.png in Resources */,
 				18936EBE18E68693009D88A6 /* check_frame@2x.png in Resources */,
+				18936F0C18E85BB6009D88A6 /* save_btn_large@2x.png in Resources */,
 				18936E9218E412DB009D88A6 /* active_stamp@2x.png in Resources */,
+				18936F0B18E85BB6009D88A6 /* close_btn_short@2x.png in Resources */,
 				18936EAC18E53D38009D88A6 /* field_background@2x.png in Resources */,
 				18936EC818E6C372009D88A6 /* keyboard_ru_eng@2x.png in Resources */,
+				18936F0D18E85BB6009D88A6 /* save_btn_short@2x.png in Resources */,
 				18936EFB18E81B89009D88A6 /* active_logo@2x.png in Resources */,
 				18936E8418E40B32009D88A6 /* opti-agency-gothic.ttf in Resources */,
 				18936E9118E412DB009D88A6 /* active_print@2x.png in Resources */,
@@ -679,14 +722,17 @@
 				18936EB918E589AD009D88A6 /* MRCheckItem.m in Sources */,
 				18936E6918E3FD52009D88A6 /* MRAppDelegate.m in Sources */,
 				18936EA718E531E6009D88A6 /* MRRegistrationItemView.m in Sources */,
+				18936F1418E8711D009D88A6 /* NSData+Base64Additions.m in Sources */,
 				18936EF618E7FE62009D88A6 /* PMTimeManager.m in Sources */,
 				18936E9718E42C0D009D88A6 /* PMActivationView.m in Sources */,
+				18936F1118E86C64009D88A6 /* PMMailManager.m in Sources */,
 				18936EE018E770EF009D88A6 /* UIImage+BarcodeImage.m in Sources */,
 				18936EF218E7F14A009D88A6 /* BarcodeSavedView.m in Sources */,
 				18936EA218E5318B009D88A6 /* MRRegistrationViewController.m in Sources */,
 				18936E9A18E42E0B009D88A6 /* UIView+GestureBlocks.m in Sources */,
 				18936E8718E40CEF009D88A6 /* MRParentViewController.m in Sources */,
 				18936EF918E80F5C009D88A6 /* NSString+EngToRu.m in Sources */,
+				18936F1718E875F1009D88A6 /* Base64Transcoder.m in Sources */,
 				18936E4318E3F216009D88A6 /* MarlboroApp.xcdatamodeld in Sources */,
 				18936E3C18E3F216009D88A6 /* main.m in Sources */,
 				18936E7B18E40637009D88A6 /* MRRootViewController.m in Sources */,
