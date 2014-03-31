@@ -7,7 +7,8 @@
 //
 
 #import "MRParentViewController.h"
+#import "RippleViewController.h"
 
-@interface MRRootViewController : MRParentViewController
+@interface MRRootViewController : RippleViewController
 
 @end

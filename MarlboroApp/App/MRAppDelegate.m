@@ -8,10 +8,8 @@
 
 #import "MRAppDelegate.h"
 
-#import "MRRootViewController.h"
-
 @interface MRAppDelegate ()
-@property (nonatomic, strong) MRRootViewController *rootViewController;
+
 @end
 
 @implementation MRAppDelegate

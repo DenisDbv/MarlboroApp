@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MRRootViewController.h"
 
 @interface MRAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -18,5 +19,7 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+
+@property (nonatomic, strong) MRRootViewController *rootViewController;
 
 @end

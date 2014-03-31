@@ -22,7 +22,7 @@
 		18936E5718E3F216009D88A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18936E5518E3F216009D88A6 /* InfoPlist.strings */; };
 		18936E5918E3F216009D88A6 /* MarlboroAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936E5818E3F216009D88A6 /* MarlboroAppTests.m */; };
 		18936E6918E3FD52009D88A6 /* MRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936E6818E3FD52009D88A6 /* MRAppDelegate.m */; };
-		18936E6F18E3FEBB009D88A6 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936E6E18E3FEBB009D88A6 /* background@2x.png */; };
+		18936E6F18E3FEBB009D88A6 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936E6E18E3FEBB009D88A6 /* background.png */; };
 		18936E7B18E40637009D88A6 /* MRRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936E7818E40637009D88A6 /* MRRootViewController.m */; };
 		18936E7C18E40637009D88A6 /* MRRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18936E7918E40637009D88A6 /* MRRootViewController.xib */; };
 		18936E8018E4064F009D88A6 /* MRRootMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936E7E18E4064F009D88A6 /* MRRootMenuViewController.m */; };
@@ -84,6 +84,11 @@
 		18936F2E18E8B37A009D88A6 /* logo3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F2818E8B37A009D88A6 /* logo3@2x.png */; };
 		18936F3118E8CA9F009D88A6 /* LogoSavedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936F3018E8CA9F009D88A6 /* LogoSavedView.m */; };
 		18936F3318E8CAB1009D88A6 /* LogoSavedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18936F3218E8CAB1009D88A6 /* LogoSavedView.xib */; };
+		18936F3C18E971A3009D88A6 /* RippleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936F3618E971A3009D88A6 /* RippleModel.m */; };
+		18936F3D18E971A3009D88A6 /* RippleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936F3818E971A3009D88A6 /* RippleViewController.m */; };
+		18936F3E18E971A3009D88A6 /* RippleShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 18936F3A18E971A3009D88A6 /* RippleShader.fsh */; };
+		18936F3F18E971A3009D88A6 /* RippleShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 18936F3B18E971A3009D88A6 /* RippleShader.vsh */; };
+		18936F4318E975F8009D88A6 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F4218E975F8009D88A6 /* background2.png */; };
 		F41CC02866F74B3182FA8265 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C445D8750A3F4388AC0A572B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -117,7 +122,7 @@
 		18936E6418E3FBC6009D88A6 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		18936E6718E3FD52009D88A6 /* MRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRAppDelegate.h; sourceTree = "<group>"; };
 		18936E6818E3FD52009D88A6 /* MRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRAppDelegate.m; sourceTree = "<group>"; };
-		18936E6E18E3FEBB009D88A6 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		18936E6E18E3FEBB009D88A6 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		18936E7718E40637009D88A6 /* MRRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRRootViewController.h; sourceTree = "<group>"; };
 		18936E7818E40637009D88A6 /* MRRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRRootViewController.m; sourceTree = "<group>"; };
 		18936E7918E40637009D88A6 /* MRRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRRootViewController.xib; sourceTree = "<group>"; };
@@ -201,6 +206,13 @@
 		18936F2F18E8CA9F009D88A6 /* LogoSavedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoSavedView.h; sourceTree = "<group>"; };
 		18936F3018E8CA9F009D88A6 /* LogoSavedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoSavedView.m; sourceTree = "<group>"; };
 		18936F3218E8CAB1009D88A6 /* LogoSavedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogoSavedView.xib; sourceTree = "<group>"; };
+		18936F3518E971A3009D88A6 /* RippleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RippleModel.h; sourceTree = "<group>"; };
+		18936F3618E971A3009D88A6 /* RippleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RippleModel.m; sourceTree = "<group>"; };
+		18936F3718E971A3009D88A6 /* RippleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RippleViewController.h; sourceTree = "<group>"; };
+		18936F3818E971A3009D88A6 /* RippleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RippleViewController.m; sourceTree = "<group>"; };
+		18936F3A18E971A3009D88A6 /* RippleShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RippleShader.fsh; sourceTree = "<group>"; };
+		18936F3B18E971A3009D88A6 /* RippleShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RippleShader.vsh; sourceTree = "<group>"; };
+		18936F4218E975F8009D88A6 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
 		C445D8750A3F4388AC0A572B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6EA91B96DAD4324A0FBC225 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -331,6 +343,7 @@
 		18936E6518E3FC21009D88A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				18936F4218E975F8009D88A6 /* background2.png */,
 				18936F1818E8AF95009D88A6 /* Logo */,
 				18936F0418E85AF5009D88A6 /* result_background.png */,
 				18936EE518E7D215009D88A6 /* Barcode */,
@@ -340,7 +353,7 @@
 				18936EAA18E53D38009D88A6 /* Registration */,
 				18936E8A18E412DB009D88A6 /* RootMenu */,
 				18936E8218E40B1A009D88A6 /* Font */,
-				18936E6E18E3FEBB009D88A6 /* background@2x.png */,
+				18936E6E18E3FEBB009D88A6 /* background.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -370,6 +383,7 @@
 		18936E7618E40637009D88A6 /* RootController */ = {
 			isa = PBXGroup;
 			children = (
+				18936F3418E971A3009D88A6 /* RippleBackground */,
 				18936E7718E40637009D88A6 /* MRRootViewController.h */,
 				18936E7818E40637009D88A6 /* MRRootViewController.m */,
 				18936E7918E40637009D88A6 /* MRRootViewController.xib */,
@@ -616,6 +630,27 @@
 			path = ImageGenerator;
 			sourceTree = "<group>";
 		};
+		18936F3418E971A3009D88A6 /* RippleBackground */ = {
+			isa = PBXGroup;
+			children = (
+				18936F3518E971A3009D88A6 /* RippleModel.h */,
+				18936F3618E971A3009D88A6 /* RippleModel.m */,
+				18936F3718E971A3009D88A6 /* RippleViewController.h */,
+				18936F3818E971A3009D88A6 /* RippleViewController.m */,
+				18936F3918E971A3009D88A6 /* Shaders */,
+			);
+			path = RippleBackground;
+			sourceTree = "<group>";
+		};
+		18936F3918E971A3009D88A6 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				18936F3A18E971A3009D88A6 /* RippleShader.fsh */,
+				18936F3B18E971A3009D88A6 /* RippleShader.vsh */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -705,7 +740,7 @@
 				18936F0A18E85BB6009D88A6 /* close_btn_large@2x.png in Resources */,
 				18936EDC18E76EF4009D88A6 /* MRBarcodeListViewController.xib in Resources */,
 				18936F0518E85AF5009D88A6 /* result_background.png in Resources */,
-				18936E6F18E3FEBB009D88A6 /* background@2x.png in Resources */,
+				18936E6F18E3FEBB009D88A6 /* background.png in Resources */,
 				18936E3A18E3F216009D88A6 /* InfoPlist.strings in Resources */,
 				18936EA318E5318B009D88A6 /* MRRegistrationViewController.xib in Resources */,
 				18936EEB18E7D46F009D88A6 /* FuturaDemiC.ttf in Resources */,
@@ -727,11 +762,14 @@
 				18936F3318E8CAB1009D88A6 /* LogoSavedView.xib in Resources */,
 				18936F2B18E8B37A009D88A6 /* logo2.png in Resources */,
 				18936EEC18E7D46F009D88A6 /* PFAgoraSlabPro-Black.ttf in Resources */,
+				18936F3E18E971A3009D88A6 /* RippleShader.fsh in Resources */,
 				18936ECF18E6C3BD009D88A6 /* PMCustomKeyboard.xib in Resources */,
 				18936F1E18E8B0B4009D88A6 /* MRLogoListViewController.xib in Resources */,
 				18936EE718E7D215009D88A6 /* texture.png in Resources */,
+				18936F3F18E971A3009D88A6 /* RippleShader.vsh in Resources */,
 				18936F2E18E8B37A009D88A6 /* logo3@2x.png in Resources */,
 				18936EC718E6C372009D88A6 /* keyboard_delete@2x.png in Resources */,
+				18936F4318E975F8009D88A6 /* background2.png in Resources */,
 				18936ED318E6EA91009D88A6 /* back@2x.png in Resources */,
 				18936ED618E75EA7009D88A6 /* continue_button@2x.png in Resources */,
 				18936EB518E583BC009D88A6 /* MRChooserViewController.xib in Resources */,
@@ -794,6 +832,7 @@
 				18936E6918E3FD52009D88A6 /* MRAppDelegate.m in Sources */,
 				18936F1D18E8B0B4009D88A6 /* MRLogoListViewController.m in Sources */,
 				18936EA718E531E6009D88A6 /* MRRegistrationItemView.m in Sources */,
+				18936F3D18E971A3009D88A6 /* RippleViewController.m in Sources */,
 				18936F1418E8711D009D88A6 /* NSData+Base64Additions.m in Sources */,
 				18936EF618E7FE62009D88A6 /* PMTimeManager.m in Sources */,
 				18936F2218E8B353009D88A6 /* UIImage+LogoImage.m in Sources */,
@@ -813,6 +852,7 @@
 				18936ECE18E6C3BD009D88A6 /* PMCustomKeyboard.m in Sources */,
 				18936E8018E4064F009D88A6 /* MRRootMenuViewController.m in Sources */,
 				18936EDB18E76EF4009D88A6 /* MRBarcodeListViewController.m in Sources */,
+				18936F3C18E971A3009D88A6 /* RippleModel.m in Sources */,
 				18936EE418E774BB009D88A6 /* MRDataManager.m in Sources */,
 				18936EB418E583BC009D88A6 /* MRChooserViewController.m in Sources */,
 			);

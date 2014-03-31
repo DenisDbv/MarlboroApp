@@ -33,6 +33,8 @@ NSString *const MROnExitClickNotification = @"MROnExitClickNotification";
     [super viewDidLoad];
     
     self.navigationController.navigationBarHidden = YES;
+    
+    self.view.multipleTouchEnabled = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -99,6 +101,15 @@ NSString *const MROnExitClickNotification = @"MROnExitClickNotification";
     [super touchesBegan:touches withEvent:event];
     
     [self.view endEditing:YES];
+    
+    [[AppDelegateInstance() rootViewController] touchesBegan:touches withEvent:event];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesMoved:touches withEvent:event];
+    
+    [[AppDelegateInstance() rootViewController] touchesMoved:touches withEvent:event];
 }
 
 @end
