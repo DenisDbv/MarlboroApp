@@ -107,6 +107,17 @@
                      }];
 }
 
+-(void) disableActivation:(BOOL)isDisable
+{
+    if(isDisable)
+        activationImageView.image = [self imageDisableActivation];
+    else
+        activationImageView.image = [self imageActivation];
+    
+    [activeButton setImage:activationImageView.image forState:UIControlStateNormal];
+    [activeButton setImage:activationImageView.image forState:UIControlStateHighlighted];
+}
+
 -(UIImage*) imageActivation
 {
     switch (ids) {
@@ -121,6 +132,28 @@
             break;
         case ePrint:
             return [UIImage imageNamed:@"active_print.png"];
+            break;
+            
+        default:
+            break;
+    }
+    return nil;
+}
+
+-(UIImage*) imageDisableActivation
+{
+    switch (ids) {
+        case eBarcode:
+            return [UIImage imageNamed:@"active_barcode-disable.png"];
+            break;
+        case eLogo:
+            return [UIImage imageNamed:@"active_logo-disable.png"];
+            break;
+        case eStamp:
+            return [UIImage imageNamed:@"active_stamp-disable.png"];
+            break;
+        case ePrint:
+            return [UIImage imageNamed:@"active_print-disable.png"];
             break;
             
         default:

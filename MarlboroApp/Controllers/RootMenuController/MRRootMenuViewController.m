@@ -10,6 +10,7 @@
 
 #import "PMActivationView.h"
 #import "MRRegistrationViewController.h"
+#import "MRSettingsViewController.h"
 
 #import <MZFormSheetController/MZFormSheetController.h>
 
@@ -19,6 +20,10 @@
 
 @implementation MRRootMenuViewController
 {
+    BOOL secret_doubleTap;
+    BOOL secret_disable;
+    UIButton *settingButton;
+    
     UILabel *titleLabel;
 }
 @synthesize activationButtonsArray;
@@ -36,13 +41,6 @@
 {
     [super viewDidLoad];
     
-    [self buttonsConfigure];
-    [self buttonsReposition];
-    [self animateShowActivations];
-}
-
--(void) viewWillAppear:(BOOL)animated
-{
     titleLabel = [[UILabel alloc] init];
     titleLabel.alpha = 0;
     titleLabel.font = [UIFont fontWithName:@"MyriadPro-Cond" size:30.0];
@@ -56,6 +54,35 @@
                                   titleLabel.frame.size.width,
                                   titleLabel.frame.size.height);
     [self.view addSubview:titleLabel];
+    
+    secret_doubleTap = NO;
+    secret_disable = NO;
+    
+    [self buttonsConfigure];
+    [self buttonsReposition];
+    [self animateShowActivations];
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.height;
+    
+    UIImage *settingImage = [UIImage imageNamed:@"settings.png"];
+    settingButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    settingButton.alpha = 0.0f;
+    [settingButton addTarget:self action:@selector(onSetting:) forControlEvents:UIControlEventTouchUpInside];
+    [settingButton setImage:settingImage forState:UIControlStateNormal];
+    [settingButton setImage:settingImage forState:UIControlStateHighlighted];
+    settingButton.frame = CGRectMake(screenWidth - settingImage.size.width - 10, 10, settingImage.size.width, settingImage.size.height);
+    [self.view addSubview:settingButton];
+    
+    UITapGestureRecognizer *tapGesture2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap2:)];
+    tapGesture2.numberOfTapsRequired = 2;
+    [self.view addGestureRecognizer:tapGesture2];
+    
+    UITapGestureRecognizer *tapGesture1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap1:)];
+    tapGesture1.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:tapGesture1];
+    
+    [tapGesture1 requireGestureRecognizerToFail:tapGesture2];
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,14 +90,127 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)handleTap1:(UIGestureRecognizer *)sender
+{
+    CGPoint coords = [sender locationInView:sender.view];
+    
+    CGFloat widthArea = self.view.frame.size.width-100;
+    CGFloat heightArea = self.view.frame.size.height-100;
+    
+    if(!IS_OS_7_OR_LATER)
+    {
+        widthArea = self.view.frame.size.height-100;
+        heightArea = self.view.frame.size.width-100;
+    }
+    
+    if(coords.x > widthArea && coords.y > heightArea)    {
+        //NSLog(@"!%@", NSStringFromCGPoint(coords));
+        if(secret_doubleTap == YES) {
+            NSLog(@"Show settings secret button");
+            
+            secret_disable = YES;
+            
+            [UIView animateWithDuration:0.3f animations:^{
+                settingButton.alpha = 1.0;
+            } completion:^(BOOL finished) {
+                int64_t delayInSeconds = 3.0;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    
+                    [UIView animateWithDuration:0.3 animations:^{
+                        settingButton.alpha = 0.0;
+                    } completion:^(BOOL finished) {
+                        secret_disable = NO;
+                    }];
+                    NSLog(@"Setting button hidden");
+                });
+            }];
+        }
+    }
+}
+
+- (void)handleTap2:(UIGestureRecognizer *)sender
+{
+    CGPoint coords = [sender locationInView:sender.view];
+    if(coords.x < 100 && coords.y < 100)    {
+        //NSLog(@"%@", NSStringFromCGPoint(coords));
+        
+        if(!secret_disable) {
+            secret_doubleTap = YES;
+            
+            int64_t delayInSeconds = 1.6;   //1.6
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                secret_doubleTap = NO;
+            });
+        }
+    }
+}
+
+-(void) onSetting:(UIButton*)btn
+{
+    [UIView animateWithDuration:0.03 animations:^{
+        btn.transform = CGAffineTransformMakeScale(0.95, 0.95);
+    }
+                     completion:^(BOOL finished){
+                         
+                         [UIView animateWithDuration:0.03f animations:^{
+                             btn.transform = CGAffineTransformMakeScale(1, 1);
+                         } completion:^(BOOL finished) {
+                             [self hideAllContext];
+                             
+                             MRSettingsViewController *settingVC = [[MRSettingsViewController alloc] initWithNibName:@"MRSettingsViewController" bundle:[NSBundle mainBundle]];
+                             __weak id wself = self;
+                             
+                             MZFormSheetController *formSheet = [[MZFormSheetController alloc] initWithSize:self.view.bounds.size viewController:settingVC];
+                             formSheet.transitionStyle = MZFormSheetTransitionStyleFade;
+                             formSheet.willDismissCompletionHandler = ^(UIViewController *presentedFSViewController) {
+                                 
+                                 [wself buttonsConfigure];
+                                 [wself buttonsReposition];
+                                 [wself noAnimateShowActivations];
+                                 [wself showAllContext];
+                             };
+                             [formSheet presentFormSheetController:formSheet animated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+                                 
+                             }];
+                         }];
+                     }];
+}
+
 -(void) buttonsConfigure
 {
+    if(activationButtonsArray.count != 0)   {
+        for ( PMActivationView *button in activationButtonsArray )
+        {
+            [button removeFromSuperview];
+        }
+    }
+    
     activationButtonsArray = [[NSMutableArray alloc] init];
     
     [activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:eBarcode withText:YES]];
     [activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:eLogo withText:YES]];
     [activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:eStamp withText:YES]];
     [activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:ePrint withText:YES]];
+    
+    [self activationsStatusRefresh];
+}
+
+-(void) activationsStatusRefresh
+{
+    NSUserDefaults *userSettings = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *tempBuffer = [[NSMutableArray alloc] init];
+    
+    for ( PMActivationView *button in activationButtonsArray )
+    {
+        NSString *activationName = [NSString stringWithFormat:@"%i", button.ids];
+        BOOL activationStatusDisable = [[userSettings objectForKey:activationName] boolValue];
+        if(activationStatusDisable)
+            [tempBuffer addObject:button];
+    }
+    
+    [activationButtonsArray removeObjectsInArray:tempBuffer];
 }
 
 -(void) buttonsReposition
@@ -99,6 +239,8 @@
 
 -(void) animateShowActivations
 {
+    if(activationButtonsArray.count == 0) return;
+    
     __block int loop = 0;
     __block int activeCount = activationButtonsArray.count;
     dispatch_repeated(0.15, dispatch_get_main_queue(), ^(BOOL *stop) {
@@ -125,6 +267,18 @@
             *stop = YES;
         }   else loop++;
     });
+}
+
+-(void) noAnimateShowActivations
+{
+    for ( PMActivationView *button in activationButtonsArray )
+    {
+        CGRect btnRect = button.frame;
+        btnRect.origin.y = 277;
+        button.frame = btnRect;
+        
+        button.activeButton.alpha = 1;
+    }
 }
 
 static void dispatch_repeated_internal(dispatch_time_t firstPopTime, double intervalInSeconds, dispatch_queue_t queue, void(^work)(BOOL *stop))

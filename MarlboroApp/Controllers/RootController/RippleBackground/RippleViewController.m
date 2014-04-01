@@ -340,7 +340,7 @@ enum
     for (UITouch *touch in touches) 
     {
         CGPoint location = [touch locationInView:touch.view];
-        NSLog(@"%@", NSStringFromCGPoint(location));
+        //NSLog(@"%@", NSStringFromCGPoint(location));
         [_ripple initiateRippleAtLocation:location];
     }
 }

@@ -238,12 +238,20 @@ static BOOL showBorder = NO;
         [letter1 drawAtPoint:pos1 withFont:bigFont];
         
         CGSize letter2Size = [letter2 sizeWithFont:bigFont];
+        CGPoint pos2 = CGPointMake(imageSize.width/2-letter2Size.width/2, imageSize.height/2-letter2Size.height/2+ofs+ofsy);
+        [letter2 drawAtPoint:pos2 withFont:bigFont];
+        
+        CGSize letter3Size = [letter3 sizeWithFont:bigFont];
+        CGPoint pos3 = CGPointMake(imageSize.width/2-letter3Size.width/2+ofs, imageSize.height/2-letter3Size.height/2+ofsy);
+        [letter3 drawAtPoint:pos3 withFont:bigFont];
+        
+        /*CGSize letter2Size = [letter2 sizeWithFont:bigFont];
         CGPoint pos2 = CGPointMake(imageSize.width/2-letter2Size.width/2+ofs, imageSize.height/2-letter2Size.height/2+ofsy);
         [letter2 drawAtPoint:pos2 withFont:bigFont];
         
         CGSize letter3Size = [letter3 sizeWithFont:bigFont];
         CGPoint pos3 = CGPointMake(imageSize.width/2-letter3Size.width/2, imageSize.height/2-letter3Size.height/2+ofs+ofsy);
-        [letter3 drawAtPoint:pos3 withFont:bigFont];
+        [letter3 drawAtPoint:pos3 withFont:bigFont];*/
     }
     
     // draw mode
@@ -358,12 +366,22 @@ static BOOL showBorder = NO;
         [letter1 drawAtPoint:pos1 withFont:bigFont];
         
         CGSize letter2Size = [letter2 sizeWithFont:bigFont];
-        CGPoint pos2 = CGPointMake(imageSize.width/2-letter2Size.width/2+ofs, imageSize.height/2-letter2Size.height/2+ofsy);
+        CGPoint pos2 = CGPointMake(imageSize.width/2-letter2Size.width/2, imageSize.height/2-letter2Size.height/2+ofs+ofsy);
         [letter2 drawAtPoint:pos2 withFont:bigFont];
         
         CGSize letter3Size = [letter3 sizeWithFont:bigFont];
-        CGPoint pos3 = CGPointMake(imageSize.width/2-letter3Size.width/2, imageSize.height/2-letter3Size.height/2+ofs+ofsy);
+        CGPoint pos3 = CGPointMake(imageSize.width/2-letter3Size.width/2+ofs, imageSize.height/2-letter3Size.height/2+ofsy);
         [letter3 drawAtPoint:pos3 withFont:bigFont];
+        
+        /*
+         CGSize letter2Size = [letter2 sizeWithFont:bigFont];
+         CGPoint pos2 = CGPointMake(imageSize.width/2-letter2Size.width/2+ofs, imageSize.height/2-letter2Size.height/2+ofsy);
+         [letter2 drawAtPoint:pos2 withFont:bigFont];
+         
+         CGSize letter3Size = [letter3 sizeWithFont:bigFont];
+         CGPoint pos3 = CGPointMake(imageSize.width/2-letter3Size.width/2, imageSize.height/2-letter3Size.height/2+ofs+ofsy);
+         [letter3 drawAtPoint:pos3 withFont:bigFont];
+         */
     }
     
     [[UIColor blackColor] set];

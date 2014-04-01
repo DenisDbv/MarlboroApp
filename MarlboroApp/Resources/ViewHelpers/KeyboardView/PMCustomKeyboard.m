@@ -64,7 +64,7 @@
     [self loadNumberCharactersWithArray:kNumberChar];
     [self refreshLanguageTitleOnButton];
     
-    [self.deleteButton setTitle:@"УДАЛИТЬ" forState:UIControlStateNormal];
+    //[self.deleteButton setTitle:@"УДАЛИТЬ" forState:UIControlStateNormal];
     [self.deleteButton.titleLabel setFont:kFont];
 	self.deleteButton.titleLabel.adjustsFontSizeToFitWidth = YES;
     UIEdgeInsets btnEdge = self.deleteButton.titleEdgeInsets;
@@ -118,7 +118,7 @@
     [self loadNumberCharactersWithArray:kNumberChar];
     [self refreshLanguageTitleOnButton];
     
-    [self.deleteButton setTitle:@"УДАЛИТЬ" forState:UIControlStateNormal];
+    //[self.deleteButton setTitle:@"УДАЛИТЬ" forState:UIControlStateNormal];
     [self.deleteButton.titleLabel setFont:kFont];
 	self.deleteButton.titleLabel.adjustsFontSizeToFitWidth = YES;
     UIEdgeInsets btnEdge = self.deleteButton.titleEdgeInsets;

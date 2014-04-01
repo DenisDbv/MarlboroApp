@@ -89,6 +89,23 @@
 		18936F3E18E971A3009D88A6 /* RippleShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 18936F3A18E971A3009D88A6 /* RippleShader.fsh */; };
 		18936F3F18E971A3009D88A6 /* RippleShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 18936F3B18E971A3009D88A6 /* RippleShader.vsh */; };
 		18936F4318E975F8009D88A6 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F4218E975F8009D88A6 /* background2.png */; };
+		18936F4B18E9A60E009D88A6 /* icon_100x100.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F4518E9A60E009D88A6 /* icon_100x100.png */; };
+		18936F4C18E9A60E009D88A6 /* icon_1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F4618E9A60E009D88A6 /* icon_1024x1024.png */; };
+		18936F4D18E9A60E009D88A6 /* icon_144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F4718E9A60E009D88A6 /* icon_144x144.png */; };
+		18936F4E18E9A60E009D88A6 /* icon_152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F4818E9A60E009D88A6 /* icon_152x152.png */; };
+		18936F4F18E9A60E009D88A6 /* icon_72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F4918E9A60E009D88A6 /* icon_72x72.png */; };
+		18936F5018E9A60E009D88A6 /* icon_76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F4A18E9A60E009D88A6 /* icon_76x76.png */; };
+		18936F5518EAB23B009D88A6 /* MRSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936F5318EAB23B009D88A6 /* MRSettingsViewController.m */; };
+		18936F5618EAB23B009D88A6 /* MRSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18936F5418EAB23B009D88A6 /* MRSettingsViewController.xib */; };
+		18936F7018EAE0CD009D88A6 /* active_barcode-disable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F6818EAE0CD009D88A6 /* active_barcode-disable@2x.png */; };
+		18936F7118EAE0CD009D88A6 /* active_logo-disable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F6918EAE0CD009D88A6 /* active_logo-disable@2x.png */; };
+		18936F7218EAE0CD009D88A6 /* active_print-disable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F6A18EAE0CD009D88A6 /* active_print-disable@2x.png */; };
+		18936F7318EAE0CD009D88A6 /* active_stamp-disable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F6B18EAE0CD009D88A6 /* active_stamp-disable@2x.png */; };
+		18936F7418EAE0CD009D88A6 /* exit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F6C18EAE0CD009D88A6 /* exit@2x.png */; };
+		18936F7518EAE0CD009D88A6 /* exit2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F6D18EAE0CD009D88A6 /* exit2.png */; };
+		18936F7618EAE0CD009D88A6 /* settings-close-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F6E18EAE0CD009D88A6 /* settings-close-small@2x.png */; };
+		18936F7718EAE0CD009D88A6 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F6F18EAE0CD009D88A6 /* settings@2x.png */; };
+		18936F7918EAE34D009D88A6 /* keyboard_backspace@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936F7818EAE34C009D88A6 /* keyboard_backspace@2x.png */; };
 		F41CC02866F74B3182FA8265 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C445D8750A3F4388AC0A572B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -213,6 +230,24 @@
 		18936F3A18E971A3009D88A6 /* RippleShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RippleShader.fsh; sourceTree = "<group>"; };
 		18936F3B18E971A3009D88A6 /* RippleShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RippleShader.vsh; sourceTree = "<group>"; };
 		18936F4218E975F8009D88A6 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
+		18936F4518E9A60E009D88A6 /* icon_100x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_100x100.png; sourceTree = "<group>"; };
+		18936F4618E9A60E009D88A6 /* icon_1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_1024x1024.png; sourceTree = "<group>"; };
+		18936F4718E9A60E009D88A6 /* icon_144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_144x144.png; sourceTree = "<group>"; };
+		18936F4818E9A60E009D88A6 /* icon_152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_152x152.png; sourceTree = "<group>"; };
+		18936F4918E9A60E009D88A6 /* icon_72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_72x72.png; sourceTree = "<group>"; };
+		18936F4A18E9A60E009D88A6 /* icon_76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_76x76.png; sourceTree = "<group>"; };
+		18936F5218EAB23B009D88A6 /* MRSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRSettingsViewController.h; sourceTree = "<group>"; };
+		18936F5318EAB23B009D88A6 /* MRSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRSettingsViewController.m; sourceTree = "<group>"; };
+		18936F5418EAB23B009D88A6 /* MRSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRSettingsViewController.xib; sourceTree = "<group>"; };
+		18936F6818EAE0CD009D88A6 /* active_barcode-disable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active_barcode-disable@2x.png"; sourceTree = "<group>"; };
+		18936F6918EAE0CD009D88A6 /* active_logo-disable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active_logo-disable@2x.png"; sourceTree = "<group>"; };
+		18936F6A18EAE0CD009D88A6 /* active_print-disable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active_print-disable@2x.png"; sourceTree = "<group>"; };
+		18936F6B18EAE0CD009D88A6 /* active_stamp-disable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active_stamp-disable@2x.png"; sourceTree = "<group>"; };
+		18936F6C18EAE0CD009D88A6 /* exit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exit@2x.png"; sourceTree = "<group>"; };
+		18936F6D18EAE0CD009D88A6 /* exit2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exit2.png; sourceTree = "<group>"; };
+		18936F6E18EAE0CD009D88A6 /* settings-close-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-close-small@2x.png"; sourceTree = "<group>"; };
+		18936F6F18EAE0CD009D88A6 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		18936F7818EAE34C009D88A6 /* keyboard_backspace@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_backspace@2x.png"; sourceTree = "<group>"; };
 		C445D8750A3F4388AC0A572B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6EA91B96DAD4324A0FBC225 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -343,6 +378,8 @@
 		18936E6518E3FC21009D88A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				18936F6718EAE0CD009D88A6 /* Settings */,
+				18936F4418E9A60E009D88A6 /* Icons */,
 				18936F4218E975F8009D88A6 /* background2.png */,
 				18936F1818E8AF95009D88A6 /* Logo */,
 				18936F0418E85AF5009D88A6 /* result_background.png */,
@@ -374,6 +411,7 @@
 				18936ED718E76ED5009D88A6 /* Barcode */,
 				18936EB018E58391009D88A6 /* Chooser */,
 				18936E9E18E53174009D88A6 /* Registration */,
+				18936F5118EAB21A009D88A6 /* SettingsController */,
 				18936E7A18E40637009D88A6 /* RootMenuController */,
 				18936E7618E40637009D88A6 /* RootController */,
 			);
@@ -505,6 +543,7 @@
 		18936EC118E6C372009D88A6 /* Keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				18936F7818EAE34C009D88A6 /* keyboard_backspace@2x.png */,
 				18936EC218E6C372009D88A6 /* keyboard_button@2x.png */,
 				18936EC318E6C372009D88A6 /* keyboard_delete@2x.png */,
 				18936EC418E6C372009D88A6 /* keyboard_ru_eng@2x.png */,
@@ -651,6 +690,44 @@
 			path = Shaders;
 			sourceTree = "<group>";
 		};
+		18936F4418E9A60E009D88A6 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				18936F4518E9A60E009D88A6 /* icon_100x100.png */,
+				18936F4618E9A60E009D88A6 /* icon_1024x1024.png */,
+				18936F4718E9A60E009D88A6 /* icon_144x144.png */,
+				18936F4818E9A60E009D88A6 /* icon_152x152.png */,
+				18936F4918E9A60E009D88A6 /* icon_72x72.png */,
+				18936F4A18E9A60E009D88A6 /* icon_76x76.png */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
+		18936F5118EAB21A009D88A6 /* SettingsController */ = {
+			isa = PBXGroup;
+			children = (
+				18936F5218EAB23B009D88A6 /* MRSettingsViewController.h */,
+				18936F5318EAB23B009D88A6 /* MRSettingsViewController.m */,
+				18936F5418EAB23B009D88A6 /* MRSettingsViewController.xib */,
+			);
+			path = SettingsController;
+			sourceTree = "<group>";
+		};
+		18936F6718EAE0CD009D88A6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				18936F6818EAE0CD009D88A6 /* active_barcode-disable@2x.png */,
+				18936F6918EAE0CD009D88A6 /* active_logo-disable@2x.png */,
+				18936F6A18EAE0CD009D88A6 /* active_print-disable@2x.png */,
+				18936F6B18EAE0CD009D88A6 /* active_stamp-disable@2x.png */,
+				18936F6C18EAE0CD009D88A6 /* exit@2x.png */,
+				18936F6D18EAE0CD009D88A6 /* exit2.png */,
+				18936F6E18EAE0CD009D88A6 /* settings-close-small@2x.png */,
+				18936F6F18EAE0CD009D88A6 /* settings@2x.png */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -732,6 +809,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18936F7118EAE0CD009D88A6 /* active_logo-disable@2x.png in Resources */,
+				18936F5018E9A60E009D88A6 /* icon_76x76.png in Resources */,
+				18936F7018EAE0CD009D88A6 /* active_barcode-disable@2x.png in Resources */,
 				18936EED18E7D46F009D88A6 /* Roboto-Thin.ttf in Resources */,
 				18936E8F18E412DB009D88A6 /* active_barcode@2x.png in Resources */,
 				18936F2C18E8B37A009D88A6 /* logo2@2x.png in Resources */,
@@ -739,7 +819,9 @@
 				18936EEF18E7F058009D88A6 /* BarcodeSavedView.xib in Resources */,
 				18936F0A18E85BB6009D88A6 /* close_btn_large@2x.png in Resources */,
 				18936EDC18E76EF4009D88A6 /* MRBarcodeListViewController.xib in Resources */,
+				18936F7218EAE0CD009D88A6 /* active_print-disable@2x.png in Resources */,
 				18936F0518E85AF5009D88A6 /* result_background.png in Resources */,
+				18936F7918EAE34D009D88A6 /* keyboard_backspace@2x.png in Resources */,
 				18936E6F18E3FEBB009D88A6 /* background.png in Resources */,
 				18936E3A18E3F216009D88A6 /* InfoPlist.strings in Resources */,
 				18936EA318E5318B009D88A6 /* MRRegistrationViewController.xib in Resources */,
@@ -753,28 +835,39 @@
 				18936EAC18E53D38009D88A6 /* field_background@2x.png in Resources */,
 				18936EC818E6C372009D88A6 /* keyboard_ru_eng@2x.png in Resources */,
 				18936F0D18E85BB6009D88A6 /* save_btn_short@2x.png in Resources */,
+				18936F7718EAE0CD009D88A6 /* settings@2x.png in Resources */,
 				18936EFB18E81B89009D88A6 /* active_logo@2x.png in Resources */,
 				18936E8418E40B32009D88A6 /* opti-agency-gothic.ttf in Resources */,
 				18936E9118E412DB009D88A6 /* active_print@2x.png in Resources */,
 				18936F2D18E8B37A009D88A6 /* logo3.png in Resources */,
 				18936F2918E8B37A009D88A6 /* logo1.png in Resources */,
 				18936EBD18E68693009D88A6 /* check@2x.png in Resources */,
+				18936F5618EAB23B009D88A6 /* MRSettingsViewController.xib in Resources */,
 				18936F3318E8CAB1009D88A6 /* LogoSavedView.xib in Resources */,
 				18936F2B18E8B37A009D88A6 /* logo2.png in Resources */,
+				18936F4C18E9A60E009D88A6 /* icon_1024x1024.png in Resources */,
 				18936EEC18E7D46F009D88A6 /* PFAgoraSlabPro-Black.ttf in Resources */,
+				18936F4F18E9A60E009D88A6 /* icon_72x72.png in Resources */,
 				18936F3E18E971A3009D88A6 /* RippleShader.fsh in Resources */,
 				18936ECF18E6C3BD009D88A6 /* PMCustomKeyboard.xib in Resources */,
 				18936F1E18E8B0B4009D88A6 /* MRLogoListViewController.xib in Resources */,
+				18936F7618EAE0CD009D88A6 /* settings-close-small@2x.png in Resources */,
 				18936EE718E7D215009D88A6 /* texture.png in Resources */,
+				18936F7318EAE0CD009D88A6 /* active_stamp-disable@2x.png in Resources */,
 				18936F3F18E971A3009D88A6 /* RippleShader.vsh in Resources */,
 				18936F2E18E8B37A009D88A6 /* logo3@2x.png in Resources */,
+				18936F4D18E9A60E009D88A6 /* icon_144x144.png in Resources */,
+				18936F4E18E9A60E009D88A6 /* icon_152x152.png in Resources */,
 				18936EC718E6C372009D88A6 /* keyboard_delete@2x.png in Resources */,
 				18936F4318E975F8009D88A6 /* background2.png in Resources */,
 				18936ED318E6EA91009D88A6 /* back@2x.png in Resources */,
 				18936ED618E75EA7009D88A6 /* continue_button@2x.png in Resources */,
+				18936F7418EAE0CD009D88A6 /* exit@2x.png in Resources */,
 				18936EB518E583BC009D88A6 /* MRChooserViewController.xib in Resources */,
 				18936E4518E3F216009D88A6 /* Images.xcassets in Resources */,
 				18936E8918E410B6009D88A6 /* MyriadPro-Cond.otf in Resources */,
+				18936F7518EAE0CD009D88A6 /* exit2.png in Resources */,
+				18936F4B18E9A60E009D88A6 /* icon_100x100.png in Resources */,
 				18936E7C18E40637009D88A6 /* MRRootViewController.xib in Resources */,
 				18936EC918E6C372009D88A6 /* keyboard_space@2x.png in Resources */,
 			);
@@ -832,6 +925,7 @@
 				18936E6918E3FD52009D88A6 /* MRAppDelegate.m in Sources */,
 				18936F1D18E8B0B4009D88A6 /* MRLogoListViewController.m in Sources */,
 				18936EA718E531E6009D88A6 /* MRRegistrationItemView.m in Sources */,
+				18936F5518EAB23B009D88A6 /* MRSettingsViewController.m in Sources */,
 				18936F3D18E971A3009D88A6 /* RippleViewController.m in Sources */,
 				18936F1418E8711D009D88A6 /* NSData+Base64Additions.m in Sources */,
 				18936EF618E7FE62009D88A6 /* PMTimeManager.m in Sources */,

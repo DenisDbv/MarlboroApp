@@ -97,7 +97,8 @@
     phoneField = [[MRRegistrationItemView alloc] initWithPlaceholder:@"ТЕЛЕФОН"];
     emailField = [[MRRegistrationItemView alloc] initWithPlaceholder:@"E-MAIL"];
     dateBirthField = [[MRRegistrationItemView alloc] initWithPlaceholder:@"ДАТА РОЖДЕНИЯ"];
-    fieldsArray = @[nameField, secondNameField, sexField, phoneField, emailField, dateBirthField];
+    //fieldsArray = @[nameField, secondNameField, sexField, phoneField, emailField, dateBirthField];
+    fieldsArray = @[nameField, emailField];
     
     for(MRRegistrationItemView *fieldView in fieldsArray)   {
         fieldView.delegate = self;
@@ -108,7 +109,6 @@
 {
     int loop = 1;
     for(UIView *view in fieldsArray)    {
-        NSLog(@"%i", loop);
         [UIView animateWithDuration:0.3 animations:^{
             view.frame = CGRectMake((self.tableView.frame.size.width-view.frame.size.width)/2, 0, view.frame.size.width, view.frame.size.height);
             view.alpha = 1;
@@ -132,7 +132,7 @@
     
     CGRect tableViewRect = self.tableView.frame;
     
-    if(selectedField == emailField || selectedField == dateBirthField)  {
+    /*if(selectedField == emailField || selectedField == dateBirthField)  {
         [UIView animateWithDuration:0.3 animations:^{
             self.tableView.frame = CGRectMake(tableViewRect.origin.x, -105.0, tableViewRect.size.width, tableViewRect.size.height);
             nameField.alpha = 0;
@@ -148,7 +148,11 @@
             nameField.alpha = 1;
             secondNameField.alpha = 1;
         }];
-    }
+    }*/
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        self.tableView.frame = CGRectMake(tableViewRect.origin.x, 239.0-100.0, tableViewRect.size.width, tableViewRect.size.height);
+    }];
     
     self.continueButton.hidden = YES;
 }
@@ -157,7 +161,7 @@
 {
     CGRect tableViewRect = self.tableView.frame;
     [UIView animateWithDuration:0.3 animations:^{
-        self.tableView.frame = CGRectMake(tableViewRect.origin.x, 72.0, tableViewRect.size.width, tableViewRect.size.height);
+        self.tableView.frame = CGRectMake(tableViewRect.origin.x, 239.0, tableViewRect.size.width, tableViewRect.size.height);
         nameField.alpha = 1;
         secondNameField.alpha = 1;
         emailField.alpha = 1;
@@ -246,17 +250,24 @@
     
     if(_activeID == eBarcode)   {
         NSDictionary *nameDictionary = @{@"titleKey": @"ПО ИМЕНИ", @"placeholderKey": @"ВВЕДИТЕ ИМЯ", @"indexKey":[NSNumber numberWithInteger:1]};
-        NSDictionary *phoneDictionary = @{@"titleKey": @"ПО ТЕЛЕФОНУ", @"placeholderKey": @"ВВЕДИТЕ ТЕЛЕФОН", @"indexKey":[NSNumber numberWithInteger:2]};
-        NSDictionary *barcodeDictionary = @{FIO_KEY: nameDictionary, PHONE_KEY: phoneDictionary};
-        
+        NSDictionary *secondNameDictionary = @{@"titleKey": @"ПО ФАМИЛИИ", @"placeholderKey": @"ВВЕДИТЕ ФАМИЛИЮ", @"indexKey":[NSNumber numberWithInteger:2]};
+        NSDictionary *phoneDictionary = @{@"titleKey": @"ПО ТЕЛЕФОНУ", @"placeholderKey": @"ВВЕДИТЕ ТЕЛЕФОН", @"indexKey":[NSNumber numberWithInteger:3]};
+        NSDictionary *barcodeDictionary = @{NAME_KEY: nameDictionary,
+                                            SURNAME_KEY:secondNameDictionary,
+                                            PHONE_KEY: phoneDictionary};
         chooserViewController = [[MRChooserViewController alloc] initWithTitle:@"ВЫБЕРИТЕ ДАННЫЕ ДЛЯ ГЕНЕРАЦИИ БАРКОДА" withCheckboxList:barcodeDictionary :_activeID];
         
     } else if(_activeID == eLogo) {
-        NSDictionary *nameDictionary = @{@"titleKey": @"ИМЯ", @"placeholderKey": @"ВВЕДИТЕ ФИО", @"indexKey":[NSNumber numberWithInteger:1]};
-        NSDictionary *phoneDictionary = @{@"titleKey": @"ТЕЛЕФОН", @"placeholderKey": @"ВВЕДИТЕ ТЕЛЕФОН", @"indexKey":[NSNumber numberWithInteger:2]};
-        NSDictionary *sloganDictionary = @{@"titleKey": @"СЛОГАН: EU", @"placeholderKey": @"", @"indexKey":[NSNumber numberWithInteger:3]};
-        NSDictionary *logoDictionary = @{FIO_KEY: nameDictionary, PHONE_KEY: phoneDictionary, SLOGAN_KEY:sloganDictionary};
-        
+        NSDictionary *nameDictionary = @{@"titleKey": @"ИМЯ", @"placeholderKey": @"ВВЕДИТЕ ИМЯ", @"indexKey":[NSNumber numberWithInteger:1]};
+        NSDictionary *secondNameDictionary = @{@"titleKey": @"ПО ФАМИЛИИ", @"placeholderKey": @"ВВЕДИТЕ ФАМИЛИЮ", @"indexKey":[NSNumber numberWithInteger:2]};
+        NSDictionary *patronymicNameDictionary = @{@"titleKey": @"ПО ОТЧЕСТВУ", @"placeholderKey": @"ВВЕДИТЕ ОТЧЕСТВО", @"indexKey":[NSNumber numberWithInteger:3]};
+        NSDictionary *phoneDictionary = @{@"titleKey": @"ТЕЛЕФОН", @"placeholderKey": @"ВВЕДИТЕ ТЕЛЕФОН", @"indexKey":[NSNumber numberWithInteger:4]};
+        NSDictionary *sloganDictionary = @{@"titleKey": @"СЛОГАН: EU", @"placeholderKey": @"", @"indexKey":[NSNumber numberWithInteger:5]};
+        NSDictionary *logoDictionary = @{NAME_KEY: nameDictionary,
+                                         SURNAME_KEY:secondNameDictionary,
+                                         PATRONYMIC_KEY:patronymicNameDictionary,
+                                         PHONE_KEY: phoneDictionary,
+                                         SLOGAN_KEY:sloganDictionary};
         chooserViewController = [[MRChooserViewController alloc] initWithTitle:@"ВЫБЕРИТЕ ТИП ПОДПИСИ ПОД ЛОГОТИПОМ" withCheckboxList:logoDictionary :_activeID];
     }
     
@@ -266,11 +277,11 @@
 -(void) saveData
 {
     [[MRDataManager sharedInstance] setNameRegValue:nameField.titleField.text];
-    [[MRDataManager sharedInstance] setSecondNameRegValue:nameField.titleField.text];
-    [[MRDataManager sharedInstance] setSexRegValue:nameField.titleField.text];
-    [[MRDataManager sharedInstance] setPhoneRegValue:nameField.titleField.text];
-    [[MRDataManager sharedInstance] setEmailRegValue:nameField.titleField.text];
-    [[MRDataManager sharedInstance] setBirthRegValue:nameField.titleField.text];
+    [[MRDataManager sharedInstance] setSecondNameRegValue:secondNameField.titleField.text];
+    [[MRDataManager sharedInstance] setSexRegValue:sexField.titleField.text];
+    [[MRDataManager sharedInstance] setPhoneRegValue:phoneField.titleField.text];
+    [[MRDataManager sharedInstance] setEmailRegValue:emailField.titleField.text];
+    [[MRDataManager sharedInstance] setBirthRegValue:dateBirthField.titleField.text];
     
     [[MRDataManager sharedInstance] save];
 }

@@ -21,7 +21,8 @@
 
 @implementation MRLogoListViewController
 {
-    NSString *name, *phone, *mode;
+    NSString *name, *surName, *patronymicName, *phone, *mode;
+    NSString *nameAll;
     
     UIImage *logoImage1;
     UIImage *logoImage2;
@@ -64,19 +65,30 @@
     saveButton.alpha = 0;
     
     name = ([MRDataManager sharedInstance].nameValue.length == 0) ? @"" : [MRDataManager sharedInstance].nameValue;
+    surName = ([MRDataManager sharedInstance].surnameValue.length == 0) ? @"" : [MRDataManager sharedInstance].surnameValue;
+    patronymicName = ([MRDataManager sharedInstance].patronymicValue.length == 0) ? @"" : [MRDataManager sharedInstance].patronymicValue;
     phone = ([MRDataManager sharedInstance].phoneValue.length == 0) ? @"" : [MRDataManager sharedInstance].phoneValue;
     mode = ([MRDataManager sharedInstance].sloganValue) ? @"EU" : @"";
-    NSLog(@"name=%@ phone=%@ mode=%@", name, phone, mode);
+    NSLog(@"name=\'%@\' surname=\'%@\' patronymicName=\'%@\' phone=\'%@\' mode=\'%@\'", name, surName, patronymicName, phone, mode);
     //name = @"DENIS DUBOV ALEXANDROVICH";
     //phone = @"9063816363";
     //mode = @"EU";
     
-    logoImage1 = [UIImage logoWithName:name phone:phone mode:mode fontType:1 type:1];
-    logoImage2 = [UIImage logoWithName:name phone:phone mode:mode fontType:1 type:2];
-    logoImage3 = [UIImage logoWithName:name phone:phone mode:mode fontType:1 type:3];
+    if(name.length == 0 || surName.length == 0 || patronymicName.length == 0)
+        nameAll = @"";
+    else
+        nameAll = [surName stringByAppendingFormat:@" %@ %@", name, patronymicName];
+    
+    logoImage1 = [UIImage logoWithName:nameAll phone:phone mode:mode fontType:1 type:1];
+    logoImage2 = [UIImage logoWithName:nameAll phone:phone mode:mode fontType:1 type:2];
+    logoImage3 = [UIImage logoWithName:nameAll phone:phone mode:mode fontType:1 type:3];
     
     logoImagesArray = @[logoImage1, logoImage2, logoImage3];
     
+    carouselLogoList.scrollEnabled = NO;
+    carouselLogoFonts.scrollEnabled = NO;
+    carouselLogoList.centerItemWhenSelected = NO;
+    carouselLogoFonts.centerItemWhenSelected = NO;
     carouselLogoList.type = iCarouselTypeLinear;
     carouselLogoFonts.type = iCarouselTypeLinear;
     [carouselLogoList reloadData];
@@ -152,43 +164,51 @@
 {
     if(carousel == carouselLogoList)    {
         UIImage *logoImage = [logoImagesArray objectAtIndex:index];
-        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300.0, 300.0)];
-        ((UIImageView *)view).image = logoImage;
-        view.contentMode = UIViewContentModeScaleAspectFill;
-        [view initialiseTapHandler:^(UIGestureRecognizer *sender) {
-            [UIView animateWithDuration:0.05 animations:^{
-                view.transform = CGAffineTransformMakeScale(0.90, 0.90);
-            }
-                             completion:^(BOOL finished){
-                                 
-                                 [UIView animateWithDuration:0.05f animations:^{
-                                     view.transform = CGAffineTransformMakeScale(1, 1);
-                                 } completion:^(BOOL finished) {
-                                        [self presentSelectedLogoType:index+1];
-                                 }];
-                             }];
-        } forTaps:1];
+        view = [UIButton buttonWithType:UIButtonTypeCustom];
+        view.frame = CGRectMake(0, 0, 300.0, 300.0);
+        [((UIButton*)view) setImage:logoImage forState:UIControlStateNormal];
+        view.tag = index;
+        [((UIButton*)view) addTarget:self action:@selector(onLogoListClick:) forControlEvents:UIControlEventTouchUpInside];
     } else if(carousel == carouselLogoFonts)    {
         UIImage *logoImage = [logoImageFontsArray objectAtIndex:index];
-        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300.0, 300.0)];
-        ((UIImageView *)view).image = logoImage;
-        view.contentMode = UIViewContentModeScaleAspectFill;
-        [view initialiseTapHandler:^(UIGestureRecognizer *sender) {
-            [UIView animateWithDuration:0.05 animations:^{
-                view.transform = CGAffineTransformMakeScale(0.90, 0.90);
-            }
-                             completion:^(BOOL finished){
-                                 
-                                 [UIView animateWithDuration:0.05f animations:^{
-                                     view.transform = CGAffineTransformMakeScale(1, 1);
-                                 } completion:^(BOOL finished) {
-                                     [self presentSelectedLogoFontImage:((UIImageView*)view).image];
-                                 }];
-                             }];
-        } forTaps:1];
+        view = [UIButton buttonWithType:UIButtonTypeCustom];
+        view.frame = CGRectMake(0, 0, 300.0, 300.0);
+        [((UIButton*)view) setImage:logoImage forState:UIControlStateNormal];
+        view.tag = index;
+        [((UIButton*)view) addTarget:self action:@selector(onLogoFontsClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return view;
+}
+
+-(void) onLogoListClick:(UIButton*)button
+{
+    [UIView animateWithDuration:0.05 animations:^{
+        button.transform = CGAffineTransformMakeScale(0.95, 0.95);
+    }
+                     completion:^(BOOL finished){
+                         
+                         [UIView animateWithDuration:0.05f animations:^{
+                             button.transform = CGAffineTransformMakeScale(1, 1);
+                         } completion:^(BOOL finished) {
+                             [self presentSelectedLogoType:button.tag+1];
+                         }];
+                     }];
+}
+
+-(void) onLogoFontsClick:(UIButton*)button
+{
+    [UIView animateWithDuration:0.05 animations:^{
+        button.transform = CGAffineTransformMakeScale(0.95, 0.95);
+    }
+                     completion:^(BOOL finished){
+                         
+                         [UIView animateWithDuration:0.05f animations:^{
+                             button.transform = CGAffineTransformMakeScale(1, 1);
+                         } completion:^(BOOL finished) {
+                             [self presentSelectedLogoFontImage:[logoImageFontsArray objectAtIndex:button.tag]];
+                         }];
+                     }];
 }
 
 - (CATransform3D)carousel:(iCarousel *)_carousel itemTransformForOffset:(CGFloat)offset baseTransform:(CATransform3D)transform
@@ -222,6 +242,14 @@
             }
             return value;
         }
+        case iCarouselOptionVisibleItems:
+        {
+            return 3;
+        }
+        case iCarouselOptionCount:
+        {
+            return 3;
+        }
         default:
         {
             return value;
@@ -239,9 +267,9 @@
 
 -(void) presentSelectedLogoType:(NSInteger)typeIndex
 {
-    logoImageFont1 = [UIImage logoWithName:name phone:phone mode:mode fontType:1 type:typeIndex];
-    logoImageFont2 = [UIImage logoWithName:name phone:phone mode:mode fontType:2 type:typeIndex];
-    logoImageFont3 = [UIImage logoWithName:name phone:phone mode:mode fontType:3 type:typeIndex];
+    logoImageFont1 = [UIImage logoWithName:nameAll phone:phone mode:mode fontType:1 type:typeIndex];
+    logoImageFont2 = [UIImage logoWithName:nameAll phone:phone mode:mode fontType:2 type:typeIndex];
+    logoImageFont3 = [UIImage logoWithName:nameAll phone:phone mode:mode fontType:3 type:typeIndex];
     
     logoImageFontsArray = @[logoImageFont1, logoImageFont2, logoImageFont3];
     
@@ -287,8 +315,15 @@
 {
     isPresentLogoImage = YES;
     
+    titleLabel.text = @"ВАШ ВАРИАНТ";
+    [titleLabel sizeToFit];
+    titleLabel.frame = CGRectMake((self.view.bounds.size.width - titleLabel.frame.size.width)/2,
+                                  100,
+                                  titleLabel.frame.size.width,
+                                  titleLabel.frame.size.height);
+    
     selectedLogoImage = [[UIImageView alloc] initWithImage:logoImage];
-    selectedLogoImage.frame = CGRectMake((self.view.bounds.size.width-400)/2, (self.view.bounds.size.height-400)/2-80, 400, 400);
+    selectedLogoImage.frame = CGRectMake((self.view.bounds.size.width-400)/2, titleLabel.frame.origin.y+titleLabel.frame.size.height+40, 400, 400);
     selectedLogoImage.contentMode = UIViewContentModeScaleAspectFill;
     selectedLogoImage.alpha = 0;
     [self.view addSubview:selectedLogoImage];
@@ -299,7 +334,7 @@
     
     [UIView animateWithDuration:0.2 animations:^{
         carouselLogoFonts.alpha = 0;
-        titleLabel.alpha = 0;
+        //titleLabel.alpha = 0;
         
         selectedLogoImage.alpha = 1;
         saveButton.alpha = 1;
@@ -317,6 +352,13 @@
         selectedLogoImage.alpha = 0;
         saveButton.alpha = 0;
     }];
+    
+    titleLabel.text = @"ВЫБЕРИТЕ ШРИФТ ДЛЯ ЛОГОТИПА";
+    [titleLabel sizeToFit];
+    titleLabel.frame = CGRectMake((self.view.bounds.size.width - titleLabel.frame.size.width)/2,
+                                  185,
+                                  titleLabel.frame.size.width,
+                                  titleLabel.frame.size.height);
 }
 
 -(IBAction)onSave:(UIButton*)button

@@ -44,7 +44,8 @@
                            @"Ъ":@"",
                            @"Э":@"E",
                            @"Ю":@"YU",
-                           @"Я":@"YA"};
+                           @"Я":@"YA",
+                           @"Ы":@"I"};
     
     __block NSMutableString *resultString = [NSMutableString string];
     [self enumerateCharactersWithBlock:^(unichar a, NSUInteger index, BOOL *ret) {

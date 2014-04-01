@@ -28,6 +28,7 @@
     UILabel *titleLabel;
     
     BOOL isShowContinueBtn;
+    NSInteger selectedCheckItem;
 }
 @synthesize continueButton;
 
@@ -107,7 +108,7 @@
 {
     if(_activeID == eBarcode || _activeID == eLogo) {
         [self.navigationController.formSheetController dismissFormSheetControllerAnimated:NO completionHandler:^(MZFormSheetController *formSheetController) {
-            //
+            
         }];
     } else  {
         [self hideAllContext];
@@ -132,13 +133,17 @@
 
 -(void) updateContinueButton
 {
-    NSLog(@"%i and %f", isShowContinueBtn, self.view.frame.origin.y);
-    
     if(isShowContinueBtn && self.view.frame.origin.y >= 0)  {
         continueButton.alpha = 1;
     } else  {
         continueButton.alpha = 0;
     }
+    
+    /*if(isShowContinueBtn && checkViewArray.count > 3)   {
+        CGRect rect = continueButton.frame;
+        rect.origin.y = (self.view.bounds.size.height - continueButton.frame.size.height - 10);
+        continueButton.frame = rect;
+    }*/
 }
 
 - (void)keyboardWillShow:(NSNotification*)notification
@@ -150,7 +155,7 @@
             titleLabel.alpha = 0;
             
             CGRect rect = self.view.frame;
-            rect.origin.y -= 200;
+            rect.origin.y -= 170;
             self.view.frame = rect;
         }];
     } else  {
@@ -173,7 +178,7 @@
             titleLabel.alpha = 1;
             
             CGRect rect = self.view.frame;
-            rect.origin.y += 200;
+            rect.origin.y += 170;
             self.view.frame = rect;
         }];
     } else  {
@@ -211,8 +216,11 @@
     
     checkViewArray = [[NSMutableArray alloc] initWithArray:sortedArray];
     
+    if(checkViewArray.count > 3)    {
+        titleLabel.frame = CGRectOffset(titleLabel.frame, 0, -70);
+    }
     
-    NSInteger marginTop = titleLabel.frame.origin.y + titleLabel.frame.size.height + 70;
+    NSInteger marginTop = titleLabel.frame.origin.y + titleLabel.frame.size.height + ((checkViewArray.count>3)?30:70);
     
     __block int centerX = 0;
     __block int loop = 0;
@@ -221,7 +229,7 @@
             centerX = (self.view.bounds.size.width - checkItem.frame.size.width)/2;
         }
         
-        checkItem.frame = CGRectOffset(checkItem.frame, centerX, (loop * (checkItem.frame.size.height+27)) + marginTop);
+        checkItem.frame = CGRectOffset(checkItem.frame, centerX, (loop * (checkItem.frame.size.height+15)) + marginTop);
         [self.view addSubview:checkItem];
         
         loop++;
@@ -229,7 +237,7 @@
     
     MRCheckItem *checkItem = [checkViewArray lastObject];
     continueButton.frame = CGRectMake((self.view.bounds.size.width - continueButton.frame.size.width)/2,
-                                      checkItem.frame.origin.y+checkItem.frame.size.height+70,
+                                      checkItem.frame.origin.y+checkItem.frame.size.height+((checkViewArray.count>3)?30:70),
                                       continueButton.frame.size.width, continueButton.frame.size.height);
 }
 
@@ -267,8 +275,12 @@
 {
     for( MRCheckItem *checkItem in checkViewArray )
     {
-        if([checkItem._key isEqualToString:FIO_KEY])    {
+        if([checkItem._key isEqualToString:NAME_KEY])    {
             [[MRDataManager sharedInstance] setNameValue:checkItem.fieldView.titleField.text];
+        } else if([checkItem._key isEqualToString:SURNAME_KEY]) {
+            [[MRDataManager sharedInstance] setSurnameValue:checkItem.fieldView.titleField.text];
+        } else if([checkItem._key isEqualToString:PATRONYMIC_KEY]) {
+            [[MRDataManager sharedInstance] setPatronymicValue:checkItem.fieldView.titleField.text];
         } else if([checkItem._key isEqualToString:PHONE_KEY]) {
             [[MRDataManager sharedInstance] setPhoneValue:checkItem.fieldView.titleField.text];
         } else if([checkItem._key isEqualToString:SLOGAN_KEY]) {
@@ -289,15 +301,24 @@
 -(BOOL) dataAccessTrue
 {
     if(_activeID == eLogo) {
-        if([MRDataManager sharedInstance].nameValue.length > 0) {
-            NSArray *nameArr;
-            if ([MRDataManager sharedInstance].nameValue.length != 0){
-                nameArr = [[MRDataManager sharedInstance].nameValue componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-                if (nameArr.count < 3) {
-                    MRCheckItem *checkItem = [checkViewArray objectAtIndex:0];
-                    [self shakeIt:checkItem withDelta:-2.0];
-                    return NO;
-                }
+        
+        if([MRDataManager sharedInstance].nameValue.length > 0 ||
+           [MRDataManager sharedInstance].surnameValue.length > 0 ||
+           [MRDataManager sharedInstance].patronymicValue.length > 0) {
+            if( ([MRDataManager sharedInstance].nameValue.length <= 0) )    {
+                MRCheckItem *checkItem = [checkViewArray objectAtIndex:0];
+                [self shakeIt:checkItem withDelta:-2.0];
+                return NO;
+            }
+            if( ([MRDataManager sharedInstance].surnameValue.length <= 0) )    {
+                MRCheckItem *checkItem = [checkViewArray objectAtIndex:1];
+                [self shakeIt:checkItem withDelta:-2.0];
+                return NO;
+            }
+            if( ([MRDataManager sharedInstance].patronymicValue.length <= 0) )    {
+                MRCheckItem *checkItem = [checkViewArray objectAtIndex:2];
+                [self shakeIt:checkItem withDelta:-2.0];
+                return NO;
             }
         }
     }

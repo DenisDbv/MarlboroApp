@@ -11,22 +11,24 @@
 #import <ABMultiton/ABMultiton.h>
 
 //Registration person data
-#define NAME_REG_KEY    @"nameRegKey"
+#define NAME_REG_KEY        @"nameRegKey"
 #define SECONDNAME_REG_KEY  @"secondNameRegKey"
-#define SEX_REG_KEY @"sexRegKey"
-#define PHONE_REG_KEY   @"phoneRegKey"
-#define EMAIL_REG_KEY   @"emailRegKey"
-#define BIRTH_REG_KEY   @"birthRegKey"
+#define SEX_REG_KEY         @"sexRegKey"
+#define PHONE_REG_KEY       @"phoneRegKey"
+#define EMAIL_REG_KEY       @"emailRegKey"
+#define BIRTH_REG_KEY       @"birthRegKey"
 
 //Person data
-#define FIO_KEY     @"fioKey"
-#define PHONE_KEY   @"phoneKey"
-#define SLOGAN_KEY  @"sloganKey"
+#define NAME_KEY            @"nameKey"
+#define SURNAME_KEY         @"surnameKey"
+#define PATRONYMIC_KEY      @"patronymicKey"
+#define PHONE_KEY           @"phoneKey"
+#define SLOGAN_KEY          @"sloganKey"
 
 //Sign type
-#define FIO_SIGN_KEY    @"fioSignKey"
-#define PHONE_SIGN_KEY    @"phoneSignKey"
-#define SLOGAN_SIGN_KEY    @"sloganSignKey"
+#define FIO_SIGN_KEY        @"fioSignKey"
+#define PHONE_SIGN_KEY      @"phoneSignKey"
+#define SLOGAN_SIGN_KEY     @"sloganSignKey"
 
 @interface MRDataManager : NSObject <ABMultitonProtocol>
 
@@ -38,6 +40,8 @@
 @property (nonatomic, weak) NSString *birthRegValue;
 
 @property (nonatomic, weak) NSString *nameValue;
+@property (nonatomic, weak) NSString *surnameValue;
+@property (nonatomic, weak) NSString *patronymicValue;
 @property (nonatomic, weak) NSString *phoneValue;
 @property (nonatomic) BOOL sloganValue;
 

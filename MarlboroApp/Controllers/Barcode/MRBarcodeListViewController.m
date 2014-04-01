@@ -58,21 +58,26 @@
     
     NSString *dataBufferString = [[MRDataManager sharedInstance].nameValue stringByAppendingString:[MRDataManager sharedInstance].phoneValue];
     NSString *name = ([MRDataManager sharedInstance].nameSignValue) ? [MRDataManager sharedInstance].nameValue : nil;
+    NSString *surName = ([MRDataManager sharedInstance].nameSignValue) ? [MRDataManager sharedInstance].surnameValue : nil;
     NSString *phone = ([MRDataManager sharedInstance].phoneSignValue) ? [MRDataManager sharedInstance].phoneValue : nil;
     NSString *mode = ([MRDataManager sharedInstance].sloganSignValue) ? @"EU" : nil;
     
-    NSLog(@"Data for barcode (%@)", dataBufferString);
-    NSLog(@"name=%@ phone=%@ mode=%@", name, phone, mode);
+    NSString *nameWithSurname = [name stringByAppendingFormat:@" %@", surName];
     
-    barcode1 = [UIImage barcodeWithText:dataBufferString name:name phone:phone mode:mode type:1];
-    barcode2 = [UIImage barcodeWithText:dataBufferString name:name phone:phone mode:mode type:2];
-    barcode3 = [UIImage barcodeWithText:dataBufferString name:name phone:phone mode:mode type:3];
-    barcode4 = [UIImage barcodeWithText:dataBufferString name:name phone:phone mode:mode type:4];
-    barcode5 = [UIImage barcodeWithText:dataBufferString name:name phone:phone mode:mode type:5];
-    barcode6 = [UIImage barcodeWithText:dataBufferString name:name phone:phone mode:mode type:6];
+    NSLog(@"Data for barcode (%@)", dataBufferString);
+    NSLog(@"name=%@ surname=%@ phone=%@ mode=%@", name, surName, phone, mode);
+    
+    barcode1 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode type:1];
+    barcode2 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode type:2];
+    barcode3 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode type:3];
+    barcode4 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode type:4];
+    barcode5 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode type:5];
+    barcode6 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode type:6];
     
     barcodeImages = @[barcode1, barcode2, barcode3, barcode4, barcode5, barcode6];
     
+    //carousel.scrollEnabled = NO;
+    carousel.centerItemWhenSelected = NO;
     carousel.type = iCarouselTypeLinear;
     [carousel reloadData];
     
@@ -131,29 +136,29 @@
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
-    //if(view == nil) {
-        UIImage *barcodeImage = [barcodeImages objectAtIndex:index];
-        //NSLog(@"%@", NSStringFromCGSize(barcodeImage.size));
-        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 400.0, 400.0)];
-        ((UIImageView *)view).image = barcodeImage;
-        view.contentMode = UIViewContentModeCenter;
-        
-        [view initialiseTapHandler:^(UIGestureRecognizer *sender) {
-            [UIView animateWithDuration:0.05 animations:^{
-                view.transform = CGAffineTransformMakeScale(0.90, 0.90);
-            }
-                             completion:^(BOOL finished){
-                                 
-                                 [UIView animateWithDuration:0.05f animations:^{
-                                     view.transform = CGAffineTransformMakeScale(1, 1);
-                                 } completion:^(BOOL finished) {
-                                     [self presentSelectedImage:((UIImageView*)sender.view).image];
-                                 }];
-                             }];
-        } forTaps:1];
-    //}
+    UIImage *barcodeImage = [barcodeImages objectAtIndex:index];
+    view = [UIButton buttonWithType:UIButtonTypeCustom];
+    view.frame = CGRectMake(0, 0, 400.0, 400.0);
+    [((UIButton*)view) setImage:barcodeImage forState:UIControlStateNormal];
+    view.tag = index;
+    [((UIButton*)view) addTarget:self action:@selector(onBarcodeClick:) forControlEvents:UIControlEventTouchUpInside];
     
     return view;
+}
+
+-(void) onBarcodeClick:(UIButton*)button
+{
+    [UIView animateWithDuration:0.05 animations:^{
+        button.transform = CGAffineTransformMakeScale(0.95, 0.95);
+    }
+                     completion:^(BOOL finished){
+                         
+                         [UIView animateWithDuration:0.05f animations:^{
+                             button.transform = CGAffineTransformMakeScale(1, 1);
+                         } completion:^(BOOL finished) {
+                             [self presentSelectedImage:[barcodeImages objectAtIndex:button.tag]];
+                         }];
+                     }];
 }
 
 - (CATransform3D)carousel:(iCarousel *)_carousel itemTransformForOffset:(CGFloat)offset baseTransform:(CATransform3D)transform
@@ -206,9 +211,16 @@
 {
     isPresentImage = YES;
     
+    titleLabel.text = @"ВАШ ВЫБОР";
+    [titleLabel sizeToFit];
+    titleLabel.frame = CGRectMake((self.view.bounds.size.width - titleLabel.frame.size.width)/2,
+                                  185,
+                                  titleLabel.frame.size.width,
+                                  titleLabel.frame.size.height);
+    
     selectedBarcodeImage = [[UIImageView alloc] initWithImage:image];
     selectedBarcodeImage.alpha = 0;
-    selectedBarcodeImage.frame = CGRectMake((self.view.bounds.size.width-image.size.width)/2, (self.view.bounds.size.height-image.size.height)/2-80, image.size.width, image.size.height);
+    selectedBarcodeImage.frame = CGRectMake((self.view.bounds.size.width-image.size.width)/2, titleLabel.frame.origin.y+titleLabel.frame.size.height+50, image.size.width, image.size.height);
     selectedBarcodeImage.center = self.view.center;
     
     [self.view addSubview:selectedBarcodeImage];
@@ -219,7 +231,7 @@
     
     [UIView animateWithDuration:0.2 animations:^{
         carousel.alpha = 0;
-        titleLabel.alpha = 0;
+        //titleLabel.alpha = 0;
         
         selectedBarcodeImage.alpha = 1;
         saveButton.alpha = 1;
@@ -229,6 +241,13 @@
 -(void) backToChooseBarcode
 {
     isPresentImage = NO;
+    
+    titleLabel.text = @"ВЫБЕРИТЕ ВАРИАНТ БАРКОДА";
+    [titleLabel sizeToFit];
+    titleLabel.frame = CGRectMake((self.view.bounds.size.width - titleLabel.frame.size.width)/2,
+                                  185,
+                                  titleLabel.frame.size.width,
+                                  titleLabel.frame.size.height);
     
     [UIView animateWithDuration:0.2 animations:^{
         carousel.alpha = 1;

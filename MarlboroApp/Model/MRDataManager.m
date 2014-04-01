@@ -17,7 +17,7 @@
     NSUserDefaults *userDefaults;
 }
 @synthesize nameRegValue, secondNameRegValue, sexRegValue, phoneRegValue, emailRegValue, birthRegValue;
-@synthesize nameValue, phoneValue, sloganValue;
+@synthesize nameValue, surnameValue, patronymicValue, phoneValue, sloganValue;
 @synthesize nameSignValue, phoneSignValue, sloganSignValue;
 
 + (instancetype)sharedInstance
@@ -43,7 +43,9 @@
     [userDefaults setValue:@"denisdbv@gmail.com" forKey:EMAIL_REG_KEY];
     [userDefaults setValue:@"" forKey:BIRTH_REG_KEY];
     
-    [userDefaults setValue:@"" forKey:FIO_KEY];
+    [userDefaults setValue:@"" forKey:NAME_KEY];
+    [userDefaults setValue:@"" forKey:SURNAME_KEY];
+    [userDefaults setValue:@"" forKey:PATRONYMIC_KEY];
     [userDefaults setValue:@"" forKey:PHONE_KEY];
     [userDefaults setValue:@"" forKey:SLOGAN_KEY];
     
@@ -102,10 +104,24 @@
 }
 
 -(void) setNameValue:(NSString *)nameValue  {
-    [userDefaults setValue:nameValue forKey:FIO_KEY];
+    [userDefaults setValue:nameValue forKey:NAME_KEY];
 }
 -(NSString*) nameValue  {
-    return [userDefaults valueForKey:FIO_KEY];
+    return [userDefaults valueForKey:NAME_KEY];
+}
+
+-(void) setSurnameValue:(NSString *)surnameValue  {
+    [userDefaults setValue:surnameValue forKey:SURNAME_KEY];
+}
+-(NSString*) surnameValue  {
+    return [userDefaults valueForKey:SURNAME_KEY];
+}
+
+-(void) setPatronymicValue:(NSString *)patronymicValue  {
+    [userDefaults setValue:patronymicValue forKey:PATRONYMIC_KEY];
+}
+-(NSString*) patronymicValue  {
+    return [userDefaults valueForKey:PATRONYMIC_KEY];
 }
 
 -(void) setPhoneValue:(NSString *)phoneValue    {
