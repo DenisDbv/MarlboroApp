@@ -60,6 +60,10 @@
     titleField.delegate = self;
     [self addSubview:titleField];
     
+    if(!IS_OS_7_OR_LATER)   {
+        titleField.frame = CGRectMake(0, (self.frame.size.height-35)/2, self.frame.size.width, 35);
+    }
+    
     PMCustomKeyboard *customKeyboard = [[PMCustomKeyboard alloc] init];
     [customKeyboard setTextView:titleField];
 }

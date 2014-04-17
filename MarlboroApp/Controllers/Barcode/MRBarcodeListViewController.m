@@ -14,14 +14,23 @@
 
 #import <MZFormSheetController/MZFormSheetController.h>
 #import <TYMActivityIndicatorView/TYMActivityIndicatorView.h>
+#import <SIAlertView/SIAlertView.h>
 
 @interface MRBarcodeListViewController () <BarcodeSavedViewDelegate, PMMailManagerDelegate>
 @property (nonatomic, strong) NSArray *barcodeImages;
+@property (nonatomic, strong) NSArray *barcodeFontsImages;
 @property (nonatomic, weak) IBOutlet UIButton *saveButton;
 @end
 
 @implementation MRBarcodeListViewController
 {
+    NSString *dataBufferString;
+    NSString *name;
+    NSString *surName;
+    NSString *phone;
+    NSString *mode;
+    NSString *nameWithSurname;
+    
     UILabel *titleLabel;
     
     UIImage *barcode1;
@@ -31,13 +40,28 @@
     UIImage *barcode5;
     UIImage *barcode6;
     
+    UIImage *barcodeFont1;
+    UIImage *barcodeFont2;
+    UIImage *barcodeFont3;
+    UIImage *barcodeFont4;
+    UIImage *barcodeFont5;
+    UIImage *barcodeFont6;
+    
     UIImageView *selectedBarcodeImage;
+    BOOL isPresentFontsCarousel;
     BOOL isPresentImage;
     
     TYMActivityIndicatorView *activityIndicator;
+    
+    UIImage *selectedImageForMail;
+    NSInteger selectedIndexForMail;
+    
+    BarcodeSavedView *finishView;
+    PMMailManager *mailManager;
+    BOOL isSending;
 }
-@synthesize carousel;
-@synthesize barcodeImages;
+@synthesize carousel, carouselFonts;
+@synthesize barcodeImages, barcodeFontsImages;
 @synthesize saveButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -53,26 +77,30 @@
 {
     [super viewDidLoad];
     
+    isPresentFontsCarousel = NO;
     isPresentImage = NO;
     saveButton.alpha = 0;
+    isSending = NO;
     
-    NSString *dataBufferString = [[MRDataManager sharedInstance].nameValue stringByAppendingString:[MRDataManager sharedInstance].phoneValue];
-    NSString *name = ([MRDataManager sharedInstance].nameSignValue) ? [MRDataManager sharedInstance].nameValue : nil;
-    NSString *surName = ([MRDataManager sharedInstance].nameSignValue) ? [MRDataManager sharedInstance].surnameValue : nil;
-    NSString *phone = ([MRDataManager sharedInstance].phoneSignValue) ? [MRDataManager sharedInstance].phoneValue : nil;
-    NSString *mode = ([MRDataManager sharedInstance].sloganSignValue) ? @"EU" : nil;
-    
-    NSString *nameWithSurname = [name stringByAppendingFormat:@" %@", surName];
-    
+    NSString *phoneScript = ([MRDataManager sharedInstance].phoneValue.length > 0) ? [MRDataManager sharedInstance].phoneValue : @"";
+    NSString *nameScript = ([MRDataManager sharedInstance].nameValue.length > 0) ? [MRDataManager sharedInstance].nameValue : @"";
+    dataBufferString = [nameScript stringByAppendingString:phoneScript];
+    name = ([MRDataManager sharedInstance].nameSignValue) ? [MRDataManager sharedInstance].nameValue : nil;
+    surName = ([MRDataManager sharedInstance].nameSignValue) ? [MRDataManager sharedInstance].surnameValue : nil;
+    phone = ([MRDataManager sharedInstance].phoneSignValue) ? [MRDataManager sharedInstance].phoneValue : nil;
+    mode = ([MRDataManager sharedInstance].sloganSignValue) ? @"EU" : nil;
+
+    nameWithSurname = [name stringByAppendingFormat:@" %@", surName];
+
     NSLog(@"Data for barcode (%@)", dataBufferString);
-    NSLog(@"name=%@ surname=%@ phone=%@ mode=%@", name, surName, phone, mode);
+    NSLog(@"name=\'%@\' surname=\'%@\' phone=\'%@\' mode=\'%@\'", name, surName, phone, mode);
     
-    barcode1 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode type:1];
-    barcode2 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode type:2];
-    barcode3 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode type:3];
-    barcode4 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode type:4];
-    barcode5 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode type:5];
-    barcode6 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode type:6];
+    barcode1 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode fontType:2 type:1];
+    barcode2 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode fontType:2 type:2];
+    barcode3 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode fontType:2 type:3];
+    barcode4 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode fontType:2 type:4];
+    barcode5 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode fontType:2 type:5];
+    barcode6 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode fontType:2 type:6];
     
     barcodeImages = @[barcode1, barcode2, barcode3, barcode4, barcode5, barcode6];
     
@@ -80,6 +108,10 @@
     carousel.centerItemWhenSelected = NO;
     carousel.type = iCarouselTypeLinear;
     [carousel reloadData];
+    
+    carouselFonts.alpha = 0;
+    carouselFonts.centerItemWhenSelected = NO;
+    carouselFonts.type = iCarouselTypeLinear;
     
     titleLabel = [[UILabel alloc] init];
     titleLabel.alpha = 1;
@@ -94,6 +126,9 @@
                                   titleLabel.frame.size.width,
                                   titleLabel.frame.size.height);
     [self.view addSubview:titleLabel];
+    
+    mailManager = [PMMailManager new];
+    mailManager.delegate = self;
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -118,11 +153,45 @@
 
 - (void)onExit:(NSNotification*)notification
 {
-    if(!isPresentImage) {
+    /*if(!isPresentImage) {
         [self hideAllContext];
         [self.navigationController popViewControllerAnimated:YES];
     } else  {
         [self backToChooseBarcode];
+    }*/
+    
+    if(isPresentImage)  {
+        if(isSending) {
+            SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"ПРЕДУПРЕЖДЕНИЕ" andMessage:@"Отправка вашего штрих-кода будет отменена. Вы уверены?"];
+            [alertView addButtonWithTitle:@"НЕТ"
+                                     type:SIAlertViewButtonTypeDefault
+                                  handler:^(SIAlertView *alert) {
+                                      NSLog(@"Button1 Clicked");
+                                  }];
+            [alertView addButtonWithTitle:@"ДА"
+                                     type:SIAlertViewButtonTypeDestructive
+                                  handler:^(SIAlertView *alert) {
+                                      if(mailManager != nil)  {
+                                          [mailManager cancellAll];
+                                          
+                                          mailManager.delegate = nil;
+                                          mailManager = nil;
+                                          [self mailSendFailed];
+                                          
+                                          mailManager = [PMMailManager new];
+                                          mailManager.delegate = self;
+                                      }
+                                  }];
+            alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
+            [alertView show];
+        } else  {
+            [self backToChooseBarcode];
+        }
+    } else if(isPresentFontsCarousel)   {
+        [self showBarcodesTypeCarousel];
+    } else  {
+        [self hideAllContext];
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
@@ -131,17 +200,31 @@
 
 - (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
-    return [barcodeImages count];
+    if(carousel == self.carousel)
+        return [barcodeImages count];
+    else if(carousel == self.carouselFonts)
+        return [barcodeFontsImages count];
+    
+    return 0;
 }
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
-    UIImage *barcodeImage = [barcodeImages objectAtIndex:index];
-    view = [UIButton buttonWithType:UIButtonTypeCustom];
-    view.frame = CGRectMake(0, 0, 400.0, 400.0);
-    [((UIButton*)view) setImage:barcodeImage forState:UIControlStateNormal];
-    view.tag = index;
-    [((UIButton*)view) addTarget:self action:@selector(onBarcodeClick:) forControlEvents:UIControlEventTouchUpInside];
+    if(carousel == self.carousel)   {
+        UIImage *barcodeImage = [barcodeImages objectAtIndex:index];
+        view = [UIButton buttonWithType:UIButtonTypeCustom];
+        view.frame = CGRectMake(0, 0, 400.0, 400.0);
+        [((UIButton*)view) setImage:barcodeImage forState:UIControlStateNormal];
+        view.tag = index;
+        [((UIButton*)view) addTarget:self action:@selector(onBarcodeClick:) forControlEvents:UIControlEventTouchUpInside];
+    } else if(carousel == carouselFonts)    {
+        UIImage *barcodeImage = [barcodeFontsImages objectAtIndex:index];
+        view = [UIButton buttonWithType:UIButtonTypeCustom];
+        view.frame = CGRectMake(0, 0, 400.0, 400.0);
+        [((UIButton*)view) setImage:barcodeImage forState:UIControlStateNormal];
+        view.tag = index;
+        [((UIButton*)view) addTarget:self action:@selector(onBarcodeFontClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
     
     return view;
 }
@@ -156,7 +239,23 @@
                          [UIView animateWithDuration:0.05f animations:^{
                              button.transform = CGAffineTransformMakeScale(1, 1);
                          } completion:^(BOOL finished) {
-                             [self presentSelectedImage:[barcodeImages objectAtIndex:button.tag]];
+                             [self selectBarcodeType:button.tag+1];
+                         }];
+                     }];
+}
+
+-(void) onBarcodeFontClick:(UIButton*)button
+{
+    [UIView animateWithDuration:0.05 animations:^{
+        button.transform = CGAffineTransformMakeScale(0.95, 0.95);
+    }
+                     completion:^(BOOL finished){
+                         
+                         [UIView animateWithDuration:0.05f animations:^{
+                             button.transform = CGAffineTransformMakeScale(1, 1);
+                         } completion:^(BOOL finished) {
+                             selectedIndexForMail = button.tag;
+                             [self presentSelectedImage:[barcodeFontsImages objectAtIndex:button.tag]];
                          }];
                      }];
 }
@@ -207,8 +306,66 @@
     
 }
 
+-(void) selectBarcodeType:(NSInteger)index
+{
+    barcodeFont1 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode fontType:1 type:index];
+    NSLog(@"1)%@", barcodeFont1);
+    barcodeFont2 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode fontType:2 type:index];
+    NSLog(@"2)%@", barcodeFont2);
+    barcodeFont3 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode fontType:3 type:index];
+    NSLog(@"3)%@", barcodeFont3);
+    barcodeFont4 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode fontType:4 type:index];
+    NSLog(@"4)%@", barcodeFont4);
+    barcodeFont5 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode fontType:5 type:index];
+    NSLog(@"5)%@", barcodeFont5);
+    barcodeFont6 = [UIImage barcodeWithText:dataBufferString name:nameWithSurname phone:phone mode:mode fontType:6 type:index];
+    NSLog(@"6)%@", barcodeFont6);
+    
+    barcodeFontsImages = @[barcodeFont1, barcodeFont2, barcodeFont3, barcodeFont4, barcodeFont5, barcodeFont6];
+    
+    [carouselFonts reloadData];
+    [carouselFonts scrollToItemAtIndex:1 animated:NO];
+    
+    [self showFontsCarousel];
+}
+
+-(void) showFontsCarousel
+{
+    [UIView animateWithDuration:0.2 animations:^{
+        carousel.alpha = 0;
+        carouselFonts.alpha = 1;
+    }];
+    
+    titleLabel.text = @"ВЫБЕРИТЕ ШРИФТ ДЛЯ БАРКОДА";
+    [titleLabel sizeToFit];
+    titleLabel.frame = CGRectMake((self.view.bounds.size.width - titleLabel.frame.size.width)/2,
+                                  185,
+                                  titleLabel.frame.size.width,
+                                  titleLabel.frame.size.height);
+    isPresentFontsCarousel = YES;
+}
+
+-(void) showBarcodesTypeCarousel
+{
+    [UIView animateWithDuration:0.2 animations:^{
+        carousel.alpha = 1;
+        carouselFonts.alpha = 0;
+    }];
+    
+    titleLabel.text = @"ВЫБЕРИТЕ ВАРИАНТ БАРКОДА";
+    [titleLabel sizeToFit];
+    titleLabel.frame = CGRectMake((self.view.bounds.size.width - titleLabel.frame.size.width)/2,
+                                  185,
+                                  titleLabel.frame.size.width,
+                                  titleLabel.frame.size.height);
+    isPresentFontsCarousel = NO;
+}
+
 -(void) presentSelectedImage:(UIImage*)image
 {
+    selectedImageForMail = image;
+    
+    isPresentFontsCarousel = NO;
     isPresentImage = YES;
     
     titleLabel.text = @"ВАШ ВЫБОР";
@@ -231,6 +388,7 @@
     
     [UIView animateWithDuration:0.2 animations:^{
         carousel.alpha = 0;
+        carouselFonts.alpha = 0;
         //titleLabel.alpha = 0;
         
         selectedBarcodeImage.alpha = 1;
@@ -242,22 +400,14 @@
 {
     isPresentImage = NO;
     
-    titleLabel.text = @"ВЫБЕРИТЕ ВАРИАНТ БАРКОДА";
-    [titleLabel sizeToFit];
-    titleLabel.frame = CGRectMake((self.view.bounds.size.width - titleLabel.frame.size.width)/2,
-                                  185,
-                                  titleLabel.frame.size.width,
-                                  titleLabel.frame.size.height);
-    
     [UIView animateWithDuration:0.2 animations:^{
-        carousel.alpha = 1;
-        titleLabel.alpha = 1;
-        
         selectedBarcodeImage.alpha = 0;
         saveButton.alpha = 0;
     } completion:^(BOOL finished) {
         [selectedBarcodeImage removeFromSuperview];
     }];
+    
+    [self showFontsCarousel];
 }
 
 -(IBAction)onSave:(UIButton*)button
@@ -291,13 +441,16 @@
 -(void) exitFromFinishView
 {
     [self.navigationController.formSheetController dismissFormSheetControllerAnimated:NO completionHandler:^(MZFormSheetController *formSheetController) {
-     //
     }];
+    
+    [finishView removeFromSuperview];
+    finishView = nil;
 }
 
 -(void) generateImage
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        isSending = YES;
         
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         UIImage *backgroundImage = [UIImage imageNamed:@"result_background.png"];
@@ -319,28 +472,53 @@
         UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
-        //UIImageWriteToSavedPhotosAlbum(resultingImage, nil, nil, nil);
+        UIGraphicsBeginImageContextWithOptions(barcodeImage.size, NO, 2.0);
+        context = UIGraphicsGetCurrentContext();
+        CGContextTranslateCTM(context, 0, barcodeImage.size.height);
+        CGContextScaleCTM(context, 1.0, -1.0);
+        CGContextDrawImage(context, CGRectMake(0, 0, barcodeImage.size.width, barcodeImage.size.height), barcodeImage.CGImage);
+        CGContextTranslateCTM(context, 0, barcodeImage.size.height);
+        CGContextScaleCTM(context, 1.0, -1.0);
+        UIImage *resultingImage2 = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
         
-        PMMailManager *mailManager = [PMMailManager new];
-        mailManager.delegate = self;
-        [mailManager sendMessageWithTitle:@"Barcode" text:@"Ваш личный код." image:resultingImage filename:@"barcode.png"];
+        //UIImageWriteToSavedPhotosAlbum(resultingImage2, nil, nil, nil);
+        [mailManager sendMessageWithTitle:@"Barcode"
+                                 subtitle:@"ЭТО ТВОЙ УНИКАЛЬНЫЙ ШТРИХ КОД!" // - ЦИФРОВОЙ ПРЕМИУС. ОБОИ ДЛЯ РАБОЧЕГО СТОЛА ВАШЕГО МОБИЛЬНОГО ТЕЛЕФОНА.
+                                subtitle2:@"ОРИГИНАЛЬНОЕ ИЗОБРАЖЕНИЕ ШТРИХ КОДА ВЫСОКОГО КАЧЕСТВА ТЫ СМОЖЕШЬ НАЙТИ В ПРИЛОЖЕНИИ К ПИСЬМУ!"
+                                     text:@" "
+                                    image:resultingImage2
+                                 rezImage:resultingImage
+                                 filename:@"barcode.png"
+                                  forName:[MRDataManager sharedInstance].nameRegValue];
     });
 }
 
 -(void) mailSendSuccessfully    {
-    
+    isSending = NO;
     [activityIndicator stopAnimating];
     [activityIndicator removeFromSuperview];
     
-    BarcodeSavedView *finishView = [[BarcodeSavedView alloc] initWithFrame:self.view.frame];
+    finishView = [[BarcodeSavedView alloc] initWithFrame:self.view.frame];
     finishView.delegate = self;
     [finishView setDefault];
-    self.view = finishView;
+    
+    if(IS_OS_7_OR_LATER)    {
+        self.view = finishView;
+    } else  {
+        for(UIView *view in self.view.subviews) {
+            [view removeFromSuperview];
+        }
+        
+        [self.navigationController dismissFormSheetControllerAnimated:NO completionHandler:^(MZFormSheetController *formSheetController) {
+        }];
+    }
     
     [finishView animateView];
 }
 
 -(void) mailSendFailed  {
+    isSending = NO;
     [saveButton setImage:[UIImage imageNamed:@"save_btn_large.png"] forState:UIControlStateNormal];
     
     [activityIndicator stopAnimating];

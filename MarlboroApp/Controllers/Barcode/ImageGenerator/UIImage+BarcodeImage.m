@@ -12,13 +12,14 @@
 
 @implementation UIImage (BarcodeImage)
 
-+(UIImage*) barcodeWithText:(NSString*)text name:(NSString*)name phone:(NSString*)phone mode:(NSString*)mode type:(int)type
++(UIImage*) barcodeWithText:(NSString*)text name:(NSString*)name phone:(NSString*)phone mode:(NSString*)mode fontType:(int)fontType type:(int)type
 {
     // check params
     if(text.length == 0) return nil;
     //if (name.length == 0 && phone.length == 0) return nil;
     if (type < 1 || type > 6) return nil;
     //if (mode.length == 0) return nil;
+    if (fontType < 1 || fontType > 6) return nil;
     
     text = [text convertFromRuToEng];
     
@@ -27,12 +28,12 @@
     if (mode == nil) mode = @"";
     
     UIImage* mask;
-    if (type == 1) mask = [UIImage barcode1WithText:text name:name phone:phone mode:mode];
-    if (type == 2) mask = [UIImage barcode2WithText:text name:name phone:phone mode:mode];
-    if (type == 3) mask = [UIImage barcode3WithText:text name:name phone:phone mode:mode];
-    if (type == 4) mask = [UIImage barcode4WithText:text name:name phone:phone mode:mode];
-    if (type == 5) mask = [UIImage barcode5WithText:text name:name phone:phone mode:mode];
-    if (type == 6) mask = [UIImage barcode6WithText:text name:name phone:phone mode:mode];
+    if (type == 1) mask = [UIImage barcode1WithText:text name:name phone:phone mode:mode fontType:fontType];
+    if (type == 2) mask = [UIImage barcode2WithText:text name:name phone:phone mode:mode fontType:fontType];
+    if (type == 3) mask = [UIImage barcode3WithText:text name:name phone:phone mode:mode fontType:fontType];
+    if (type == 4) mask = [UIImage barcode4WithText:text name:name phone:phone mode:mode fontType:fontType];
+    if (type == 5) mask = [UIImage barcode5WithText:text name:name phone:phone mode:mode fontType:fontType];
+    if (type == 6) mask = [UIImage barcode6WithText:text name:name phone:phone mode:mode fontType:fontType];
     
     if (mask == nil) return nil;
     
@@ -123,7 +124,7 @@
     return maskedImage;
 }
 
-+(UIImage*) barcode1WithText:(NSString*)text name:(NSString*)name phone:(NSString*)phone mode:(NSString*)mode
++(UIImage*) barcode1WithText:(NSString*)text name:(NSString*)name phone:(NSString*)phone mode:(NSString*)mode fontType:(int)fontType
 {
     CGSize barSize = CGSizeMake(420, 200);
     
@@ -138,9 +139,29 @@
     NSString* line2 = array.count > 1 ? array[1] : @"";
     
     // fonts
-    UIFont* nameFont = [UIFont fontWithName:@"Roboto-Thin" size:26];
-    UIFont* phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:26];
-    UIFont* madeFont = [UIFont fontWithName:@"Roboto-Thin" size:20];
+    UIFont* nameFont;
+    if(fontType == 1) nameFont = [UIFont fontWithName:@"Roboto-Thin" size:26];
+    if(fontType == 2) nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:26];
+    if(fontType == 3) nameFont = [UIFont fontWithName:@"FuturaDemiC" size:26];
+    if(fontType == 4) nameFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:26];
+    if(fontType == 5) nameFont = [UIFont fontWithName:@"MyriadPro-Cond" size:26];
+    if(fontType == 6) nameFont = [UIFont fontWithName:@"Thonburi" size:26];
+    
+    UIFont* phoneFont;
+    if(fontType == 1) phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:26];
+    if(fontType == 2) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:26];
+    if(fontType == 3) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:26];
+    if(fontType == 4) phoneFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:26];
+    if(fontType == 5) phoneFont = [UIFont fontWithName:@"MyriadPro-Cond" size:26];
+    if(fontType == 6) phoneFont = [UIFont fontWithName:@"Thonburi" size:26];
+    
+    UIFont* madeFont;
+    if(fontType == 1) madeFont = [UIFont fontWithName:@"Roboto-Thin" size:20];
+    if(fontType == 2) madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:20];
+    if(fontType == 3) madeFont = [UIFont fontWithName:@"FuturaDemiC" size:20];
+    if(fontType == 4) madeFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:20];
+    if(fontType == 5) madeFont = [UIFont fontWithName:@"MyriadPro-Cond" size:20];
+    if(fontType == 6) madeFont = [UIFont fontWithName:@"Thonburi" size:20];
     
     // text sizes
     CGSize phoneSize = phone.length == 0 ? CGSizeMake(0, 0) : [phone sizeWithFont:phoneFont];
@@ -205,7 +226,7 @@
     return newImage;
 }
 
-+(UIImage*) barcode2WithText:(NSString*)text name:(NSString*)name phone:(NSString*)phone mode:(NSString*)mode
++(UIImage*) barcode2WithText:(NSString*)text name:(NSString*)name phone:(NSString*)phone mode:(NSString*)mode fontType:(int)fontType
 {
     CGSize barSize = CGSizeMake(420, 180);
     
@@ -219,10 +240,34 @@
     NSString* line1 = array.count > 0 ? array[0] : @"";
     NSString* line2 = array.count > 1 ? array[1] : @"";
     
+    UIFont* nameFont;
+    if(fontType == 1) nameFont = [UIFont fontWithName:@"Roboto-Thin" size:30];
+    if(fontType == 2) nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:30];
+    if(fontType == 3) nameFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
+    if(fontType == 4) nameFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:30];
+    if(fontType == 5) nameFont = [UIFont fontWithName:@"MyriadPro-Cond" size:30];
+    if(fontType == 6) nameFont = [UIFont fontWithName:@"Thonburi" size:30];
+    
+    UIFont* phoneFont;
+    if(fontType == 1) phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:18];
+    if(fontType == 2) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:18];
+    if(fontType == 3) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:18];
+    if(fontType == 4) phoneFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:18];
+    if(fontType == 5) phoneFont = [UIFont fontWithName:@"MyriadPro-Cond" size:18];
+    if(fontType == 6) phoneFont = [UIFont fontWithName:@"Thonburi" size:18];
+    
+    UIFont* madeFont;
+    if(fontType == 1) madeFont = [UIFont fontWithName:@"Roboto-Thin" size:18];
+    if(fontType == 2) madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:18];
+    if(fontType == 3) madeFont = [UIFont fontWithName:@"FuturaDemiC" size:18];
+    if(fontType == 4) madeFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:18];
+    if(fontType == 5) madeFont = [UIFont fontWithName:@"MyriadPro-Cond" size:18];
+    if(fontType == 6) madeFont = [UIFont fontWithName:@"Thonburi" size:18];
+    
     // fonts
-    UIFont* nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:30];
-    UIFont* phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:18];
-    UIFont* madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:18];
+    //UIFont* nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:30];
+    //UIFont* phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:18];
+    //UIFont* madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:18];
     
     // text sizes
     CGSize phoneSize = phone.length == 0 ? CGSizeMake(0, 0) : [phone sizeWithFont:phoneFont];
@@ -282,7 +327,7 @@
     return newImage;
 }
 
-+(UIImage*) barcode3WithText:(NSString*)text name:(NSString*)name phone:(NSString*)phone mode:(NSString*)mode
++(UIImage*) barcode3WithText:(NSString*)text name:(NSString*)name phone:(NSString*)phone mode:(NSString*)mode fontType:(int)fontType
 {
     CGSize barSize = CGSizeMake(420, 160);
     
@@ -296,10 +341,34 @@
     NSString* line1 = array.count > 0 ? array[0] : @"";
     NSString* line2 = array.count > 1 ? array[1] : @"";
     
+    UIFont* nameFont;
+    if(fontType == 1) nameFont = [UIFont fontWithName:@"Roboto-Thin" size:30];
+    if(fontType == 2) nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:30];
+    if(fontType == 3) nameFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
+    if(fontType == 4) nameFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:30];
+    if(fontType == 5) nameFont = [UIFont fontWithName:@"MyriadPro-Cond" size:30];
+    if(fontType == 6) nameFont = [UIFont fontWithName:@"Thonburi" size:30];
+    
+    UIFont* phoneFont;
+    if(fontType == 1) phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:30];
+    if(fontType == 2) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:30];
+    if(fontType == 3) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
+    if(fontType == 4) phoneFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:30];
+    if(fontType == 5) phoneFont = [UIFont fontWithName:@"MyriadPro-Cond" size:30];
+    if(fontType == 6) phoneFont = [UIFont fontWithName:@"Thonburi" size:30];
+    
+    UIFont* madeFont;
+    if(fontType == 1) madeFont = [UIFont fontWithName:@"Roboto-Thin" size:16];
+    if(fontType == 2) madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:16];
+    if(fontType == 3) madeFont = [UIFont fontWithName:@"FuturaDemiC" size:16];
+    if(fontType == 4) madeFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:16];
+    if(fontType == 5) madeFont = [UIFont fontWithName:@"MyriadPro-Cond" size:16];
+    if(fontType == 6) madeFont = [UIFont fontWithName:@"Thonburi" size:16];
+    
     // fonts
-    UIFont* nameFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
-    UIFont* phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
-    UIFont* madeFont = [UIFont fontWithName:@"FuturaDemiC" size:16];
+    //UIFont* nameFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
+    //UIFont* phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
+    //UIFont* madeFont = [UIFont fontWithName:@"FuturaDemiC" size:16];
     
     // text sizes
     CGSize phoneSize = phone.length == 0 ? CGSizeMake(0, 0) : [phone sizeWithFont:phoneFont];
@@ -354,7 +423,7 @@
     return newImage;
 }
 
-+(UIImage*) barcode4WithText:(NSString*)text name:(NSString*)name phone:(NSString*)phone mode:(NSString*)mode
++(UIImage*) barcode4WithText:(NSString*)text name:(NSString*)name phone:(NSString*)phone mode:(NSString*)mode fontType:(int)fontType
 {
     CGSize barSize = CGSizeMake(420, 160);
     
@@ -368,10 +437,34 @@
     NSString* line1 = array.count > 0 ? array[0] : @"";
     NSString* line2 = array.count > 1 ? array[1] : @"";
     
+    UIFont* nameFont;
+    if(fontType == 1) nameFont = [UIFont fontWithName:@"Roboto-Thin" size:24];
+    if(fontType == 2) nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:24];
+    if(fontType == 3) nameFont = [UIFont fontWithName:@"FuturaDemiC" size:24];
+    if(fontType == 4) nameFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:24];
+    if(fontType == 5) nameFont = [UIFont fontWithName:@"MyriadPro-Cond" size:24];
+    if(fontType == 6) nameFont = [UIFont fontWithName:@"Thonburi" size:24];
+    
+    UIFont* phoneFont;
+    if(fontType == 1) phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:24];
+    if(fontType == 2) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:24];
+    if(fontType == 3) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:24];
+    if(fontType == 4) phoneFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:24];
+    if(fontType == 5) phoneFont = [UIFont fontWithName:@"MyriadPro-Cond" size:24];
+    if(fontType == 6) phoneFont = [UIFont fontWithName:@"Thonburi" size:24];
+    
+    UIFont* madeFont;
+    if(fontType == 1) madeFont = [UIFont fontWithName:@"Roboto-Thin" size:16];
+    if(fontType == 2) madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:16];
+    if(fontType == 3) madeFont = [UIFont fontWithName:@"FuturaDemiC" size:16];
+    if(fontType == 4) madeFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:16];
+    if(fontType == 5) madeFont = [UIFont fontWithName:@"MyriadPro-Cond" size:16];
+    if(fontType == 6) madeFont = [UIFont fontWithName:@"Thonburi" size:16];
+    
     // fonts
-    UIFont* nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:24];
-    UIFont* phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:24];
-    UIFont* madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:16];
+    //UIFont* nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:24];
+    //UIFont* phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:24];
+    //UIFont* madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:16];
     
     // text sizes
     CGSize phoneSize = phone.length == 0 ? CGSizeMake(0, 0) : [phone sizeWithFont:phoneFont];
@@ -438,7 +531,7 @@
     return newImage;
 }
 
-+(UIImage*) barcode5WithText:(NSString*)text name:(NSString*)name phone:(NSString*)phone mode:(NSString*)mode
++(UIImage*) barcode5WithText:(NSString*)text name:(NSString*)name phone:(NSString*)phone mode:(NSString*)mode fontType:(int)fontType
 {
     CGSize barSize = CGSizeMake(420, 140);
     
@@ -452,10 +545,34 @@
     NSString* line1 = array.count > 0 ? array[0] : @"";
     NSString* line2 = array.count > 1 ? array[1] : @"";
     
+    UIFont* nameFont;
+    if(fontType == 1) nameFont = [UIFont fontWithName:@"Roboto-Thin" size:30];
+    if(fontType == 2) nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:30];
+    if(fontType == 3) nameFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
+    if(fontType == 4) nameFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:30];
+    if(fontType == 5) nameFont = [UIFont fontWithName:@"MyriadPro-Cond" size:30];
+    if(fontType == 6) nameFont = [UIFont fontWithName:@"Thonburi" size:30];
+    
+    UIFont* phoneFont;
+    if(fontType == 1) phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:30];
+    if(fontType == 2) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:30];
+    if(fontType == 3) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
+    if(fontType == 4) phoneFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:30];
+    if(fontType == 5) phoneFont = [UIFont fontWithName:@"MyriadPro-Cond" size:30];
+    if(fontType == 6) phoneFont = [UIFont fontWithName:@"Thonburi" size:30];
+    
+    UIFont* madeFont;
+    if(fontType == 1) madeFont = [UIFont fontWithName:@"Roboto-Thin" size:16];
+    if(fontType == 2) madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:16];
+    if(fontType == 3) madeFont = [UIFont fontWithName:@"FuturaDemiC" size:16];
+    if(fontType == 4) madeFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:16];
+    if(fontType == 5) madeFont = [UIFont fontWithName:@"MyriadPro-Cond" size:16];
+    if(fontType == 6) madeFont = [UIFont fontWithName:@"Thonburi" size:16];
+    
     // fonts
-    UIFont* nameFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
-    UIFont* phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
-    UIFont* madeFont = [UIFont fontWithName:@"FuturaDemiC" size:16];
+    //UIFont* nameFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
+    //UIFont* phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
+    //UIFont* madeFont = [UIFont fontWithName:@"FuturaDemiC" size:16];
     
     // text sizes
     CGSize phoneSize = phone.length == 0 ? CGSizeMake(0, 0) : [phone sizeWithFont:phoneFont];
@@ -504,7 +621,7 @@
     return newImage;
 }
 
-+(UIImage*) barcode6WithText:(NSString*)text name:(NSString*)name phone:(NSString*)phone mode:(NSString*)mode
++(UIImage*) barcode6WithText:(NSString*)text name:(NSString*)name phone:(NSString*)phone mode:(NSString*)mode fontType:(int)fontType
 {
     CGSize barSize = CGSizeMake(400, 160);
     
@@ -518,10 +635,34 @@
     NSString* line1 = array.count > 0 ? array[0] : @"";
     NSString* line2 = array.count > 1 ? array[1] : @"";
     
+    UIFont* nameFont;
+    if(fontType == 1) nameFont = [UIFont fontWithName:@"Roboto-Thin" size:26];
+    if(fontType == 2) nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:26];
+    if(fontType == 3) nameFont = [UIFont fontWithName:@"FuturaDemiC" size:26];
+    if(fontType == 4) nameFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:26];
+    if(fontType == 5) nameFont = [UIFont fontWithName:@"MyriadPro-Cond" size:26];
+    if(fontType == 6) nameFont = [UIFont fontWithName:@"Thonburi" size:26];
+    
+    UIFont* phoneFont;
+    if(fontType == 1) phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:26];
+    if(fontType == 2) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:26];
+    if(fontType == 3) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:26];
+    if(fontType == 4) phoneFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:26];
+    if(fontType == 5) phoneFont = [UIFont fontWithName:@"MyriadPro-Cond" size:26];
+    if(fontType == 6) phoneFont = [UIFont fontWithName:@"Thonburi" size:26];
+    
+    UIFont* madeFont;
+    if(fontType == 1) madeFont = [UIFont fontWithName:@"Roboto-Thin" size:16];
+    if(fontType == 2) madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:16];
+    if(fontType == 3) madeFont = [UIFont fontWithName:@"FuturaDemiC" size:16];
+    if(fontType == 4) madeFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:16];
+    if(fontType == 5) madeFont = [UIFont fontWithName:@"MyriadPro-Cond" size:16];
+    if(fontType == 6) madeFont = [UIFont fontWithName:@"Thonburi" size:16];
+    
     // fonts
-    UIFont* nameFont = [UIFont fontWithName:@"FuturaDemiC" size:26];
-    UIFont* phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:26];
-    UIFont* madeFont = [UIFont fontWithName:@"FuturaDemiC" size:16];
+    //UIFont* nameFont = [UIFont fontWithName:@"FuturaDemiC" size:26];
+    //UIFont* phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:26];
+    //UIFont* madeFont = [UIFont fontWithName:@"FuturaDemiC" size:16];
     
     // text sizes
     CGSize phoneSize = phone.length == 0 ? CGSizeMake(0, 0) : [phone sizeWithFont:phoneFont];

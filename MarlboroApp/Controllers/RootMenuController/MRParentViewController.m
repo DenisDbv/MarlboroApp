@@ -32,6 +32,8 @@ NSString *const MROnExitClickNotification = @"MROnExitClickNotification";
 {
     [super viewDidLoad];
     
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    
     self.navigationController.navigationBarHidden = YES;
     
     self.view.multipleTouchEnabled = YES;

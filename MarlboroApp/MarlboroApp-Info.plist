@@ -8,6 +8,15 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>icon_152x152.png</string>
+		<string>icon_76x76.png</string>
+		<string>icon_58x58.png</string>
+		<string>icon_72x72.png</string>
+		<string>icon_100x100.png</string>
+		<string>icon_144x144.png</string>
+	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.brandmill.marlboro</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -17,7 +26,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.4</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
@@ -40,15 +49,6 @@
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>icon_152x152.png</string>
-		<string>icon_76x76.png</string>
-		<string>icon_58x58.png</string>
-		<string>icon_72x72.png</string>
-		<string>icon_100x100.png</string>
-		<string>icon_144x144.png</string>
 	</array>
 </dict>
 </plist>

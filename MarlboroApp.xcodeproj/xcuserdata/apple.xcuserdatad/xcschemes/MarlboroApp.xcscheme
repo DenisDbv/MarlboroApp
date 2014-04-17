@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "18936E2918E3F215009D88A6"
-               BuildableName = "MarlboroApp.app"
+               BuildableName = "M.GO.Design.app"
                BlueprintName = "MarlboroApp"
                ReferencedContainer = "container:MarlboroApp.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "18936E2918E3F215009D88A6"
-            BuildableName = "MarlboroApp.app"
+            BuildableName = "M.GO.Design.app"
             BlueprintName = "MarlboroApp"
             ReferencedContainer = "container:MarlboroApp.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "18936E2918E3F215009D88A6"
-            BuildableName = "MarlboroApp.app"
+            BuildableName = "M.GO.Design.app"
             BlueprintName = "MarlboroApp"
             ReferencedContainer = "container:MarlboroApp.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "18936E2918E3F215009D88A6"
-            BuildableName = "MarlboroApp.app"
+            BuildableName = "M.GO.Design.app"
             BlueprintName = "MarlboroApp"
             ReferencedContainer = "container:MarlboroApp.xcodeproj">
          </BuildableReference>

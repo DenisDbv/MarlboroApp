@@ -119,9 +119,15 @@
 
 - (void)onExit:(NSNotification*)notification
 {
-    [self.navigationController dismissFormSheetControllerAnimated:NO completionHandler:^(MZFormSheetController *formSheetController) {
-        //
-    }];
+    if( IS_OS_7_OR_LATER )  {
+        [self.navigationController dismissFormSheetControllerAnimated:NO completionHandler:^(MZFormSheetController *formSheetController) {
+            //
+        }];
+    } else  {
+        [self dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+            //
+        }];
+    }
 }
 
 - (void)keyboardWillShow:(NSNotification*)notification
@@ -203,13 +209,18 @@
     
     MRRegistrationItemView *field = [fieldsArray objectAtIndex:indexPath.section];
     
-    field.frame = CGRectMake((self.tableView.frame.size.width-field.frame.size.width)/2, 0, field.frame.size.width, field.frame.size.height);
-    if(indexPath.section % 2 == 0)   {
-        field.frame = CGRectOffset(field.frame, -20, 0);
+    if(IS_OS_7_OR_LATER)    {
+        field.frame = CGRectMake((self.tableView.frame.size.width-field.frame.size.width)/2, 0, field.frame.size.width, field.frame.size.height);
+        if(indexPath.section % 2 == 0)   {
+            field.frame = CGRectOffset(field.frame, -20, 0);
+        } else  {
+            field.frame = CGRectOffset(field.frame, 20, 0);
+        }
+        field.alpha = 0;
     } else  {
-        field.frame = CGRectOffset(field.frame, 20, 0);
+        field.frame = CGRectMake((self.tableView.frame.size.width-field.frame.size.width)/2, 0, field.frame.size.width, field.frame.size.height);
+        field.alpha = 1;
     }
-    field.alpha = 0;
     
     [cell addSubview:field];
     
@@ -258,7 +269,7 @@
         chooserViewController = [[MRChooserViewController alloc] initWithTitle:@"ВЫБЕРИТЕ ДАННЫЕ ДЛЯ ГЕНЕРАЦИИ БАРКОДА" withCheckboxList:barcodeDictionary :_activeID];
         
     } else if(_activeID == eLogo) {
-        NSDictionary *nameDictionary = @{@"titleKey": @"ИМЯ", @"placeholderKey": @"ВВЕДИТЕ ИМЯ", @"indexKey":[NSNumber numberWithInteger:1]};
+        NSDictionary *nameDictionary = @{@"titleKey": @"ПО ИМЕНИ", @"placeholderKey": @"ВВЕДИТЕ ИМЯ", @"indexKey":[NSNumber numberWithInteger:1]};
         NSDictionary *secondNameDictionary = @{@"titleKey": @"ПО ФАМИЛИИ", @"placeholderKey": @"ВВЕДИТЕ ФАМИЛИЮ", @"indexKey":[NSNumber numberWithInteger:2]};
         NSDictionary *patronymicNameDictionary = @{@"titleKey": @"ПО ОТЧЕСТВУ", @"placeholderKey": @"ВВЕДИТЕ ОТЧЕСТВО", @"indexKey":[NSNumber numberWithInteger:3]};
         NSDictionary *phoneDictionary = @{@"titleKey": @"ТЕЛЕФОН", @"placeholderKey": @"ВВЕДИТЕ ТЕЛЕФОН", @"indexKey":[NSNumber numberWithInteger:4]};

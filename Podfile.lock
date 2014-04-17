@@ -20,9 +20,14 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - iCarousel (1.7.6)
-  - MZAppearance (1.1.1)
+  - MBSwitch (0.0.1)
+  - MZAppearance (1.1.2)
   - MZFormSheetController (2.3.3):
     - MZAppearance (~> 1.1.1)
+  - PBJVision (0.1.9)
+  - Reachability (3.1.1)
+  - SIAlertView (1.3)
+  - SVSegmentedControl (0.2)
   - TYMActivityIndicatorView (0.2.0)
   - UIView+NibLoading (1.0.0)
   - ZXingObjC (2.2.6)
@@ -31,7 +36,12 @@ DEPENDENCIES:
   - ABMultiton
   - AFNetworking (~> 2.0)
   - iCarousel
+  - MBSwitch
   - MZFormSheetController
+  - PBJVision
+  - Reachability
+  - SIAlertView
+  - SVSegmentedControl
   - TYMActivityIndicatorView
   - UIView+NibLoading
   - ZXingObjC
@@ -40,8 +50,13 @@ SPEC CHECKSUMS:
   ABMultiton: 4b3c4aefc44fe25fd88bbcface594202d1a9d90c
   AFNetworking: 0121f4b69be3fa58d1ab317866e036e12ac9651d
   iCarousel: e23a26d7ba722215a42144e80adb0dcb59bebc41
-  MZAppearance: 8b02683f0019f725557ae9839ed6cab153fff669
+  MBSwitch: 42d95b94a0c76ca3066375d89f30250e136308b4
+  MZAppearance: 75bc6c786025c311ebc247b01e1dead5cd29f7c5
   MZFormSheetController: 9630bc61ff30ac48c87930fbe350490e484a6496
+  PBJVision: edd5bfe2eebebe1d1967a621e9a1f92b4b886f8e
+  Reachability: be4883bb93f31e38266ae3365e5600a317aae735
+  SIAlertView: e6d0d786c3a3f6e456b0e8b9376d0c34d68e827b
+  SVSegmentedControl: e874fc56c2a1efb9f597ddf0908101393f53fe96
   TYMActivityIndicatorView: d558631538c2956353042a20ac1544dd0ba5ee17
   UIView+NibLoading: 731bd128ccb9998b43658dc124d910732d3b7420
   ZXingObjC: 92c9cb07811ab6fcffe44465d7ee8775b1eb7913

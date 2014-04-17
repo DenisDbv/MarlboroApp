@@ -107,9 +107,16 @@
 - (void)onExit:(NSNotification*)notification
 {
     if(_activeID == eBarcode || _activeID == eLogo) {
-        [self.navigationController.formSheetController dismissFormSheetControllerAnimated:NO completionHandler:^(MZFormSheetController *formSheetController) {
-            
-        }];
+        
+        if(IS_OS_7_OR_LATER)   {
+            [self.navigationController.formSheetController dismissFormSheetControllerAnimated:NO completionHandler:^(MZFormSheetController *formSheetController) {
+                
+            }];
+        } else {
+            [self dismissFormSheetControllerAnimated:NO completionHandler:^(MZFormSheetController *formSheetController) {
+                //formSheetController.transitionStyle = MZFormSheetTransitionStyleFade;
+            }];
+        }
     } else  {
         [self hideAllContext];
         [self.navigationController popViewControllerAnimated:YES];

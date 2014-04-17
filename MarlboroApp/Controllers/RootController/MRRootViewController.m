@@ -46,11 +46,25 @@
 {
     MRRootMenuViewController *rootMenuViewController = [[MRRootMenuViewController alloc] initWithNibName:@"MRRootMenuViewController" bundle:[NSBundle mainBundle]];
     
-    menuSheetController = [[MZFormSheetController alloc] initWithSize:self.view.bounds.size viewController:rootMenuViewController];
-    menuSheetController.transitionStyle = MZFormSheetTransitionStyleFade;
-    [menuSheetController presentFormSheetController:menuSheetController animated:NO completionHandler:^(MZFormSheetController *formSheetController) {
-        NSLog(@"Root menu view controller present");
-    }];
+    if( IS_OS_7_OR_LATER )  {
+        menuSheetController = [[MZFormSheetController alloc] initWithSize:self.view.bounds.size viewController:rootMenuViewController];
+        menuSheetController.transitionStyle = MZFormSheetTransitionStyleFade;
+        [menuSheetController presentFormSheetController:menuSheetController animated:NO completionHandler:^(MZFormSheetController *formSheetController) {
+            NSLog(@"Root menu view controller present");
+        }];
+    } else  {
+        UINavigationController *navCntrl = [[UINavigationController alloc] init];
+        navCntrl.navigationBarHidden = YES;
+        
+        [[MZFormSheetBackgroundWindow appearance] setBackgroundColor:(__bridge CGColorRef)([UIColor clearColor])];
+        [self presentFormSheetWithViewController:navCntrl animated:NO transitionStyle:MZFormSheetTransitionStyleFade completionHandler:^(MZFormSheetController *formSheetController) {
+            formSheetController.landscapeTopInset = 0.0f;
+            //formSheetController.transitionStyle = MZFormSheetTransitionStyleFade;
+            [formSheetController presentViewController:rootMenuViewController animated:YES completion:^{
+                
+            }];
+        }];
+    }
 }
 
 @end

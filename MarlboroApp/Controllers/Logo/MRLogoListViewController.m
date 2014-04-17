@@ -14,6 +14,7 @@
 
 #import <MZFormSheetController/MZFormSheetController.h>
 #import <TYMActivityIndicatorView/TYMActivityIndicatorView.h>
+#import <SIAlertView/SIAlertView.h>
 
 @interface MRLogoListViewController () <LogoSavedViewDelegate, PMMailManagerDelegate>
 @property (nonatomic, weak) IBOutlet UIButton *saveButton;
@@ -42,6 +43,8 @@
     UIImageView *selectedLogoImage;
     
     TYMActivityIndicatorView *activityIndicator;
+    BOOL isSending;
+    PMMailManager *mailManager;
 }
 @synthesize carouselLogoList, carouselLogoFonts;
 @synthesize saveButton;
@@ -109,6 +112,9 @@
                                   titleLabel.frame.size.width,
                                   titleLabel.frame.size.height);
     [self.view addSubview:titleLabel];
+    
+    mailManager = [PMMailManager new];
+    mailManager.delegate = self;
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -141,7 +147,31 @@
         if(!isPresentLogoImage) {
             [self showLogoCarousel];
         } else  {
-            [self hidePresentLogoImage];
+            if(isSending) {
+                SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"ПРЕДУПРЕЖДЕНИЕ" andMessage:@"Отправка вашего логотипа будет отменена. Вы уверены?"];
+                [alertView addButtonWithTitle:@"НЕТ"
+                                         type:SIAlertViewButtonTypeDefault
+                                      handler:^(SIAlertView *alert) {
+                                          NSLog(@"Button1 Clicked");
+                                      }];
+                [alertView addButtonWithTitle:@"ДА"
+                                         type:SIAlertViewButtonTypeDestructive
+                                      handler:^(SIAlertView *alert) {
+                                          if(mailManager != nil)  {
+                                              [mailManager cancellAll];
+                                              mailManager.delegate = nil;
+                                              mailManager = nil;
+                                              [self mailSendFailed];
+                                              
+                                              mailManager = [PMMailManager new];
+                                              mailManager.delegate = self;
+                                          }
+                                      }];
+                alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
+                [alertView show];
+            } else  {
+                [self hidePresentLogoImage];
+            }
         }
     }
 }
@@ -313,6 +343,8 @@
 
 -(void) presentSelectedLogoFontImage:(UIImage*)logoImage
 {
+    //UIImageWriteToSavedPhotosAlbum(logoImage, nil, nil, nil);
+    
     isPresentLogoImage = YES;
     
     titleLabel.text = @"ВАШ ВАРИАНТ";
@@ -392,6 +424,7 @@
 -(void) generateImage
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        isSending = YES;
         
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         UIImage *backgroundImage = [UIImage imageNamed:@"result_background.png"];
@@ -413,15 +446,29 @@
         UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
-        //UIImageWriteToSavedPhotosAlbum(resultingImage, nil, nil, nil);
+        UIGraphicsBeginImageContextWithOptions(logoImage.size, NO, 2.0);
+        context = UIGraphicsGetCurrentContext();
+        CGContextTranslateCTM(context, 0, logoImage.size.height);
+        CGContextScaleCTM(context, 1.0, -1.0);
+        CGContextDrawImage(context, CGRectMake(0, 0, logoImage.size.width, logoImage.size.height), logoImage.CGImage);
+        CGContextTranslateCTM(context, 0, logoImage.size.height);
+        CGContextScaleCTM(context, 1.0, -1.0);
+        UIImage *resultingImage2 = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
         
-        PMMailManager *mailManager = [PMMailManager new];
-        mailManager.delegate = self;
-        [mailManager sendMessageWithTitle:@"Логотип" text:@"Ваш личный логотип." image:resultingImage filename:@"logo.png"];
+        [mailManager sendMessageWithTitle:@"Логотип"
+                                 subtitle:@"ЭТО ТВОЙ УНИКАЛЬНЫЙ ЛОГОТИП!" // - ЦИФРОВОЙ ПРЕМИУС. ОБОИ ДЛЯ РАБОЧЕГО СТОЛА ВАШЕГО МОБИЛЬНОГО ТЕЛЕФОНА.
+                                subtitle2:@"ОРИГИНАЛЬНОЕ ИЗОБРАЖЕНИЕ ЛОГОТИПА ВЫСОКОГО КАЧЕСТВА ТЫ СМОЖЕШЬ НАЙТИ В ПРИЛОЖЕНИИ К ПИСЬМУ!"
+                                     text:@""
+                                    image:resultingImage2
+                                 rezImage:resultingImage
+                                 filename:@"logo.png"
+                                  forName:[MRDataManager sharedInstance].nameRegValue];
     });
 }
 
 -(void) mailSendSuccessfully    {
+    isSending = NO;
     
     [activityIndicator stopAnimating];
     [activityIndicator removeFromSuperview];
@@ -429,12 +476,23 @@
     LogoSavedView *finishView = [[LogoSavedView alloc] initWithFrame:self.view.frame];
     finishView.delegate = self;
     [finishView setDefault];
-    self.view = finishView;
+    
+    if(IS_OS_7_OR_LATER)    {
+        self.view = finishView;
+    } else  {
+        for(UIView *view in self.view.subviews) {
+            [view removeFromSuperview];
+        }
+        
+        [self.navigationController dismissFormSheetControllerAnimated:NO completionHandler:^(MZFormSheetController *formSheetController) {
+        }];
+    }
     
     [finishView animateView];
 }
 
 -(void) mailSendFailed  {
+    isSending = NO;
     [saveButton setImage:[UIImage imageNamed:@"save_btn_large.png"] forState:UIControlStateNormal];
     
     [activityIndicator stopAnimating];

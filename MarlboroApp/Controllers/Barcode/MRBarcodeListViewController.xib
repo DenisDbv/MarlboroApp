@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MRBarcodeListViewController">
             <connections>
                 <outlet property="carousel" destination="ivp-BE-bvh" id="6U1-es-wUb"/>
+                <outlet property="carouselFonts" destination="gGR-XQ-mOS" id="LOK-DW-HJk"/>
                 <outlet property="saveButton" destination="KdX-9u-KV9" id="NX4-hC-KqR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,6 +24,15 @@
                     <connections>
                         <outlet property="dataSource" destination="-1" id="bKv-Rx-Wsw"/>
                         <outlet property="delegate" destination="-1" id="5dI-Xq-q1E"/>
+                    </connections>
+                </view>
+                <view contentMode="scaleToFill" id="gGR-XQ-mOS" customClass="iCarousel">
+                    <rect key="frame" x="0.0" y="114" width="1024" height="607"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="pdg-4a-Ik7"/>
+                        <outlet property="delegate" destination="-1" id="6Cu-b9-u5d"/>
                     </connections>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KdX-9u-KV9">

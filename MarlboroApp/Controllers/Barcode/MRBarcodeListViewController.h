@@ -12,5 +12,6 @@
 @interface MRBarcodeListViewController : MRParentViewController
 
 @property (nonatomic, strong) IBOutlet iCarousel *carousel;
+@property (nonatomic, strong) IBOutlet iCarousel *carouselFonts;
 
 @end

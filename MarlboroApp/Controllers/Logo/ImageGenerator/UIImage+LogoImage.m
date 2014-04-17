@@ -30,7 +30,6 @@ static BOOL showBorder = NO;
         if (name1.length == 0 || name2.length == 0 || name3.length == 0) return nil;
     }
     
-    
     UIImage* mask;
     if (type == 1) mask = [UIImage logo1WithName:name phone:phone mode:mode fontType:fontType];
     if (type == 2) mask = [UIImage logo2WithName:name phone:phone mode:mode fontType:fontType];
@@ -373,15 +372,13 @@ static BOOL showBorder = NO;
         CGPoint pos3 = CGPointMake(imageSize.width/2-letter3Size.width/2+ofs, imageSize.height/2-letter3Size.height/2+ofsy);
         [letter3 drawAtPoint:pos3 withFont:bigFont];
         
-        /*
-         CGSize letter2Size = [letter2 sizeWithFont:bigFont];
-         CGPoint pos2 = CGPointMake(imageSize.width/2-letter2Size.width/2+ofs, imageSize.height/2-letter2Size.height/2+ofsy);
-         [letter2 drawAtPoint:pos2 withFont:bigFont];
-         
-         CGSize letter3Size = [letter3 sizeWithFont:bigFont];
-         CGPoint pos3 = CGPointMake(imageSize.width/2-letter3Size.width/2, imageSize.height/2-letter3Size.height/2+ofs+ofsy);
-         [letter3 drawAtPoint:pos3 withFont:bigFont];
-         */
+        /*CGSize letter2Size = [letter2 sizeWithFont:bigFont];
+        CGPoint pos2 = CGPointMake(imageSize.width/2-letter2Size.width/2+ofs, imageSize.height/2-letter2Size.height/2+ofsy);
+        [letter2 drawAtPoint:pos2 withFont:bigFont];
+        
+        CGSize letter3Size = [letter3 sizeWithFont:bigFont];
+        CGPoint pos3 = CGPointMake(imageSize.width/2-letter3Size.width/2, imageSize.height/2-letter3Size.height/2+ofs+ofsy);
+        [letter3 drawAtPoint:pos3 withFont:bigFont];*/
     }
     
     [[UIColor blackColor] set];
@@ -598,7 +595,7 @@ static BOOL showBorder = NO;
         float nameWidth = [UIImage widthOfText:fio withFont:font];
         float phoneWidth = [UIImage  widthOfText:phone withFont:font];
         
-        float radius = 220;
+        float radius = radius1;
         float perimeter = radius*2*M_PI;
         float emptyWidth = (perimeter - (nameWidth+phoneWidth))/2;
         if (emptyWidth > 0){
@@ -623,7 +620,7 @@ static BOOL showBorder = NO;
     if (fio.length != 0 && phone.length == 0){
         float nameWidth = [UIImage widthOfText:fio withFont:font];
         
-        float radius = 220;
+        float radius = radius1;
         float perimeter = radius*2*M_PI;
         float emptyWidth = perimeter - nameWidth;
         if (emptyWidth > 0){
@@ -644,7 +641,7 @@ static BOOL showBorder = NO;
     if (fio.length == 0 && phone.length != 0){
         float phoneWidth = [UIImage  widthOfText:phone withFont:font];
         
-        float radius = 220;
+        float radius = radius2;
         float perimeter = radius*2*M_PI;
         float emptyWidth = perimeter - phoneWidth;
         if (emptyWidth > 0){
@@ -663,7 +660,7 @@ static BOOL showBorder = NO;
     }
     
     if (fio.length == 0 && phone.length == 0){
-        float radius = 220;
+        float radius = radius2;
         float emptyWidth = radius*2*M_PI;
         if (emptyWidth > 0){
             

@@ -17,9 +17,21 @@
 
 @property (nonatomic, strong) id <PMMailManagerDelegate> delegate;
 
+-(BOOL) isSending;
+
 -(void) sendMessageWithTitle:(NSString*)title
-                         text:(NSString*)text
-                        image:(UIImage*)image
-                     filename:(NSString*)filename;
+                    subtitle:(NSString*)subtitle
+                   subtitle2:(NSString*)subtitle2
+                        text:(NSString*)text
+                       image:(UIImage*)image
+                    rezImage:(UIImage*)rezImage
+                    filename:(NSString*)filename
+                     forName:(NSString*)name;
+
+-(void) cancellAll;
+-(BOOL) isMailClient;
+
+-(void) sendMessageMyMail:(NSString*)text
+                    image:(UIImage*)image;
 
 @end

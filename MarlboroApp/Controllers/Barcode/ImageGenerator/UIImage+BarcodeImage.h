@@ -11,6 +11,6 @@
 @interface UIImage (BarcodeImage)
 
 // type: 1-6
-+(UIImage*) barcodeWithText:(NSString*)text name:(NSString*)name phone:(NSString*)phone mode:(NSString*)mode type:(int)type;
++(UIImage*) barcodeWithText:(NSString*)text name:(NSString*)name phone:(NSString*)phone mode:(NSString*)mode fontType:(int)fontType  type:(int)type;
 
 @end

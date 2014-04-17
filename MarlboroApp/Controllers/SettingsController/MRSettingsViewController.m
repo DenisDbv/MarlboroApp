@@ -7,15 +7,26 @@
 //
 
 #import "MRSettingsViewController.h"
-#import <MZFormSheetController/MZFormSheetController.h>
 #import "PMActivationView.h"
+
+#import <SVSegmentedControl/SVSegmentedControl.h>
+#import <MBSwitch/MBSwitch.h>
+#import <MZFormSheetController/MZFormSheetController.h>
 
 @interface MRSettingsViewController () <PMActivationViewDelegate>
 @property (nonatomic, strong) NSMutableArray *activationButtonsArray;
+
+@property (strong, nonatomic) IBOutlet UIView *registrationFormView;
+@property (strong, nonatomic) IBOutlet MBSwitch *regValueSwitcher;
+@property (strong, nonatomic) IBOutlet UILabel *regTitleLeft;
+@property (strong, nonatomic) IBOutlet UILabel *regTitleRight;
+
 @end
 
 @implementation MRSettingsViewController
 {
+    SVSegmentedControl *navSC;
+    
     NSUserDefaults *userSettings;
     UIButton *settingButton;
 }
@@ -36,6 +47,35 @@
     
     userSettings = [NSUserDefaults standardUserDefaults];
     
+    __block id wself = self;
+    navSC = [[SVSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:@"Механики", @"Кейс", nil]];
+    navSC.thumb.tintColor = [UIColor colorWithRed:0.0/255.0 green:48.0/255.0 blue:92.0/255.0 alpha:1.0];
+    navSC.height = 46;
+    navSC.changeHandler = ^(NSUInteger newIndex) {
+        [wself changeSwitchValue:newIndex];
+    };
+    navSC.frame = CGRectOffset(navSC.frame, self.view.center.x, self.view.frame.size.height - 80);
+    [self.view addSubview:navSC];
+    
+    BOOL shortRegForm = [[userSettings objectForKey:@"ShortRegForm"] boolValue];
+    self.regValueSwitcher.delegate = self;
+    [self.regValueSwitcher setOnTintColor:[UIColor lightGrayColor]];//[UIColor colorWithRed:0.0f green:0.0f blue:1.0f alpha:1.00f]];
+    [self.regValueSwitcher setOffTintColor:[UIColor lightGrayColor]];//[UIColor colorWithRed:0.0f green:0.0f blue:1.0f alpha:1.00f]];
+    [self.regValueSwitcher setTintColor:[UIColor lightGrayColor]];//[UIColor colorWithRed:0.0f green:0.0f blue:1.0f alpha:1.00f]
+    [self.regValueSwitcher setThumbTintColor:[UIColor colorWithRed:0.0/255.0 green:20.0/255.0 blue:46.0/255.0 alpha:1.0]];
+    [self.regValueSwitcher setOn:shortRegForm];
+    
+    self.regTitleLeft.font = [UIFont fontWithName:@"MyriadPro-Cond" size:20.0];
+    self.regTitleLeft.backgroundColor = [UIColor clearColor];
+    self.regTitleLeft.textColor = [UIColor colorWithRed:216.0/255.0 green:219.0/255.0 blue:228.0/255.0 alpha:1.0];
+    self.regTitleLeft.textAlignment = NSTextAlignmentCenter;
+    self.regTitleRight.font = [UIFont fontWithName:@"MyriadPro-Cond" size:20.0];
+    self.regTitleRight.backgroundColor = [UIColor clearColor];
+    self.regTitleRight.textColor = [UIColor colorWithRed:216.0/255.0 green:219.0/255.0 blue:228.0/255.0 alpha:1.0];
+    self.regTitleRight.textAlignment = NSTextAlignmentCenter;
+    
+    [self switchSetRightPosition:shortRegForm];
+    
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.height;
     
@@ -51,6 +91,8 @@
     [self buttonsConfigure];
     [self buttonsReposition];
     [self noAnimateShowActivations];
+    
+    self.registrationFormView.alpha = 0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,8 +100,29 @@
     [super didReceiveMemoryWarning];
 }
 
+-(void) changeSwitchValue:(NSInteger)newIndex
+{
+    if(newIndex == 0)   {
+        self.registrationFormView.alpha = 0.0;
+        
+        for ( PMActivationView *button in activationButtonsArray )
+        {
+            button.alpha = 1;
+        }
+    }
+    else if(newIndex == 1)  {
+        self.registrationFormView.alpha = 1.0;
+        for ( PMActivationView *button in activationButtonsArray )
+        {
+            button.alpha = 0;
+        }
+    }
+}
+
 -(void) onSettingClose:(UIButton*)btn
 {
+    [userSettings setObject:[NSNumber numberWithBool:self.regValueSwitcher.on] forKey:@"ShortRegForm"];
+    
     [UIView animateWithDuration:0.05 animations:^{
         btn.transform = CGAffineTransformMakeScale(0.95, 0.95);
     }
@@ -72,9 +135,15 @@
                          }];
                      }];
     
-    [self.formSheetController dismissFormSheetControllerAnimated:NO completionHandler:^(MZFormSheetController *formSheetController) {
-        
-    }];
+    if(IS_OS_7_OR_LATER)   {
+        [self.formSheetController dismissFormSheetControllerAnimated:NO completionHandler:^(MZFormSheetController *formSheetController) {
+            
+        }];
+    } else {
+        [self dismissFormSheetControllerAnimated:NO completionHandler:^(MZFormSheetController *formSheetController) {
+            //formSheetController.transitionStyle = MZFormSheetTransitionStyleFade;
+        }];
+    }
 }
 
 -(void) buttonsConfigure
@@ -86,7 +155,7 @@
     [activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:eBarcode withText:NO]];
     [activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:eLogo withText:NO]];
     [activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:eStamp withText:NO]];
-    [activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:ePrint withText:NO]];
+    //[activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:ePrint withText:NO]];
     
     [self activationsStatusRefresh];
 }
@@ -125,36 +194,6 @@
     }
 }
 
--(void) animateShowActivations
-{
-    __block int loop = 0;
-    __block int activeCount = activationButtonsArray.count;
-    dispatch_repeated(0.15, dispatch_get_main_queue(), ^(BOOL *stop) {
-        PMActivationView *button = [activationButtonsArray objectAtIndex:loop];
-        
-        [UIView animateWithDuration:0.25 delay:0.1 options:UIViewAnimationOptionShowHideTransitionViews animations:^{
-            CGRect btnRect = button.frame;
-            btnRect.origin.y = 277;
-            button.frame = btnRect;
-            
-            button.activeButton.alpha = 1;
-        } completion:^(BOOL finished) {
-            [UIView animateWithDuration:0.2 animations:^{
-                button.englishDesc.alpha = 1;
-            }];
-        }];
-        
-        if(loop == (activeCount-1)) {
-            [UIView animateWithDuration:0.2 delay:0.5 options:UIViewAnimationOptionCurveLinear animations:^{
-                settingButton.alpha = 1;
-            } completion:^(BOOL finished) {
-                //
-            }];
-            *stop = YES;
-        }   else loop++;
-    });
-}
-
 -(void) noAnimateShowActivations
 {
     for ( PMActivationView *button in activationButtonsArray )
@@ -182,6 +221,24 @@
     
     [userSettings setObject:[NSNumber numberWithBool:!activationStatus] forKey:activationName];
     [userSettings synchronize];
+}
+
+-(void) switchSetRightPosition:(BOOL)on
+{
+    if(on)
+    {
+        self.regTitleLeft.font = [UIFont fontWithName:@"MyriadPro-Cond" size:20.0];
+        self.regTitleRight.font = [UIFont fontWithName:@"MyriadPro-Cond" size:32.0];
+        
+        CGPoint location = self.regTitleRight.center;
+    }
+    else
+    {
+        self.regTitleLeft.font = [UIFont fontWithName:@"MyriadPro-Cond" size:32.0];
+        self.regTitleRight.font = [UIFont fontWithName:@"MyriadPro-Cond" size:20.0];
+        
+        CGPoint location = self.regTitleLeft.center;
+    }
 }
 
 @end

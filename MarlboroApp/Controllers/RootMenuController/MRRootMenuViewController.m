@@ -11,6 +11,8 @@
 #import "PMActivationView.h"
 #import "MRRegistrationViewController.h"
 #import "MRSettingsViewController.h"
+#import "MRGameViewController.h"
+#import "MRStampRootViewController.h"
 
 #import <MZFormSheetController/MZFormSheetController.h>
 
@@ -162,18 +164,38 @@
                              MRSettingsViewController *settingVC = [[MRSettingsViewController alloc] initWithNibName:@"MRSettingsViewController" bundle:[NSBundle mainBundle]];
                              __weak id wself = self;
                              
-                             MZFormSheetController *formSheet = [[MZFormSheetController alloc] initWithSize:self.view.bounds.size viewController:settingVC];
-                             formSheet.transitionStyle = MZFormSheetTransitionStyleFade;
-                             formSheet.willDismissCompletionHandler = ^(UIViewController *presentedFSViewController) {
+                             if(IS_OS_7_OR_LATER)   {
+                                 MZFormSheetController *formSheet = [[MZFormSheetController alloc] initWithSize:self.view.bounds.size viewController:settingVC];
+                                 formSheet.transitionStyle = MZFormSheetTransitionStyleFade;
+                                 formSheet.willDismissCompletionHandler = ^(UIViewController *presentedFSViewController) {
+                                     
+                                     [wself buttonsConfigure];
+                                     [wself buttonsReposition];
+                                     [wself noAnimateShowActivations];
+                                     [wself showAllContext];
+                                 };
+                                 [formSheet presentFormSheetController:formSheet animated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+                                     
+                                 }];
+                             } else {
+                                 UINavigationController *navCntrl = [[UINavigationController alloc] init];
+                                 navCntrl.navigationBarHidden = YES;
                                  
-                                 [wself buttonsConfigure];
-                                 [wself buttonsReposition];
-                                 [wself noAnimateShowActivations];
-                                 [wself showAllContext];
-                             };
-                             [formSheet presentFormSheetController:formSheet animated:YES completionHandler:^(MZFormSheetController *formSheetController) {
-                                 
-                             }];
+                                 [[MZFormSheetBackgroundWindow appearance] setBackgroundColor:(__bridge CGColorRef)([UIColor clearColor])];
+                                 [self presentFormSheetWithViewController:navCntrl animated:NO transitionStyle:MZFormSheetTransitionStyleFade completionHandler:^(MZFormSheetController *formSheetController) {
+                                     formSheetController.landscapeTopInset = 0.0f;
+                                     formSheetController.transitionStyle = MZFormSheetTransitionStyleFade;
+                                     formSheetController.willDismissCompletionHandler = ^(UIViewController *presentedFSViewController) {
+                                         [wself buttonsConfigure];
+                                         [wself buttonsReposition];
+                                         [wself noAnimateShowActivations];
+                                         [wself showAllContext];
+                                     };
+                                     [formSheetController presentViewController:settingVC animated:YES completion:^{
+                                         
+                                     }];
+                                 }];
+                             }
                          }];
                      }];
 }
@@ -192,7 +214,7 @@
     [activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:eBarcode withText:YES]];
     [activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:eLogo withText:YES]];
     [activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:eStamp withText:YES]];
-    [activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:ePrint withText:YES]];
+    //[activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:ePrint withText:YES]];
     
     [self activationsStatusRefresh];
 }
@@ -278,6 +300,7 @@
         button.frame = btnRect;
         
         button.activeButton.alpha = 1;
+        button.englishDesc.alpha = 1;
     }
 }
 
@@ -302,7 +325,77 @@ void dispatch_repeated(double intervalInSeconds, dispatch_queue_t queue, void(^w
 
 -(void) activationView:(PMActivationView*)activationView didSelectWithID:(ActivationIDs)ids
 {
-    [self openRegistrationForm:ids];
+    NSUserDefaults *userSettings = [NSUserDefaults standardUserDefaults];
+    BOOL shortRegForm = [[userSettings objectForKey:@"ShortRegForm"] boolValue];
+    
+    if(ids == eStamp) {
+        //[self openRegistrationForm:ids];
+        [self hideAllContext];
+        __weak id wself = self;
+        MRStampRootViewController *stampController = [[MRStampRootViewController alloc] init];
+        MZFormSheetController *stampSheet = [[MZFormSheetController alloc] initWithSize:self.view.bounds.size viewController:[[UINavigationController alloc] initWithRootViewController:stampController]];
+        stampSheet.willDismissCompletionHandler = ^(UIViewController *presentedFSViewController) {
+            [wself showAllContext];
+        };
+        
+        [stampSheet presentFormSheetController:stampSheet animated:NO completionHandler:^(MZFormSheetController *formSheetController) {
+            NSLog(@"Stamp view controller present");
+        }];
+        return;
+    }
+    
+    if(shortRegForm)    {
+        [self openGameForm:ids];
+    } else  {
+        [self openRegistrationForm:ids];
+    }
+}
+
+-(void) openGameForm:(ActivationIDs)ids
+{
+    [self hideAllContext];
+    
+    MRGameViewController *gameController = [[MRGameViewController alloc] initWithActiveID:ids];
+    __weak id wself = self;
+    
+    if( IS_OS_7_OR_LATER )  {
+        MZFormSheetController *registraionSheet = [[MZFormSheetController alloc] initWithSize:self.view.bounds.size viewController:[[UINavigationController alloc] initWithRootViewController:gameController]];
+        registraionSheet.willDismissCompletionHandler = ^(UIViewController *presentedFSViewController) {
+            UINavigationController *navCntrl = (UINavigationController*)presentedFSViewController;
+            MRGameViewController *regVC = ((MRGameViewController*)([navCntrl.viewControllers objectAtIndex:0]));
+            if(regVC.isExit)
+                [wself showAllContext];
+            else
+                [self openRegistrationForm:ids];
+        };
+        
+        [registraionSheet presentFormSheetController:registraionSheet animated:NO completionHandler:^(MZFormSheetController *formSheetController) {
+            NSLog(@"Registartion view controller present");
+        }];
+    } else  {
+        UINavigationController *navCntrl = [[UINavigationController alloc] init];
+        navCntrl.navigationBarHidden = YES;
+        
+        //registrationController.formSheetController.transitionStyle = MZFormSheetTransitionStyleSlideFromLeft;
+        [[MZFormSheetBackgroundWindow appearance] setBackgroundColor:(__bridge CGColorRef)([UIColor clearColor])];
+        [self presentFormSheetWithViewController:navCntrl animated:NO transitionStyle:MZFormSheetTransitionStyleSlideAndBounceFromLeft completionHandler:^(MZFormSheetController *formSheetController) {
+            
+            formSheetController.landscapeTopInset = 0.0f;
+            
+            formSheetController.willDismissCompletionHandler = ^(UIViewController *presentedFSViewController) {
+                UINavigationController *navCntrl = (UINavigationController*)presentedFSViewController;
+                MRGameViewController *regVC = ((MRGameViewController*)([navCntrl.viewControllers objectAtIndex:0]));
+                if(regVC.isExit)
+                    [wself showAllContext];
+                else
+                    [self openRegistrationForm:ids];
+            };
+            
+            [formSheetController presentViewController:[[UINavigationController alloc] initWithRootViewController:gameController] animated:NO completion:^{
+                
+            }];
+        }];
+    }
 }
 
 -(void) openRegistrationForm:(ActivationIDs)ids
@@ -314,15 +407,37 @@ void dispatch_repeated(double intervalInSeconds, dispatch_queue_t queue, void(^w
         MRRegistrationViewController *registrationController = [[MRRegistrationViewController alloc] initWithActiveID:ids];
         
         __weak id wself = self;
-        MZFormSheetController *registraionSheet = [[MZFormSheetController alloc] initWithSize:self.view.bounds.size viewController:[[UINavigationController alloc] initWithRootViewController:registrationController]];
-        registraionSheet.willDismissCompletionHandler = ^(UIViewController *presentedFSViewController) {
-            MRRegistrationViewController *regVC = (MRRegistrationViewController*)presentedFSViewController;
-            [wself showAllContext];
-        };
         
-        [registraionSheet presentFormSheetController:registraionSheet animated:NO completionHandler:^(MZFormSheetController *formSheetController) {
-            NSLog(@"Registartion view controller present");
-        }];
+        if( IS_OS_7_OR_LATER )  {
+            MZFormSheetController *registraionSheet = [[MZFormSheetController alloc] initWithSize:self.view.bounds.size viewController:[[UINavigationController alloc] initWithRootViewController:registrationController]];
+            registraionSheet.willDismissCompletionHandler = ^(UIViewController *presentedFSViewController) {
+                MRRegistrationViewController *regVC = (MRRegistrationViewController*)presentedFSViewController;
+                [wself showAllContext];
+            };
+            
+            [registraionSheet presentFormSheetController:registraionSheet animated:NO completionHandler:^(MZFormSheetController *formSheetController) {
+                NSLog(@"Registartion view controller present");
+            }];
+        } else  {
+            UINavigationController *navCntrl = [[UINavigationController alloc] init];
+            navCntrl.navigationBarHidden = YES;
+            
+            //registrationController.formSheetController.transitionStyle = MZFormSheetTransitionStyleSlideFromLeft;
+            [[MZFormSheetBackgroundWindow appearance] setBackgroundColor:(__bridge CGColorRef)([UIColor clearColor])];
+            [self presentFormSheetWithViewController:navCntrl animated:NO transitionStyle:MZFormSheetTransitionStyleSlideAndBounceFromLeft completionHandler:^(MZFormSheetController *formSheetController) {
+                
+                formSheetController.landscapeTopInset = 0.0f;
+                
+                formSheetController.willDismissCompletionHandler = ^(UIViewController *presentedFSViewController) {
+                    MRRegistrationViewController *regVC = (MRRegistrationViewController*)presentedFSViewController;
+                    [wself showAllContext];
+                };
+                
+                [formSheetController presentViewController:[[UINavigationController alloc] initWithRootViewController:registrationController] animated:NO completion:^{
+                    
+                }];
+            }];
+        }
     }
 }
 
