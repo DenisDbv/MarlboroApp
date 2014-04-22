@@ -19,5 +19,6 @@
 -(void) setImage:(UIImage*)image byIndex:(NSInteger)index;
 -(NSInteger) selectItem;
 -(void) nextItem;
+-(void) firstItem;
 
 @end

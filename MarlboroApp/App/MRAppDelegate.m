@@ -35,6 +35,7 @@
 }
 
 //OPTIAgency-Gothic
+//FuturaBookC
 -(void) showFontsList
 {
     NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];

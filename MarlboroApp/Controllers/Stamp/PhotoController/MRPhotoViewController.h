@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @protocol MRPhotoViewControllerDelegate <NSObject>
+-(void) photoSessionDidStart;
+
 -(void) photoDidDone:(UIImage*)image;
 @end
 

@@ -14,6 +14,9 @@ pod "MBSwitch"
 # Camera
 pod "PBJVision"
 
+#Graphics
+#pod "GPUImage"
+
 #Barcode
 pod 'ZXingObjC'
 

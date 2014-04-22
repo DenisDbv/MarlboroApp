@@ -165,15 +165,21 @@
 -(void) initCaptureButton
 {
     if(captureButton == nil)    {
-        UIImage *saveVoiceImage = [UIImage imageNamed:@"siluet-photo-make.png"];
+        UIImage *saveVoiceImage = [UIImage imageNamed:@"400-shoot.png"];
         captureButton = [UIButton buttonWithType:UIButtonTypeCustom];
         captureButton.userInteractionEnabled = YES;
         [captureButton addTarget:self action:@selector(onTakeCapture:) forControlEvents:UIControlEventTouchUpInside];
         [captureButton setImage:saveVoiceImage forState:UIControlStateNormal];
         [captureButton setImage:saveVoiceImage forState:UIControlStateHighlighted];
-        captureButton.frame = CGRectMake(self.view.bounds.size.width - saveVoiceImage.size.width - 10, self.view.center.y-saveVoiceImage.size.height/2, saveVoiceImage.size.width, saveVoiceImage.size.height);
+        captureButton.frame = CGRectMake(self.view.bounds.size.width, self.view.center.y-saveVoiceImage.size.height/4, saveVoiceImage.size.width/2, saveVoiceImage.size.height/2);
+        captureButton.alpha = 0;
         
         [self.view.superview insertSubview:captureButton aboveSubview:self.view.superview];
+        
+        [UIView animateWithDuration:0.25f animations:^{
+            captureButton.frame = CGRectMake(self.view.bounds.size.width - saveVoiceImage.size.width/2 - 10, self.view.center.y-saveVoiceImage.size.height/4, saveVoiceImage.size.width/2, saveVoiceImage.size.height/2);
+            captureButton.alpha = 1;
+        }];
     }
 }
 
@@ -183,9 +189,19 @@
     captureButton = nil;
 }
 
--(void) onTakeCapture:(UIButton*)sender
+-(void) onTakeCapture:(UIButton*)button
 {
-    [[PBJVision sharedInstance] capturePhoto];
+    [UIView animateWithDuration:0.05 animations:^{
+        button.transform = CGAffineTransformMakeScale(0.95, 0.95);
+    }
+                     completion:^(BOOL finished){
+                         
+                         [UIView animateWithDuration:0.05f animations:^{
+                             button.transform = CGAffineTransformMakeScale(1, 1);
+                         } completion:^(BOOL finished) {
+                             [[PBJVision sharedInstance] capturePhoto];
+                         }];
+                     }];
 }
 
 #pragma mark - PBJVisionDelegate
@@ -198,6 +214,10 @@
 {
     if (![_previewView superview]) {
         [self.view addSubview:_previewView];
+    }
+    
+    if([self.delegate respondsToSelector:@selector(photoSessionDidStart)]) {
+        [self.delegate photoSessionDidStart];
     }
 }
 
@@ -246,6 +266,16 @@
     if([self.delegate respondsToSelector:@selector(photoDidDone:)]) {
         [self.delegate photoDidDone:image];
     }
+}
+
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
+}
+
+-(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
 }
 
 @end

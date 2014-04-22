@@ -280,6 +280,16 @@
                                          PHONE_KEY: phoneDictionary,
                                          SLOGAN_KEY:sloganDictionary};
         chooserViewController = [[MRChooserViewController alloc] initWithTitle:@"ВЫБЕРИТЕ ТИП ПОДПИСИ ПОД ЛОГОТИПОМ" withCheckboxList:logoDictionary :_activeID];
+    } else if(_activeID == eStamp) {
+        NSDictionary *nameDictionary = @{@"titleKey": @"ПО ИМЕНИ", @"placeholderKey": @"ВВЕДИТЕ ИМЯ", @"indexKey":[NSNumber numberWithInteger:1]};
+        NSDictionary *secondNameDictionary = @{@"titleKey": @"ПО ФАМИЛИИ", @"placeholderKey": @"ВВЕДИТЕ ФАМИЛИЮ", @"indexKey":[NSNumber numberWithInteger:2]};
+        NSDictionary *patronymicNameDictionary = @{@"titleKey": @"ПО ОТЧЕСТВУ", @"placeholderKey": @"ВВЕДИТЕ ОТЧЕСТВО", @"indexKey":[NSNumber numberWithInteger:3]};
+        NSDictionary *phoneDictionary = @{@"titleKey": @"ТЕЛЕФОН", @"placeholderKey": @"ВВЕДИТЕ ТЕЛЕФОН", @"indexKey":[NSNumber numberWithInteger:4]};
+        NSDictionary *stampDictionary = @{NAME_KEY: nameDictionary,
+                                         SURNAME_KEY:secondNameDictionary,
+                                         PATRONYMIC_KEY:patronymicNameDictionary,
+                                         PHONE_KEY: phoneDictionary};
+        chooserViewController = [[MRChooserViewController alloc] initWithTitle:@"ВЫБЕРИТЕ ТИП ПОДПИСИ В МАРКЕ" withCheckboxList:stampDictionary :_activeID];
     }
     
     [self.navigationController pushViewController:chooserViewController animated:YES];

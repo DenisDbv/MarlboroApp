@@ -10,6 +10,7 @@
 #import "MRCheckItem.h"
 #import "MRBarcodeListViewController.h"
 #import "MRLogoListViewController.h"
+#import "MRStampRootViewController.h"
 
 #import <MZFormSheetController/MZFormSheetController.h>
 
@@ -275,6 +276,10 @@
     else if(_activeID == eLogo) {
         MRLogoListViewController *logoListVC = [[MRLogoListViewController alloc] initWithNibName:@"MRLogoListViewController" bundle:[NSBundle mainBundle]];
         [self.navigationController pushViewController:logoListVC animated:YES];
+    }
+    else if(_activeID == eStamp) {
+        MRStampRootViewController *stampController = [[MRStampRootViewController alloc] init];
+        [self.navigationController pushViewController:stampController animated:YES];
     }
 }
 

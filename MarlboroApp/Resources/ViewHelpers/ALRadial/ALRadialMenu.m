@@ -84,16 +84,18 @@
 		
 		//get the image from the deletate and set it on the button
 		[popupButton setImage:[self.delegate radialMenu:self imageForIndex:currentItem] forState:UIControlStateNormal];
+        [popupButton setImage:[self.delegate radialMenu:self imageForIndex:currentItem] forState:UIControlStateDisabled];
 		//set the button tag, delegate, and target action
 		popupButton.tag = currentItem;
 		popupButton.delegate = self;
 		[popupButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
 		
-		
 		[view insertSubview:popupButton belowSubview:button];
 		
 		[mutablePopups addObject:popupButton];
 		
+        popupButton.enabled = [self.delegate radialMenu:self isButtonEnable:currentItem];
+        
 		currentItem++;
 	}
 	
@@ -158,7 +160,33 @@
 }
 
 
+-(void) willEnableButtonIndex:(NSInteger)index
+                    withImage:(UIImage*)image    {
+    ALRadialButton *button = [self.items objectAtIndex:index];
+    button.enabled = YES;
+    [button setImage:image forState:UIControlStateNormal];
+    
+    [UIView animateWithDuration:0.05 animations:^{
+        button.transform = CGAffineTransformMakeScale(1.10, 1.10);
+    }
+                     completion:^(BOOL finished){
+                         
+                         [UIView animateWithDuration:0.05f animations:^{
+                             button.transform = CGAffineTransformMakeScale(0.90, 0.90);
+                         } completion:^(BOOL finished) {
+                             [UIView animateWithDuration:0.05f animations:^{
+                                 button.transform = CGAffineTransformMakeScale(1.0, 1.0);
+                             } completion:^(BOOL finished) {
+                                 
+                             }];
+                         }];
+                     }];
+}
 
+-(void) willDisableButtonIndex:(NSInteger)index {
+    ALRadialButton *button = [self.items objectAtIndex:index];
+    button.enabled = NO;
+}
 
 
 #pragma mark - private methods
@@ -197,7 +225,19 @@
 
 - (void)buttonPressed:(id)sender  {
 	ALRadialButton *button = (ALRadialButton *)sender;
-	[self.delegate radialMenu:self didSelectItemAtIndex:button.tag];
+    
+    [UIView animateWithDuration:0.05 animations:^{
+        button.transform = CGAffineTransformMakeScale(0.95, 0.95);
+    }
+                     completion:^(BOOL finished){
+                         
+                         [UIView animateWithDuration:0.05f animations:^{
+                             button.transform = CGAffineTransformMakeScale(1, 1);
+                         } completion:^(BOOL finished) {
+                             [self.delegate radialMenu:self didSelectItemAtIndex:button.tag];
+                         }];
+                     }];
+    
 }
 
 

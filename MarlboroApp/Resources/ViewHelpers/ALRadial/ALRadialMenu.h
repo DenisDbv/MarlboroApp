@@ -52,6 +52,8 @@
  */
 - (void) radialMenu:(ALRadialMenu *)radialMenu didSelectItemAtIndex:(NSInteger) index;
 
+- (BOOL) radialMenu:(ALRadialMenu *)radialMenu isButtonEnable:(NSInteger) index;
+
 @optional
 
 /**
@@ -141,5 +143,9 @@
  * @param sender the button that was pressed
  */
 - (void)buttonPressed:(id)sender;
+
+-(void) willEnableButtonIndex:(NSInteger)index
+                    withImage:(UIImage*)image;
+-(void) willDisableButtonIndex:(NSInteger)index;
 @end
 

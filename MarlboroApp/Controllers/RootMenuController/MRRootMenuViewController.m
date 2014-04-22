@@ -329,8 +329,8 @@ void dispatch_repeated(double intervalInSeconds, dispatch_queue_t queue, void(^w
     BOOL shortRegForm = [[userSettings objectForKey:@"ShortRegForm"] boolValue];
     
     if(ids == eStamp) {
-        //[self openRegistrationForm:ids];
-        [self hideAllContext];
+        [self openRegistrationForm:ids];
+        /*[self hideAllContext];
         __weak id wself = self;
         MRStampRootViewController *stampController = [[MRStampRootViewController alloc] init];
         MZFormSheetController *stampSheet = [[MZFormSheetController alloc] initWithSize:self.view.bounds.size viewController:[[UINavigationController alloc] initWithRootViewController:stampController]];
@@ -340,7 +340,7 @@ void dispatch_repeated(double intervalInSeconds, dispatch_queue_t queue, void(^w
         
         [stampSheet presentFormSheetController:stampSheet animated:NO completionHandler:^(MZFormSheetController *formSheetController) {
             NSLog(@"Stamp view controller present");
-        }];
+        }];*/
         return;
     }
     
@@ -400,7 +400,7 @@ void dispatch_repeated(double intervalInSeconds, dispatch_queue_t queue, void(^w
 
 -(void) openRegistrationForm:(ActivationIDs)ids
 {
-    if(ids == eBarcode || ids == eLogo) {
+    if(ids == eBarcode || ids == eLogo || ids == eStamp) {
     
         [self hideAllContext];
         
