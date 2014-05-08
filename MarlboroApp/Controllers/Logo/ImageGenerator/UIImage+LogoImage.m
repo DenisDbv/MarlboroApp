@@ -162,18 +162,18 @@ static BOOL showBorder = NO;
 +(UIImage*) logo1WithName:(NSString*)name phone:(NSString*)phone mode:(NSString*)mode fontType:(int)fontType
 {
     UIFont* font;
-    if (fontType == 1) font = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:34];
-    if (fontType == 2) font = [UIFont fontWithName:@"FuturaDemiC" size:34];
+    if (fontType == 1) font = [UIFont fontWithName:@"FuturaDemiC" size:34];
+    if (fontType == 2) font = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:34];
     if (fontType == 3) font = [UIFont fontWithName:@"Roboto-Thin" size:34];
     
     UIFont* bigFont;
-    if (fontType == 1) bigFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:90];
-    if (fontType == 2) bigFont = [UIFont fontWithName:@"FuturaDemiC" size:90];
+    if (fontType == 1) bigFont = [UIFont fontWithName:@"FuturaDemiC" size:90];
+    if (fontType == 2) bigFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:90];
     if (fontType == 3) bigFont = [UIFont fontWithName:@"Roboto-Thin" size:90];
     
     UIFont* modeFont;
-    if (fontType == 1) modeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:20];
-    if (fontType == 2) modeFont = [UIFont fontWithName:@"FuturaDemiC" size:20];
+    if (fontType == 1) modeFont = [UIFont fontWithName:@"FuturaDemiC" size:20];
+    if (fontType == 2) modeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:20];
     if (fontType == 3) modeFont = [UIFont fontWithName:@"Roboto-Thin" size:20];
     
     float radius1;
@@ -283,18 +283,18 @@ static BOOL showBorder = NO;
 +(UIImage*) logo2WithName:(NSString*)name phone:(NSString*)phone mode:(NSString*)mode fontType:(int)fontType
 {
     UIFont* font;
-    if (fontType == 1) font = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:34];
-    if (fontType == 2) font = [UIFont fontWithName:@"FuturaDemiC" size:34];
+    if (fontType == 1) font = [UIFont fontWithName:@"FuturaDemiC" size:34];
+    if (fontType == 2) font = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:34];
     if (fontType == 3) font = [UIFont fontWithName:@"Roboto-Thin" size:34];
     
     UIFont* bigFont;
-    if (fontType == 1) bigFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:90];
-    if (fontType == 2) bigFont = [UIFont fontWithName:@"FuturaDemiC" size:90];
+    if (fontType == 1) bigFont = [UIFont fontWithName:@"FuturaDemiC" size:90];
+    if (fontType == 2) bigFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:90];
     if (fontType == 3) bigFont = [UIFont fontWithName:@"Roboto-Thin" size:90];
     
     UIFont* modeFont;
-    if (fontType == 1) modeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:20];
-    if (fontType == 2) modeFont = [UIFont fontWithName:@"FuturaDemiC" size:20];
+    if (fontType == 1) modeFont = [UIFont fontWithName:@"FuturaDemiC" size:20];
+    if (fontType == 2) modeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:20];
     if (fontType == 3) modeFont = [UIFont fontWithName:@"Roboto-Thin" size:20];
     
     float radius1;
@@ -466,23 +466,23 @@ static BOOL showBorder = NO;
 +(UIImage*) logo3WithName:(NSString*)name phone:(NSString*)phone mode:(NSString*)mode fontType:(int)fontType
 {
     UIFont* font;
-    if (fontType == 1) font = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:34];
-    if (fontType == 2) font = [UIFont fontWithName:@"FuturaDemiC" size:34];
+    if (fontType == 1) font = [UIFont fontWithName:@"FuturaDemiC" size:34];
+    if (fontType == 2) font = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:34];
     if (fontType == 3) font = [UIFont fontWithName:@"Roboto-Thin" size:34];
     
     UIFont* bigFont;
-    if (fontType == 1) bigFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:90];
-    if (fontType == 2) bigFont = [UIFont fontWithName:@"FuturaDemiC" size:90];
+    if (fontType == 1) bigFont = [UIFont fontWithName:@"FuturaDemiC" size:90];
+    if (fontType == 2) bigFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:90];
     if (fontType == 3) bigFont = [UIFont fontWithName:@"Roboto-Thin" size:90];
     
     UIFont* modeFont;
-    if (fontType == 1) modeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:20];
-    if (fontType == 2) modeFont = [UIFont fontWithName:@"FuturaDemiC" size:20];
+    if (fontType == 1) modeFont = [UIFont fontWithName:@"FuturaDemiC" size:20];
+    if (fontType == 2) modeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:20];
     if (fontType == 3) modeFont = [UIFont fontWithName:@"Roboto-Thin" size:20];
     
     UIFont* phoneFont;
-    if (fontType == 1) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:35];
-    if (fontType == 2) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:35];
+    if (fontType == 1) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:35];
+    if (fontType == 2) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:35];
     if (fontType == 3) phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:35];
 
     

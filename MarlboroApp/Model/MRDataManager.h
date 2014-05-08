@@ -30,6 +30,9 @@
 #define PHONE_SIGN_KEY      @"phoneSignKey"
 #define SLOGAN_SIGN_KEY     @"sloganSignKey"
 
+#define SEND_TO_EMAIL_KEY     @"sendToEmailKey"
+#define SEND_TO_PRINT_KEY     @"sendToPrintKey"
+
 @interface MRDataManager : NSObject <ABMultitonProtocol>
 
 @property (nonatomic, weak) NSString *nameRegValue;
@@ -48,6 +51,9 @@
 @property (nonatomic) BOOL nameSignValue;
 @property (nonatomic) BOOL phoneSignValue;
 @property (nonatomic) BOOL sloganSignValue;
+
+@property (nonatomic) BOOL sendToEmailKey;
+@property (nonatomic) BOOL sendToPrintKey;
 
 + (instancetype)sharedInstance;
 -(void) setDefaultValue;

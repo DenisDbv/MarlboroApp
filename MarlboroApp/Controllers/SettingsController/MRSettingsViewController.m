@@ -154,7 +154,7 @@
     
     [activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:eBarcode withText:NO]];
     [activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:eLogo withText:NO]];
-    [activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:eStamp withText:NO]];
+    //[activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:eStamp withText:NO]];
     //[activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:ePrint withText:NO]];
     
     [self activationsStatusRefresh];

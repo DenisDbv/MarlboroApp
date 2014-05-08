@@ -11,6 +11,7 @@
 #import "UIView+GestureBlocks.h"
 #import "LogoSavedView.h"
 #import "PMMailManager.h"
+#import "MRSenderChooser.h"
 
 #import <MZFormSheetController/MZFormSheetController.h>
 #import <TYMActivityIndicatorView/TYMActivityIndicatorView.h>
@@ -45,6 +46,10 @@
     TYMActivityIndicatorView *activityIndicator;
     BOOL isSending;
     PMMailManager *mailManager;
+    
+    MRSenderChooser *senderChooserView;
+    UIImage *logoImageResult;
+    NSInteger selectLogoIndex, selectLogoFontIndex;
 }
 @synthesize carouselLogoList, carouselLogoFonts;
 @synthesize saveButton;
@@ -61,6 +66,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    selectLogoIndex = 1;
+    selectLogoFontIndex = 0;
     
     isPresentFontsCarousel = NO;
     isPresentLogoImage = NO;
@@ -221,6 +229,7 @@
                          [UIView animateWithDuration:0.05f animations:^{
                              button.transform = CGAffineTransformMakeScale(1, 1);
                          } completion:^(BOOL finished) {
+                             selectLogoIndex = button.tag+1;
                              [self presentSelectedLogoType:button.tag+1];
                          }];
                      }];
@@ -236,6 +245,7 @@
                          [UIView animateWithDuration:0.05f animations:^{
                              button.transform = CGAffineTransformMakeScale(1, 1);
                          } completion:^(BOOL finished) {
+                             selectLogoFontIndex = button.tag;
                              [self presentSelectedLogoFontImage:[logoImageFontsArray objectAtIndex:button.tag]];
                          }];
                      }];
@@ -345,31 +355,61 @@
 {
     //UIImageWriteToSavedPhotosAlbum(logoImage, nil, nil, nil);
     
-    isPresentLogoImage = YES;
+    logoImageResult = logoImage;
     
-    titleLabel.text = @"ВАШ ВАРИАНТ";
-    [titleLabel sizeToFit];
-    titleLabel.frame = CGRectMake((self.view.bounds.size.width - titleLabel.frame.size.width)/2,
-                                  100,
-                                  titleLabel.frame.size.width,
-                                  titleLabel.frame.size.height);
-    
-    selectedLogoImage = [[UIImageView alloc] initWithImage:logoImage];
-    selectedLogoImage.frame = CGRectMake((self.view.bounds.size.width-400)/2, titleLabel.frame.origin.y+titleLabel.frame.size.height+40, 400, 400);
-    selectedLogoImage.contentMode = UIViewContentModeScaleAspectFill;
-    selectedLogoImage.alpha = 0;
-    [self.view addSubview:selectedLogoImage];
-    
-    saveButton.frame = CGRectMake((self.view.bounds.size.width-saveButton.frame.size.width)/2,
-                                  selectedLogoImage.frame.origin.y+selectedLogoImage.frame.size.height+50,
-                                  saveButton.frame.size.width, saveButton.frame.size.height);
+    senderChooserView = [[MRSenderChooser alloc] initWithFrame:self.view.frame];
+    senderChooserView.delegate = self;
+    senderChooserView.alpha = 0;
+    [senderChooserView initialize];
     
     [UIView animateWithDuration:0.2 animations:^{
         carouselLogoFonts.alpha = 0;
-        //titleLabel.alpha = 0;
+        titleLabel.alpha = 0;
         
-        selectedLogoImage.alpha = 1;
-        saveButton.alpha = 1;
+        senderChooserView.alpha = 1;
+    }];
+    
+    [self.view addSubview:senderChooserView];
+}
+
+-(void) onContinueAfterSenderChecker    {
+    [senderChooserView removeFromSuperview];
+    
+     isPresentLogoImage = YES;
+     
+     titleLabel.text = @"ВАШ ВАРИАНТ";
+     [titleLabel sizeToFit];
+     titleLabel.frame = CGRectMake((self.view.bounds.size.width - titleLabel.frame.size.width)/2,
+     100,
+     titleLabel.frame.size.width,
+     titleLabel.frame.size.height);
+     
+     selectedLogoImage = [[UIImageView alloc] initWithImage:logoImageResult];
+     selectedLogoImage.frame = CGRectMake((self.view.bounds.size.width-400)/2, titleLabel.frame.origin.y+titleLabel.frame.size.height+40, 400, 400);
+     selectedLogoImage.contentMode = UIViewContentModeScaleAspectFill;
+     selectedLogoImage.alpha = 0;
+     [self.view addSubview:selectedLogoImage];
+     
+     saveButton.frame = CGRectMake((self.view.bounds.size.width-saveButton.frame.size.width)/2,
+     selectedLogoImage.frame.origin.y+selectedLogoImage.frame.size.height+50,
+     saveButton.frame.size.width, saveButton.frame.size.height);
+     
+     [UIView animateWithDuration:0.2 animations:^{
+         carouselLogoFonts.alpha = 0;
+         //titleLabel.alpha = 0;
+         
+         titleLabel.alpha = 1;
+         selectedLogoImage.alpha = 1;
+         saveButton.alpha = 1;
+     }];
+}
+
+-(void) onExitAfterSenderChecker    {
+    [senderChooserView removeFromSuperview];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        carouselLogoFonts.alpha = 1;
+        titleLabel.alpha = 1;
     }];
 }
 
@@ -456,14 +496,22 @@
         UIImage *resultingImage2 = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
-        [mailManager sendMessageWithTitle:@"Логотип"
+        /*[mailManager sendMessageWithTitle:@"Логотип"
                                  subtitle:@"ЭТО ТВОЙ УНИКАЛЬНЫЙ ЛОГОТИП!" // - ЦИФРОВОЙ ПРЕМИУС. ОБОИ ДЛЯ РАБОЧЕГО СТОЛА ВАШЕГО МОБИЛЬНОГО ТЕЛЕФОНА.
                                 subtitle2:@"ОРИГИНАЛЬНОЕ ИЗОБРАЖЕНИЕ ЛОГОТИПА ВЫСОКОГО КАЧЕСТВА ТЫ СМОЖЕШЬ НАЙТИ В ПРИЛОЖЕНИИ К ПИСЬМУ!"
                                      text:@""
                                     image:resultingImage2
                                  rezImage:resultingImage
                                  filename:@"logo.png"
-                                  forName:[MRDataManager sharedInstance].nameRegValue];
+                                  forName:[MRDataManager sharedInstance].nameRegValue];*/
+        [mailManager sendDataToServer:eLogo
+                            withImage:resultingImage2
+                         teplateIndex:selectLogoIndex
+                            fontIndex:selectLogoFontIndex
+                               withEu:[MRDataManager sharedInstance].sloganSignValue
+                                 text:@" "
+                             subtitle:@"ЭТО ТВОЙ УНИКАЛЬНЫЙ ЛОГОТИП!"
+                            subtitle2:@"ОРИГИНАЛЬНОЕ ИЗОБРАЖЕНИЕ ЛОГОТИПА ВЫСОКОГО КАЧЕСТВА ТЫ СМОЖЕШЬ НАЙТИ В ПРИЛОЖЕНИИ К ПИСЬМУ!"];
     });
 }
 

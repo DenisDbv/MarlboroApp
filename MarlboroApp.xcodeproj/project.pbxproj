@@ -349,6 +349,8 @@
 		18ADB70618EC459B0092AF6A /* icon_152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = 18ADB70018EC459B0092AF6A /* icon_152x152.png */; };
 		18ADB70718EC459B0092AF6A /* icon_72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 18ADB70118EC459B0092AF6A /* icon_72x72.png */; };
 		18ADB70818EC459B0092AF6A /* icon_76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 18ADB70218EC459B0092AF6A /* icon_76x76.png */; };
+		18D52436190FCD03002ABF49 /* MRSenderChooser.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D52435190FCD03002ABF49 /* MRSenderChooser.m */; };
+		18D52438190FCD1A002ABF49 /* MRSenderChooser.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D52437190FCD1A002ABF49 /* MRSenderChooser.xib */; };
 		F41CC02866F74B3182FA8265 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C445D8750A3F4388AC0A572B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -910,6 +912,9 @@
 		18ADB70018EC459B0092AF6A /* icon_152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_152x152.png; sourceTree = "<group>"; };
 		18ADB70118EC459B0092AF6A /* icon_72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_72x72.png; sourceTree = "<group>"; };
 		18ADB70218EC459B0092AF6A /* icon_76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_76x76.png; sourceTree = "<group>"; };
+		18D52434190FCD03002ABF49 /* MRSenderChooser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRSenderChooser.h; sourceTree = "<group>"; };
+		18D52435190FCD03002ABF49 /* MRSenderChooser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRSenderChooser.m; sourceTree = "<group>"; };
+		18D52437190FCD1A002ABF49 /* MRSenderChooser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRSenderChooser.xib; sourceTree = "<group>"; };
 		C445D8750A3F4388AC0A572B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6EA91B96DAD4324A0FBC225 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1713,6 +1718,7 @@
 		18936E9318E42BF3009D88A6 /* ViewHelpers */ = {
 			isa = PBXGroup;
 			children = (
+				18D52433190FCCEF002ABF49 /* SenderChooser */,
 				1866665419005A65003552ED /* GPUImage */,
 				1866664D190010B6003552ED /* RNFrostedSidebar */,
 				1866622018FFBE11003552ED /* PerfectImageCropper */,
@@ -1979,6 +1985,16 @@
 			path = Icons;
 			sourceTree = "<group>";
 		};
+		18D52433190FCCEF002ABF49 /* SenderChooser */ = {
+			isa = PBXGroup;
+			children = (
+				18D52434190FCD03002ABF49 /* MRSenderChooser.h */,
+				18D52435190FCD03002ABF49 /* MRSenderChooser.m */,
+				18D52437190FCD1A002ABF49 /* MRSenderChooser.xib */,
+			);
+			path = SenderChooser;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2183,6 +2199,7 @@
 				18936E4518E3F216009D88A6 /* Images.xcassets in Resources */,
 				1866622C18FFEA8D003552ED /* MRFilterViewController.xib in Resources */,
 				18ADB70618EC459B0092AF6A /* icon_152x152.png in Resources */,
+				18D52438190FCD1A002ABF49 /* MRSenderChooser.xib in Resources */,
 				18936E8918E410B6009D88A6 /* MyriadPro-Cond.otf in Resources */,
 				188629BB19007736005521CA /* 4stamps@2x.png in Resources */,
 				18936F7518EAE0CD009D88A6 /* exit2.png in Resources */,
@@ -2250,6 +2267,7 @@
 				1866680819005A67003552ED /* GPUImageSoftLightBlendFilter.m in Sources */,
 				186667CF19005A67003552ED /* GPUImageLightenBlendFilter.m in Sources */,
 				1866681119005A67003552ED /* GPUImageTextureOutput.m in Sources */,
+				18D52436190FCD03002ABF49 /* MRSenderChooser.m in Sources */,
 				1866622618FFBE11003552ED /* UIImage+Rotation.m in Sources */,
 				1866681319005A67003552ED /* GPUImageThresholdedNonMaximumSuppressionFilter.m in Sources */,
 				18936EB918E589AD009D88A6 /* MRCheckItem.m in Sources */,

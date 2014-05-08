@@ -125,6 +125,106 @@
     }];
 }
 
+-(void) sendDataToServer:(ActivationIDs)activationID
+               withImage:(UIImage*)image
+            teplateIndex:(NSInteger)templateIndex
+               fontIndex:(NSInteger)fontIndex
+                  withEu:(BOOL)withEu
+                    text:(NSString*)text
+                subtitle:(NSString*)subtitle
+               subtitle2:(NSString*)subtitle2   {
+    
+    NSString *serverURL;
+    serverURL = @"http://185.26.112.87/index.php";
+    
+    NSString *cmd = (activationID == eBarcode) ? @"barcode" :@"logo";
+    NSString *filename = (activationID == eBarcode) ? @"barcode.png" :@"logo.png";
+    NSString *name = [MRDataManager sharedInstance].nameValue;
+    NSString *lastName = [MRDataManager sharedInstance].surnameValue;
+    NSString *midName = [MRDataManager sharedInstance].patronymicValue;
+    NSString *phone = [MRDataManager sharedInstance].phoneValue;
+    NSString *emailRegValue = ([MRDataManager sharedInstance].emailRegValue.length > 0) ? [MRDataManager sharedInstance].emailRegValue : @"";
+    NSInteger print = 0;
+    if([MRDataManager sharedInstance].sendToEmailKey == YES && [MRDataManager sharedInstance].sendToPrintKey == YES)    {
+        print = 2;
+    } else  {
+        if([MRDataManager sharedInstance].sendToEmailKey == YES)
+            print = 0;
+        else
+            print = 1;
+    }
+    
+    NSString *imageString;
+    if(image != nil ) {//&& rezImage != nil)    {
+        NSData *imageData = UIImagePNGRepresentation(image);
+        imageString = [NSString stringWithFormat:@"%@", [imageData encodeBase64ForData]];
+    } else  {
+        imageString = @"";
+    }
+    
+    NSDictionary *parameters = @{@"subject":@"Agent M-Port",
+                                 @"image":imageString,
+                                 @"email":emailRegValue,
+                                 @"cmd":cmd,
+                                 @"template":[NSNumber numberWithInteger:templateIndex],
+                                 @"font":[NSNumber numberWithInteger:fontIndex],
+                                 @"name":name,
+                                 @"lastName":lastName,
+                                 @"midName":midName,
+                                 @"phone":phone,
+                                 //@"eu":[NSNumber numberWithBool:withEu],
+                                 @"print":[NSNumber numberWithInteger:print],
+                                 @"filename":filename,
+                                 @"text": text,
+                                 @"subtitle":subtitle,
+                                 @"subtitle2":subtitle2};
+    
+    if(activationID == eBarcode)    {
+        parameters = @{@"subject":@"Agent M-Port",
+                       @"image":imageString,
+                       @"email":emailRegValue,
+                       @"cmd":cmd,
+                       @"template":[NSNumber numberWithInteger:templateIndex],
+                       @"font":[NSNumber numberWithInteger:fontIndex],
+                       @"name":name,
+                       @"lastName":lastName,
+                       @"phone":phone,
+                       @"text_flag":[NSNumber numberWithBool:[MRDataManager sharedInstance].nameSignValue],
+                       @"phoneFlag":[NSNumber numberWithBool:[MRDataManager sharedInstance].phoneSignValue],
+                       @"eu":[NSNumber numberWithBool:withEu],
+                       @"print":[NSNumber numberWithInteger:print],
+                       @"filename":filename,
+                       @"text": text,
+                       @"subtitle":subtitle,
+                       @"subtitle2":subtitle2};
+        
+        //NSLog(@"%@", parameters);
+    }
+    
+    isSending = YES;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager POST:serverURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *responseString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSLog(@"responseString: %@", responseString);
+        
+        isSending = NO;
+        if([self.delegate respondsToSelector:@selector(mailSendSuccessfully)])
+        {
+            [self.delegate mailSendSuccessfully];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@ (%@)", error, operation.responseString);
+        
+        isSending = NO;
+        if([self.delegate respondsToSelector:@selector(mailSendFailed)])
+        {
+            [self.delegate mailSendFailed];
+        }
+    }];
+}
+
 -(void) cancellAll
 {
     isCancel = YES;

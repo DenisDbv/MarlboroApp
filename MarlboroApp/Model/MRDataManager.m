@@ -19,6 +19,7 @@
 @synthesize nameRegValue, secondNameRegValue, sexRegValue, phoneRegValue, emailRegValue, birthRegValue;
 @synthesize nameValue, surnameValue, patronymicValue, phoneValue, sloganValue;
 @synthesize nameSignValue, phoneSignValue, sloganSignValue;
+@synthesize sendToEmailKey, sendToPrintKey;
 
 + (instancetype)sharedInstance
 {
@@ -52,6 +53,12 @@
     [userDefaults setValue:@"" forKey:FIO_SIGN_KEY];
     [userDefaults setValue:@"" forKey:PHONE_SIGN_KEY];
     [userDefaults setValue:@"" forKey:SLOGAN_SIGN_KEY];
+    
+    [userDefaults setValue:@"" forKey:PHONE_SIGN_KEY];
+    [userDefaults setValue:@"" forKey:SLOGAN_SIGN_KEY];
+    
+    [userDefaults setBool:NO forKey:SEND_TO_EMAIL_KEY];
+    [userDefaults setBool:NO forKey:SEND_TO_PRINT_KEY];
 }
 
 -(void) setDataValue:(id)dataValue forKey:(NSString*)key
@@ -157,6 +164,20 @@
 }
 -(BOOL)sloganSignValue  {
     return [[userDefaults valueForKey:SLOGAN_SIGN_KEY] boolValue];
+}
+
+-(void) setSendToEmailKey:(BOOL)sendToEmailKey  {
+    [userDefaults setValue:[NSNumber numberWithBool:sendToEmailKey] forKey:SEND_TO_EMAIL_KEY];
+}
+-(BOOL)sendToEmailKey  {
+    return [[userDefaults valueForKey:SEND_TO_EMAIL_KEY] boolValue];
+}
+
+-(void) setSendToPrintKey:(BOOL)sendToPrintKey  {
+    [userDefaults setValue:[NSNumber numberWithBool:sendToPrintKey] forKey:SEND_TO_PRINT_KEY];
+}
+-(BOOL)sendToPrintKey  {
+    return [[userDefaults valueForKey:SEND_TO_PRINT_KEY] boolValue];
 }
 
 -(void) save

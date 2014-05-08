@@ -140,27 +140,27 @@
     
     // fonts
     UIFont* nameFont;
-    if(fontType == 1) nameFont = [UIFont fontWithName:@"Roboto-Thin" size:26];
-    if(fontType == 2) nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:26];
-    if(fontType == 3) nameFont = [UIFont fontWithName:@"FuturaDemiC" size:26];
-    if(fontType == 4) nameFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:26];
-    if(fontType == 5) nameFont = [UIFont fontWithName:@"MyriadPro-Cond" size:26];
+    if(fontType == 1) nameFont = [UIFont fontWithName:@"FuturaDemiC" size:26];
+    if(fontType == 2) nameFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:26];
+    if(fontType == 3) nameFont = [UIFont fontWithName:@"MyriadPro-Cond" size:26];
+    if(fontType == 4) nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:26];
+    if(fontType == 5) nameFont = [UIFont fontWithName:@"Roboto-Thin" size:26];
     if(fontType == 6) nameFont = [UIFont fontWithName:@"Thonburi" size:26];
     
     UIFont* phoneFont;
-    if(fontType == 1) phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:26];
-    if(fontType == 2) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:26];
-    if(fontType == 3) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:26];
-    if(fontType == 4) phoneFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:26];
-    if(fontType == 5) phoneFont = [UIFont fontWithName:@"MyriadPro-Cond" size:26];
+    if(fontType == 1) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:26];
+    if(fontType == 2) phoneFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:26];
+    if(fontType == 3) phoneFont = [UIFont fontWithName:@"MyriadPro-Cond" size:26];
+    if(fontType == 4) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:26];
+    if(fontType == 5) phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:26];
     if(fontType == 6) phoneFont = [UIFont fontWithName:@"Thonburi" size:26];
     
     UIFont* madeFont;
-    if(fontType == 1) madeFont = [UIFont fontWithName:@"Roboto-Thin" size:20];
-    if(fontType == 2) madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:20];
-    if(fontType == 3) madeFont = [UIFont fontWithName:@"FuturaDemiC" size:20];
-    if(fontType == 4) madeFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:20];
-    if(fontType == 5) madeFont = [UIFont fontWithName:@"MyriadPro-Cond" size:20];
+    if(fontType == 1) madeFont = [UIFont fontWithName:@"FuturaDemiC" size:20];
+    if(fontType == 2) madeFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:20];
+    if(fontType == 3) madeFont = [UIFont fontWithName:@"MyriadPro-Cond" size:20];
+    if(fontType == 4) madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:20];
+    if(fontType == 5) madeFont = [UIFont fontWithName:@"Roboto-Thin" size:20];
     if(fontType == 6) madeFont = [UIFont fontWithName:@"Thonburi" size:20];
     
     // text sizes
@@ -241,27 +241,27 @@
     NSString* line2 = array.count > 1 ? array[1] : @"";
     
     UIFont* nameFont;
-    if(fontType == 1) nameFont = [UIFont fontWithName:@"Roboto-Thin" size:30];
-    if(fontType == 2) nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:30];
-    if(fontType == 3) nameFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
-    if(fontType == 4) nameFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:30];
-    if(fontType == 5) nameFont = [UIFont fontWithName:@"MyriadPro-Cond" size:30];
+    if(fontType == 1) nameFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
+    if(fontType == 2) nameFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:30];
+    if(fontType == 3) nameFont = [UIFont fontWithName:@"MyriadPro-Cond" size:30];
+    if(fontType == 4) nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:30];
+    if(fontType == 5) nameFont = [UIFont fontWithName:@"Roboto-Thin" size:30];
     if(fontType == 6) nameFont = [UIFont fontWithName:@"Thonburi" size:30];
     
     UIFont* phoneFont;
-    if(fontType == 1) phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:18];
-    if(fontType == 2) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:18];
-    if(fontType == 3) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:18];
-    if(fontType == 4) phoneFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:18];
-    if(fontType == 5) phoneFont = [UIFont fontWithName:@"MyriadPro-Cond" size:18];
+    if(fontType == 1) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:18];
+    if(fontType == 2) phoneFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:18];
+    if(fontType == 3) phoneFont = [UIFont fontWithName:@"MyriadPro-Cond" size:18];
+    if(fontType == 4) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:18];
+    if(fontType == 5) phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:18];
     if(fontType == 6) phoneFont = [UIFont fontWithName:@"Thonburi" size:18];
     
     UIFont* madeFont;
-    if(fontType == 1) madeFont = [UIFont fontWithName:@"Roboto-Thin" size:18];
-    if(fontType == 2) madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:18];
-    if(fontType == 3) madeFont = [UIFont fontWithName:@"FuturaDemiC" size:18];
-    if(fontType == 4) madeFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:18];
-    if(fontType == 5) madeFont = [UIFont fontWithName:@"MyriadPro-Cond" size:18];
+    if(fontType == 1) madeFont = [UIFont fontWithName:@"FuturaDemiC" size:18];
+    if(fontType == 2) madeFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:18];
+    if(fontType == 3) madeFont = [UIFont fontWithName:@"MyriadPro-Cond" size:18];
+    if(fontType == 4) madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:18];
+    if(fontType == 5) madeFont = [UIFont fontWithName:@"Roboto-Thin" size:18];
     if(fontType == 6) madeFont = [UIFont fontWithName:@"Thonburi" size:18];
     
     // fonts
@@ -342,27 +342,27 @@
     NSString* line2 = array.count > 1 ? array[1] : @"";
     
     UIFont* nameFont;
-    if(fontType == 1) nameFont = [UIFont fontWithName:@"Roboto-Thin" size:30];
-    if(fontType == 2) nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:30];
-    if(fontType == 3) nameFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
-    if(fontType == 4) nameFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:30];
-    if(fontType == 5) nameFont = [UIFont fontWithName:@"MyriadPro-Cond" size:30];
+    if(fontType == 1) nameFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
+    if(fontType == 2) nameFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:30];
+    if(fontType == 3) nameFont = [UIFont fontWithName:@"MyriadPro-Cond" size:30];
+    if(fontType == 4) nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:30];
+    if(fontType == 5) nameFont = [UIFont fontWithName:@"Roboto-Thin" size:30];
     if(fontType == 6) nameFont = [UIFont fontWithName:@"Thonburi" size:30];
     
     UIFont* phoneFont;
-    if(fontType == 1) phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:30];
-    if(fontType == 2) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:30];
-    if(fontType == 3) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
-    if(fontType == 4) phoneFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:30];
-    if(fontType == 5) phoneFont = [UIFont fontWithName:@"MyriadPro-Cond" size:30];
+    if(fontType == 1) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
+    if(fontType == 2) phoneFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:30];
+    if(fontType == 3) phoneFont = [UIFont fontWithName:@"MyriadPro-Cond" size:30];
+    if(fontType == 4) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:30];
+    if(fontType == 5) phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:30];
     if(fontType == 6) phoneFont = [UIFont fontWithName:@"Thonburi" size:30];
     
     UIFont* madeFont;
-    if(fontType == 1) madeFont = [UIFont fontWithName:@"Roboto-Thin" size:16];
-    if(fontType == 2) madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:16];
-    if(fontType == 3) madeFont = [UIFont fontWithName:@"FuturaDemiC" size:16];
-    if(fontType == 4) madeFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:16];
-    if(fontType == 5) madeFont = [UIFont fontWithName:@"MyriadPro-Cond" size:16];
+    if(fontType == 1) madeFont = [UIFont fontWithName:@"FuturaDemiC" size:16];
+    if(fontType == 2) madeFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:16];
+    if(fontType == 3) madeFont = [UIFont fontWithName:@"MyriadPro-Cond" size:16];
+    if(fontType == 4) madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:16];
+    if(fontType == 5) madeFont = [UIFont fontWithName:@"Roboto-Thin" size:16];
     if(fontType == 6) madeFont = [UIFont fontWithName:@"Thonburi" size:16];
     
     // fonts
@@ -438,27 +438,27 @@
     NSString* line2 = array.count > 1 ? array[1] : @"";
     
     UIFont* nameFont;
-    if(fontType == 1) nameFont = [UIFont fontWithName:@"Roboto-Thin" size:24];
-    if(fontType == 2) nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:24];
-    if(fontType == 3) nameFont = [UIFont fontWithName:@"FuturaDemiC" size:24];
-    if(fontType == 4) nameFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:24];
-    if(fontType == 5) nameFont = [UIFont fontWithName:@"MyriadPro-Cond" size:24];
+    if(fontType == 1) nameFont = [UIFont fontWithName:@"FuturaDemiC" size:24];
+    if(fontType == 2) nameFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:24];
+    if(fontType == 3) nameFont = [UIFont fontWithName:@"MyriadPro-Cond" size:24];
+    if(fontType == 4) nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:24];
+    if(fontType == 5) nameFont = [UIFont fontWithName:@"Roboto-Thin" size:24];
     if(fontType == 6) nameFont = [UIFont fontWithName:@"Thonburi" size:24];
     
     UIFont* phoneFont;
-    if(fontType == 1) phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:24];
-    if(fontType == 2) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:24];
-    if(fontType == 3) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:24];
-    if(fontType == 4) phoneFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:24];
-    if(fontType == 5) phoneFont = [UIFont fontWithName:@"MyriadPro-Cond" size:24];
+    if(fontType == 1) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:24];
+    if(fontType == 2) phoneFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:24];
+    if(fontType == 3) phoneFont = [UIFont fontWithName:@"MyriadPro-Cond" size:24];
+    if(fontType == 4) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:24];
+    if(fontType == 5) phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:24];
     if(fontType == 6) phoneFont = [UIFont fontWithName:@"Thonburi" size:24];
     
     UIFont* madeFont;
-    if(fontType == 1) madeFont = [UIFont fontWithName:@"Roboto-Thin" size:16];
-    if(fontType == 2) madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:16];
-    if(fontType == 3) madeFont = [UIFont fontWithName:@"FuturaDemiC" size:16];
-    if(fontType == 4) madeFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:16];
-    if(fontType == 5) madeFont = [UIFont fontWithName:@"MyriadPro-Cond" size:16];
+    if(fontType == 1) madeFont = [UIFont fontWithName:@"FuturaDemiC" size:16];
+    if(fontType == 2) madeFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:16];
+    if(fontType == 3) madeFont = [UIFont fontWithName:@"MyriadPro-Cond" size:16];
+    if(fontType == 4) madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:16];
+    if(fontType == 5) madeFont = [UIFont fontWithName:@"Roboto-Thin" size:16];
     if(fontType == 6) madeFont = [UIFont fontWithName:@"Thonburi" size:16];
     
     // fonts
@@ -546,27 +546,27 @@
     NSString* line2 = array.count > 1 ? array[1] : @"";
     
     UIFont* nameFont;
-    if(fontType == 1) nameFont = [UIFont fontWithName:@"Roboto-Thin" size:30];
-    if(fontType == 2) nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:30];
-    if(fontType == 3) nameFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
-    if(fontType == 4) nameFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:30];
-    if(fontType == 5) nameFont = [UIFont fontWithName:@"MyriadPro-Cond" size:30];
+    if(fontType == 1) nameFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
+    if(fontType == 2) nameFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:30];
+    if(fontType == 3) nameFont = [UIFont fontWithName:@"MyriadPro-Cond" size:30];
+    if(fontType == 4) nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:30];
+    if(fontType == 5) nameFont = [UIFont fontWithName:@"Roboto-Thin" size:30];
     if(fontType == 6) nameFont = [UIFont fontWithName:@"Thonburi" size:30];
     
     UIFont* phoneFont;
-    if(fontType == 1) phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:30];
-    if(fontType == 2) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:30];
-    if(fontType == 3) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
-    if(fontType == 4) phoneFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:30];
-    if(fontType == 5) phoneFont = [UIFont fontWithName:@"MyriadPro-Cond" size:30];
+    if(fontType == 1) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:30];
+    if(fontType == 2) phoneFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:30];
+    if(fontType == 3) phoneFont = [UIFont fontWithName:@"MyriadPro-Cond" size:30];
+    if(fontType == 4) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:30];
+    if(fontType == 5) phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:30];
     if(fontType == 6) phoneFont = [UIFont fontWithName:@"Thonburi" size:30];
     
     UIFont* madeFont;
-    if(fontType == 1) madeFont = [UIFont fontWithName:@"Roboto-Thin" size:16];
-    if(fontType == 2) madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:16];
-    if(fontType == 3) madeFont = [UIFont fontWithName:@"FuturaDemiC" size:16];
-    if(fontType == 4) madeFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:16];
-    if(fontType == 5) madeFont = [UIFont fontWithName:@"MyriadPro-Cond" size:16];
+    if(fontType == 1) madeFont = [UIFont fontWithName:@"FuturaDemiC" size:16];
+    if(fontType == 2) madeFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:16];
+    if(fontType == 3) madeFont = [UIFont fontWithName:@"MyriadPro-Cond" size:16];
+    if(fontType == 4) madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:16];
+    if(fontType == 5) madeFont = [UIFont fontWithName:@"Roboto-Thin" size:16];
     if(fontType == 6) madeFont = [UIFont fontWithName:@"Thonburi" size:16];
     
     // fonts
@@ -636,27 +636,27 @@
     NSString* line2 = array.count > 1 ? array[1] : @"";
     
     UIFont* nameFont;
-    if(fontType == 1) nameFont = [UIFont fontWithName:@"Roboto-Thin" size:26];
-    if(fontType == 2) nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:26];
-    if(fontType == 3) nameFont = [UIFont fontWithName:@"FuturaDemiC" size:26];
-    if(fontType == 4) nameFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:26];
-    if(fontType == 5) nameFont = [UIFont fontWithName:@"MyriadPro-Cond" size:26];
+    if(fontType == 1) nameFont = [UIFont fontWithName:@"FuturaDemiC" size:26];
+    if(fontType == 2) nameFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:26];
+    if(fontType == 3) nameFont = [UIFont fontWithName:@"MyriadPro-Cond" size:26];
+    if(fontType == 4) nameFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:26];
+    if(fontType == 5) nameFont = [UIFont fontWithName:@"Roboto-Thin" size:26];
     if(fontType == 6) nameFont = [UIFont fontWithName:@"Thonburi" size:26];
     
     UIFont* phoneFont;
-    if(fontType == 1) phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:26];
-    if(fontType == 2) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:26];
-    if(fontType == 3) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:26];
-    if(fontType == 4) phoneFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:26];
-    if(fontType == 5) phoneFont = [UIFont fontWithName:@"MyriadPro-Cond" size:26];
+    if(fontType == 1) phoneFont = [UIFont fontWithName:@"FuturaDemiC" size:26];
+    if(fontType == 2) phoneFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:26];
+    if(fontType == 3) phoneFont = [UIFont fontWithName:@"MyriadPro-Cond" size:26];
+    if(fontType == 4) phoneFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:26];
+    if(fontType == 5) phoneFont = [UIFont fontWithName:@"Roboto-Thin" size:26];
     if(fontType == 6) phoneFont = [UIFont fontWithName:@"Thonburi" size:26];
     
     UIFont* madeFont;
-    if(fontType == 1) madeFont = [UIFont fontWithName:@"Roboto-Thin" size:16];
-    if(fontType == 2) madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:16];
-    if(fontType == 3) madeFont = [UIFont fontWithName:@"FuturaDemiC" size:16];
-    if(fontType == 4) madeFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:16];
-    if(fontType == 5) madeFont = [UIFont fontWithName:@"MyriadPro-Cond" size:16];
+    if(fontType == 1) madeFont = [UIFont fontWithName:@"FuturaDemiC" size:16];
+    if(fontType == 2) madeFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:16];
+    if(fontType == 3) madeFont = [UIFont fontWithName:@"MyriadPro-Cond" size:16];
+    if(fontType == 4) madeFont = [UIFont fontWithName:@"PFAgoraSlabPro-Black" size:16];
+    if(fontType == 5) madeFont = [UIFont fontWithName:@"Roboto-Thin" size:16];
     if(fontType == 6) madeFont = [UIFont fontWithName:@"Thonburi" size:16];
     
     // fonts

@@ -11,6 +11,7 @@
 #import "UIView+GestureBlocks.h"
 #import "BarcodeSavedView.h"
 #import "PMMailManager.h"
+#import "MRSenderChooser.h"
 
 #import <MZFormSheetController/MZFormSheetController.h>
 #import <TYMActivityIndicatorView/TYMActivityIndicatorView.h>
@@ -59,6 +60,9 @@
     BarcodeSavedView *finishView;
     PMMailManager *mailManager;
     BOOL isSending;
+    
+    MRSenderChooser *senderChooserView;
+    NSInteger selectBarcodeIndex, selectBarcodeFontIndex;
 }
 @synthesize carousel, carouselFonts;
 @synthesize barcodeImages, barcodeFontsImages;
@@ -77,6 +81,9 @@
 {
     [super viewDidLoad];
     
+    selectBarcodeIndex = 1;
+    selectBarcodeFontIndex = 0;
+    
     isPresentFontsCarousel = NO;
     isPresentImage = NO;
     saveButton.alpha = 0;
@@ -84,12 +91,16 @@
     
     NSString *phoneScript = ([MRDataManager sharedInstance].phoneValue.length > 0) ? [MRDataManager sharedInstance].phoneValue : @"";
     NSString *nameScript = ([MRDataManager sharedInstance].nameValue.length > 0) ? [MRDataManager sharedInstance].nameValue : @"";
-    dataBufferString = [nameScript stringByAppendingString:phoneScript];
+    NSString *surnameScript = ([MRDataManager sharedInstance].surnameValue.length > 0) ? [MRDataManager sharedInstance].surnameValue : @"";
+    
     name = ([MRDataManager sharedInstance].nameSignValue) ? [MRDataManager sharedInstance].nameValue : nil;
     surName = ([MRDataManager sharedInstance].nameSignValue) ? [MRDataManager sharedInstance].surnameValue : nil;
     phone = ([MRDataManager sharedInstance].phoneSignValue) ? [MRDataManager sharedInstance].phoneValue : nil;
     mode = ([MRDataManager sharedInstance].sloganSignValue) ? @"EU" : nil;
 
+    //dataBufferString = [nameScript stringByAppendingString:phoneScript];
+    dataBufferString = [NSString stringWithFormat:@"%@%@%@", nameScript, surnameScript, phoneScript];
+    
     nameWithSurname = [name stringByAppendingFormat:@" %@", surName];
 
     NSLog(@"Data for barcode (%@)", dataBufferString);
@@ -239,6 +250,8 @@
                          [UIView animateWithDuration:0.05f animations:^{
                              button.transform = CGAffineTransformMakeScale(1, 1);
                          } completion:^(BOOL finished) {
+                             selectBarcodeIndex = button.tag+1;
+                             
                              [self selectBarcodeType:button.tag+1];
                          }];
                      }];
@@ -254,6 +267,7 @@
                          [UIView animateWithDuration:0.05f animations:^{
                              button.transform = CGAffineTransformMakeScale(1, 1);
                          } completion:^(BOOL finished) {
+                             selectBarcodeFontIndex = button.tag;
                              selectedIndexForMail = button.tag;
                              [self presentSelectedImage:[barcodeFontsImages objectAtIndex:button.tag]];
                          }];
@@ -365,34 +379,66 @@
 {
     selectedImageForMail = image;
     
-    isPresentFontsCarousel = NO;
-    isPresentImage = YES;
-    
-    titleLabel.text = @"ВАШ ВЫБОР";
-    [titleLabel sizeToFit];
-    titleLabel.frame = CGRectMake((self.view.bounds.size.width - titleLabel.frame.size.width)/2,
-                                  185,
-                                  titleLabel.frame.size.width,
-                                  titleLabel.frame.size.height);
-    
-    selectedBarcodeImage = [[UIImageView alloc] initWithImage:image];
-    selectedBarcodeImage.alpha = 0;
-    selectedBarcodeImage.frame = CGRectMake((self.view.bounds.size.width-image.size.width)/2, titleLabel.frame.origin.y+titleLabel.frame.size.height+50, image.size.width, image.size.height);
-    selectedBarcodeImage.center = self.view.center;
-    
-    [self.view addSubview:selectedBarcodeImage];
-    
-    saveButton.frame = CGRectMake((self.view.bounds.size.width-saveButton.frame.size.width)/2,
-                                  selectedBarcodeImage.frame.origin.y+selectedBarcodeImage.frame.size.height+50,
-                                  saveButton.frame.size.width, saveButton.frame.size.height);
+    senderChooserView = [[MRSenderChooser alloc] initWithFrame:self.view.frame];
+    senderChooserView.delegate = self;
+    senderChooserView.alpha = 0;
+    [senderChooserView initialize];
     
     [UIView animateWithDuration:0.2 animations:^{
         carousel.alpha = 0;
         carouselFonts.alpha = 0;
-        //titleLabel.alpha = 0;
+        titleLabel.alpha = 0;
         
-        selectedBarcodeImage.alpha = 1;
-        saveButton.alpha = 1;
+        senderChooserView.alpha = 1;
+    }];
+    
+    [self.view addSubview:senderChooserView];
+}
+
+-(void) onContinueAfterSenderChecker    {
+    [senderChooserView removeFromSuperview];
+    
+    NSLog(@"1) %i", [MRDataManager sharedInstance].sendToEmailKey);
+    NSLog(@"2) %i", [MRDataManager sharedInstance].sendToPrintKey);
+    
+     isPresentFontsCarousel = NO;
+     isPresentImage = YES;
+     
+     titleLabel.text = @"ВАШ ВЫБОР";
+     [titleLabel sizeToFit];
+     titleLabel.frame = CGRectMake((self.view.bounds.size.width - titleLabel.frame.size.width)/2,
+     185,
+     titleLabel.frame.size.width,
+     titleLabel.frame.size.height);
+     
+     selectedBarcodeImage = [[UIImageView alloc] initWithImage:selectedImageForMail];
+     selectedBarcodeImage.alpha = 0;
+     selectedBarcodeImage.frame = CGRectMake((self.view.bounds.size.width-selectedImageForMail.size.width)/2, titleLabel.frame.origin.y+titleLabel.frame.size.height+50, selectedImageForMail.size.width, selectedImageForMail.size.height);
+     selectedBarcodeImage.center = self.view.center;
+     
+     [self.view addSubview:selectedBarcodeImage];
+     
+     saveButton.frame = CGRectMake((self.view.bounds.size.width-saveButton.frame.size.width)/2,
+     selectedBarcodeImage.frame.origin.y+selectedBarcodeImage.frame.size.height+50,
+     saveButton.frame.size.width, saveButton.frame.size.height);
+     
+     [UIView animateWithDuration:0.2 animations:^{
+         carousel.alpha = 0;
+         carouselFonts.alpha = 0;
+         //titleLabel.alpha = 0;
+         
+         titleLabel.alpha = 1;
+         selectedBarcodeImage.alpha = 1;
+         saveButton.alpha = 1;
+     }];
+}
+
+-(void) onExitAfterSenderChecker    {
+    [senderChooserView removeFromSuperview];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        carousel.alpha = 0;
+        carouselFonts.alpha = 1;
     }];
 }
 
@@ -483,14 +529,22 @@
         UIGraphicsEndImageContext();
         
         //UIImageWriteToSavedPhotosAlbum(resultingImage2, nil, nil, nil);
-        [mailManager sendMessageWithTitle:@"Barcode"
+        /*[mailManager sendMessageWithTitle:@"Barcode"
                                  subtitle:@"ЭТО ТВОЙ УНИКАЛЬНЫЙ ШТРИХ КОД!" // - ЦИФРОВОЙ ПРЕМИУС. ОБОИ ДЛЯ РАБОЧЕГО СТОЛА ВАШЕГО МОБИЛЬНОГО ТЕЛЕФОНА.
                                 subtitle2:@"ОРИГИНАЛЬНОЕ ИЗОБРАЖЕНИЕ ШТРИХ КОДА ВЫСОКОГО КАЧЕСТВА ТЫ СМОЖЕШЬ НАЙТИ В ПРИЛОЖЕНИИ К ПИСЬМУ!"
                                      text:@" "
                                     image:resultingImage2
                                  rezImage:resultingImage
                                  filename:@"barcode.png"
-                                  forName:[MRDataManager sharedInstance].nameRegValue];
+                                  forName:[MRDataManager sharedInstance].nameRegValue];*/
+        [mailManager sendDataToServer:eBarcode
+                            withImage:resultingImage2
+                         teplateIndex:selectBarcodeIndex
+                            fontIndex:selectBarcodeFontIndex
+                               withEu:[MRDataManager sharedInstance].sloganSignValue
+                                 text:@" "
+                             subtitle:@"ЭТО ТВОЙ УНИКАЛЬНЫЙ ШТРИХ КОД!"
+                            subtitle2:@"ОРИГИНАЛЬНОЕ ИЗОБРАЖЕНИЕ ШТРИХ КОДА ВЫСОКОГО КАЧЕСТВА ТЫ СМОЖЕШЬ НАЙТИ В ПРИЛОЖЕНИИ К ПИСЬМУ!"];
     });
 }
 

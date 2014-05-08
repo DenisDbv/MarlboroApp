@@ -102,13 +102,14 @@
                          } completion:^(BOOL finished) {
                              [cropper finishCropping];
                              
+                             //720
                              UIImage *croppedImage = cropper.croppedImage;
                              if(croppedImage.size.width != croppedImage.size.height)    {
-                                 croppedImage = [croppedImage croppedImage:CGRectMake(croppedImage.size.width/2 - 720, croppedImage.size.height/2 - 720, 720, 720)];
+                                 croppedImage = [croppedImage croppedImage:CGRectMake(croppedImage.size.width/2 - 1440, croppedImage.size.height/2 - 1440, 1440, 1440)];
                                  NSLog(@"CROP!!!");
                              }
                              
-                             UIImage *img = [croppedImage resizedImage:CGSizeMake(720, 720) interpolationQuality:kCGInterpolationHigh];
+                             UIImage *img = [croppedImage resizedImage:CGSizeMake(1440, 1440) interpolationQuality:kCGInterpolationHigh];
                              
                              if([self.delegate respondsToSelector:@selector(cropDidDoneImage:)]) {
                                  [self.delegate cropDidDoneImage:img];

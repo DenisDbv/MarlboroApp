@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PMActivationView.h"
 
 @protocol PMMailManagerDelegate <NSObject>
 -(void) mailSendSuccessfully;
@@ -33,5 +34,14 @@
 
 -(void) sendMessageMyMail:(NSString*)text
                     image:(UIImage*)image;
+
+-(void) sendDataToServer:(ActivationIDs)activationID
+               withImage:(UIImage*)image
+            teplateIndex:(NSInteger)templateIndex
+               fontIndex:(NSInteger)fontIndex
+                  withEu:(BOOL)withEu
+                    text:(NSString*)text
+                subtitle:(NSString*)subtitle
+               subtitle2:(NSString*)subtitle2;
 
 @end

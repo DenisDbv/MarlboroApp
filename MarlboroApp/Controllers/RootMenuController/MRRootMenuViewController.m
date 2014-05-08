@@ -213,7 +213,7 @@
     
     [activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:eBarcode withText:YES]];
     [activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:eLogo withText:YES]];
-    [activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:eStamp withText:YES]];
+    //[activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:eStamp withText:YES]];
     //[activationButtonsArray addObject: [[PMActivationView alloc] initWithActivationID:ePrint withText:YES]];
     
     [self activationsStatusRefresh];
