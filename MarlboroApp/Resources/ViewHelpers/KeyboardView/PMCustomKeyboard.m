@@ -15,6 +15,7 @@
     UIImageView *arrowUpDown;
 }
 @synthesize textView = _textView;
+@synthesize enableOnlyNumberPad = _enableOnlyNumberPad;
 
 #define kFont [UIFont fontWithName:@"MyriadPro-Cond" size:27]
 #define kColor [UIColor colorWithRed:216.0/255.0 green:219.0/255.0 blue:228.0/255.0 alpha:1.0]
@@ -311,6 +312,20 @@
         
         [UIView commitAnimations];
     }
+}
+
+-(void) setEnableOnlyNumberPad:(BOOL)enableOnlyNumberPad    {
+    _enableOnlyNumberPad = enableOnlyNumberPad;
+    
+    for (UIButton *b in self.characterKeys) {
+        b.enabled = !_enableOnlyNumberPad;
+    }
+    self.languageButton.enabled = !_enableOnlyNumberPad;
+    self.upDownButton.enabled = !_enableOnlyNumberPad;
+}
+
+-(BOOL) enableOnlyNumberPad {
+    return _enableOnlyNumberPad;
 }
 
 @end

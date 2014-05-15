@@ -15,6 +15,7 @@
 @implementation MRRegistrationItemView
 {
     NSString *_placeholderText;
+    NSString *_key;
 }
 @synthesize titleField;
 
@@ -43,6 +44,17 @@
     return self;
 }
 
+- (id)initWithPlaceholder:(NSString*)text byKey:(NSString*)key  {
+    self = [super initWithFrame:CGRectZero];
+    if (self) {
+        _key = key;
+        _placeholderText = text;
+        
+        [self initField];
+    }
+    return self;
+}
+
 -(void) initField
 {
     UIImage *backgroundImage = [UIImage imageNamed:@"field_background.png"];
@@ -66,11 +78,19 @@
     
     PMCustomKeyboard *customKeyboard = [[PMCustomKeyboard alloc] init];
     [customKeyboard setTextView:titleField];
+    
+    if([_key isEqualToString:PHONE_KEY] || [_key isEqualToString:PHONESTRING_SIGN_KEY])   {
+        customKeyboard.enableOnlyNumberPad = YES;
+    }
 }
 
 -(void) textUpdated:(NSNotification *)notification {
     UITextField * textfield = (UITextField*)notification.object;
     NSString * text = textfield.text;
+    
+    if(([_key isEqualToString:PHONE_KEY] || [_key isEqualToString:PHONESTRING_SIGN_KEY]) && text.length >= 11)   {
+        text = [textfield.text substringToIndex:11];
+    }
     
     NSArray *array = [text componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     

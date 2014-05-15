@@ -28,6 +28,8 @@ typedef enum
 @property (nonatomic, assign) BOOL isRu;
 @property (nonatomic, assign) BOOL isUP;
 
+@property (nonatomic, assign) BOOL enableOnlyNumberPad;
+
 - (id)initWithLanguageType:(LanguageType)langType;
 
 - (IBAction)deletePressed:(id)sender;

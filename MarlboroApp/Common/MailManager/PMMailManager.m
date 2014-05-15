@@ -193,6 +193,11 @@
                                  @"souvenir":[NSNumber numberWithInteger:suvenirIndex]};
     
     if(activationID == eBarcode)    {
+        
+        NSString *firstNameSignText = ([MRDataManager sharedInstance].firstNameSignString.length > 0) ? [MRDataManager sharedInstance].firstNameSignString : @"";
+        NSString *secondNameSignText = ([MRDataManager sharedInstance].secondNameSignString.length > 0) ? [MRDataManager sharedInstance].secondNameSignString : @"";
+        NSString *phoneSignText = ([MRDataManager sharedInstance].phoneSignString.length > 0) ? [MRDataManager sharedInstance].phoneSignString : @"";
+        
         parameters = @{@"subject":@"Agent M-Port",
                        @"image":imageString,
                        @"email":emailRegValue,
@@ -202,8 +207,11 @@
                        @"name":name,
                        @"lastName":lastName,
                        @"phone":phone,
-                       @"text_flag":[NSNumber numberWithBool:[MRDataManager sharedInstance].nameSignValue],
-                       @"phoneFlag":[NSNumber numberWithBool:[MRDataManager sharedInstance].phoneSignValue],
+                       //@"text_flag":[NSNumber numberWithBool:[MRDataManager sharedInstance].nameSignValue],
+                       //@"phoneFlag":[NSNumber numberWithBool:[MRDataManager sharedInstance].phoneSignValue],
+                       @"firstNameSignText":firstNameSignText,
+                       @"secondNameSignText":secondNameSignText,
+                       @"phoneSignText":phoneSignText,
                        @"eu":[NSNumber numberWithBool:withEu],
                        @"print":[NSNumber numberWithInteger:print],
                        @"filename":filename,

@@ -209,9 +209,14 @@
     [_checkListArray enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         NSDictionary *objectItem = obj;
         
-        MRCheckItem *checkItem = [[MRCheckItem alloc] initWithTitle:[objectItem valueForKey:@"titleKey"] byKey:key withPlaceholder:[objectItem valueForKey:@"placeholderKey"]];
+        MRCheckItem *checkItem = [[MRCheckItem alloc] initWithTitle:[objectItem valueForKey:@"titleKey"]
+                                                              byKey:key
+                                                    withPlaceholder:[objectItem valueForKey:@"placeholderKey"]];
         checkItem.rootDelegate = self;
         checkItem.indexItem = [[objectItem valueForKey:@"indexKey"] integerValue];
+        
+        NSString *textValue = (((NSString*)[objectItem valueForKey:@"text"]).length > 0) ? [objectItem valueForKey:@"text"] : @"";
+        checkItem.fieldView.titleField.text = textValue;
         
         [checkViewArray addObject:checkItem];
     }];
@@ -257,17 +262,34 @@
     [self hideAllContext];
     
     if(_activeID == eBarcode)   {
-        
-        //NSLog(@"%@ %@ %i", [[MRDataManager sharedInstance] nameValue], [[MRDataManager sharedInstance] phoneValue], [[MRDataManager sharedInstance] sloganValue]);
-        
-        MRChooserViewController *chooserViewController;
-        NSDictionary *nameDictionary = @{@"titleKey": @"ИМЯ ФАМИЛИЯ", @"placeholderKey": @"", @"indexKey":[NSNumber numberWithInteger:1]};
+        /*MRChooserViewController *chooserViewController;
+        NSDictionary *nameDictionary = @{@"titleKey": @"ИМЯ ФАМИЛИЯ", @"placeholderKey": @"test", @"indexKey":[NSNumber numberWithInteger:1]};
         NSDictionary *phoneDictionary = @{@"titleKey": @"ТЕЛЕФОН", @"placeholderKey": @"", @"indexKey":[NSNumber numberWithInteger:2]};
         NSDictionary *modeDictionary = @{@"titleKey": @"СЛОГАН: EU", @"placeholderKey": @"", @"indexKey":[NSNumber numberWithInteger:3]};
         NSDictionary *barcodeDictionary = @{FIO_SIGN_KEY: nameDictionary, PHONE_SIGN_KEY: phoneDictionary, SLOGAN_SIGN_KEY:modeDictionary};
         
         chooserViewController = [[MRChooserViewController alloc] initWithTitle:@"ВЫБЕРИТЕ ТИП ПОДПИСИ ПОД БАРКОДОМ" withCheckboxList:barcodeDictionary :eBarcodeSign];
+        [self.navigationController pushViewController:chooserViewController animated:YES];*/
+        
+        NSString *firstNameValue = ([MRDataManager sharedInstance].nameValue.length > 0) ? [MRDataManager sharedInstance].nameValue : @"ВВЕДИТЕ ИМЯ";
+        NSString *secondNameValue = ([MRDataManager sharedInstance].surnameValue.length > 0) ? [MRDataManager sharedInstance].surnameValue : @"ВВЕДИТЕ ФАМИЛИЮ";
+        NSString *phoneValue = ([MRDataManager sharedInstance].phoneValue.length > 0) ? [MRDataManager sharedInstance].phoneValue : @"ВВЕДИТЕ ТЕЛЕФОН";
+        NSString *firstNameValue2 = ([MRDataManager sharedInstance].nameValue.length > 0) ? [MRDataManager sharedInstance].nameValue : @"";
+        NSString *secondNameValue2 = ([MRDataManager sharedInstance].surnameValue.length > 0) ? [MRDataManager sharedInstance].surnameValue : @"";
+        NSString *phoneValue2 = ([MRDataManager sharedInstance].phoneValue.length > 0) ? [MRDataManager sharedInstance].phoneValue : @"";
+        
+        MRChooserViewController *chooserViewController;
+        NSDictionary *firstNameDictionary = @{@"titleKey": firstNameValue, @"placeholderKey": firstNameValue, @"text":firstNameValue2, @"indexKey":[NSNumber numberWithInteger:1]};
+        NSDictionary *secondNameDictionary = @{@"titleKey": secondNameValue, @"placeholderKey": secondNameValue, @"text":secondNameValue2, @"indexKey":[NSNumber numberWithInteger:2]};
+        NSDictionary *phoneDictionary = @{@"titleKey": phoneValue, @"placeholderKey": phoneValue, @"text":phoneValue2, @"indexKey":[NSNumber numberWithInteger:3]};
+        NSDictionary *modeDictionary = @{@"titleKey": @"СЛОГАН: EU", @"placeholderKey": @"", @"indexKey":[NSNumber numberWithInteger:4]};
+        NSDictionary *barcodeDictionary = @{FIRSTNAME_SIGN_KEY: firstNameDictionary,
+                                            SECONDNAME_SIGN_KEY: secondNameDictionary,
+                                            PHONESTRING_SIGN_KEY: phoneDictionary,
+                                            SLOGANSTRING_SIGN_KEY: modeDictionary};
+        chooserViewController = [[MRChooserViewController alloc] initWithTitle:@"ВЫБЕРИТЕ ТИП ПОДПИСИ ПОД БАРКОДОМ" withCheckboxList:barcodeDictionary :eBarcodeSign];
         [self.navigationController pushViewController:chooserViewController animated:YES];
+        
     } else if (_activeID == eBarcodeSign)   {
         //NSLog(@"%i %i %i", [[MRDataManager sharedInstance] nameSignValue], [[MRDataManager sharedInstance] phoneSignValue], [[MRDataManager sharedInstance] sloganSignValue]);
         MRBarcodeListViewController *barcodeListVC = [[MRBarcodeListViewController alloc] initWithNibName:@"MRBarcodeListViewController" bundle:[NSBundle mainBundle]];
@@ -305,6 +327,15 @@
         } else if([checkItem._key isEqualToString:SLOGAN_SIGN_KEY]) {
             [[MRDataManager sharedInstance] setSloganSignValue:checkItem.isCheck];
         }
+        else if([checkItem._key isEqualToString:FIRSTNAME_SIGN_KEY])   {
+            [[MRDataManager sharedInstance] setFirstNameSignString: (checkItem.isCheck)?checkItem.fieldView.titleField.text:@""];
+        } else if([checkItem._key isEqualToString:SECONDNAME_SIGN_KEY]) {
+            [[MRDataManager sharedInstance] setSecondNameSignString: (checkItem.isCheck)?checkItem.fieldView.titleField.text:@""];
+        } else if([checkItem._key isEqualToString:PHONESTRING_SIGN_KEY]) {
+            [[MRDataManager sharedInstance] setPhoneSignString: (checkItem.isCheck)?checkItem.fieldView.titleField.text:@""];
+        } else if([checkItem._key isEqualToString:SLOGANSTRING_SIGN_KEY]) {
+            [[MRDataManager sharedInstance] setSloganSignString:checkItem.isCheck];
+        }
     }
     
     [[MRDataManager sharedInstance] save];
@@ -333,6 +364,23 @@
                 return NO;
             }
         }
+    }
+    
+    if(_activeID == eBarcode) {
+        BOOL ret1 = YES;
+        BOOL ret2 = YES;
+        BOOL ret3 = YES;
+        
+        if([[MRDataManager sharedInstance] nameValue].length == 0)
+            ret1 = NO;
+        
+        if([[MRDataManager sharedInstance] surnameValue].length == 0)
+            ret2 = NO;
+        
+        if([[MRDataManager sharedInstance] phoneValue].length == 0)
+            ret3 = NO;
+        
+        return (!ret1 && !ret2 && !ret3) ? NO : YES;
     }
     
     BOOL ret1 = YES;

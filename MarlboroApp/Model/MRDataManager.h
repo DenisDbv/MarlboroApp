@@ -30,6 +30,11 @@
 #define FIO_SIGN_KEY        @"fioSignKey"
 #define PHONE_SIGN_KEY      @"phoneSignKey"
 #define SLOGAN_SIGN_KEY     @"sloganSignKey"
+//-----
+#define FIRSTNAME_SIGN_KEY  @"firstNameSignString"
+#define SECONDNAME_SIGN_KEY @"secondNameSignString"
+#define PHONESTRING_SIGN_KEY      @"phoneSignString"
+#define SLOGANSTRING_SIGN_KEY     @"sloganSignString"
 
 #define SEND_TO_EMAIL_KEY     @"sendToEmailKey"
 #define SEND_TO_PRINT_KEY     @"sendToPrintKey"
@@ -57,6 +62,11 @@
 @property (nonatomic) BOOL nameSignValue;
 @property (nonatomic) BOOL phoneSignValue;
 @property (nonatomic) BOOL sloganSignValue;
+
+@property (nonatomic, weak) NSString *firstNameSignString;
+@property (nonatomic, weak) NSString *secondNameSignString;
+@property (nonatomic, weak) NSString *phoneSignString;
+@property (nonatomic) BOOL sloganSignString;
 
 @property (nonatomic) BOOL sendToEmailKey;
 @property (nonatomic) BOOL sendToPrintKey;

@@ -23,6 +23,7 @@
 
 - (id)initWithPlaceholder:(NSString*)text;
 - (id)initWithPlaceholder:(NSString*)text withKeyboardLangType:(LanguageType)langType;
+- (id)initWithPlaceholder:(NSString*)text byKey:(NSString*)key;
 
 -(void) selectField;
 -(void) deselectField;

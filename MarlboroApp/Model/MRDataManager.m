@@ -174,6 +174,38 @@
     return [[userDefaults valueForKey:SLOGAN_SIGN_KEY] boolValue];
 }
 
+-(void) setFirstNameSignString:(NSString *)firstNameSignString  {
+    [userDefaults setValue:firstNameSignString forKey:FIRSTNAME_SIGN_KEY];
+}
+
+-(NSString*) firstNameSignString    {
+    return [userDefaults valueForKey:FIRSTNAME_SIGN_KEY];
+}
+
+-(void) setSecondNameSignString:(NSString *)secondNameSignString    {
+    [userDefaults setValue:secondNameSignString forKey:SECONDNAME_SIGN_KEY];
+}
+
+-(NSString*) secondNameSignString    {
+    return [userDefaults valueForKey:SECONDNAME_SIGN_KEY];
+}
+
+-(void) setPhoneSignString:(NSString *)phoneSignString  {
+    [userDefaults setValue:phoneSignString forKey:PHONESTRING_SIGN_KEY];
+}
+
+-(NSString*) phoneSignString    {
+    return [userDefaults valueForKey:PHONESTRING_SIGN_KEY];
+}
+
+-(void) setSloganSignString:(BOOL)sloganSignString    {
+    [userDefaults setValue:[NSNumber numberWithBool:sloganSignString] forKey:SLOGANSTRING_SIGN_KEY];
+}
+
+-(BOOL) sloganSignString    {
+    return [[userDefaults valueForKey:SLOGANSTRING_SIGN_KEY] boolValue];
+}
+
 -(void) setSendToEmailKey:(BOOL)sendToEmailKey  {
     [userDefaults setValue:[NSNumber numberWithBool:sendToEmailKey] forKey:SEND_TO_EMAIL_KEY];
 }

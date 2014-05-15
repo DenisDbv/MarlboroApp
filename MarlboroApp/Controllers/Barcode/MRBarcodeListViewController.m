@@ -93,10 +93,10 @@
     NSString *nameScript = ([MRDataManager sharedInstance].nameValue.length > 0) ? [MRDataManager sharedInstance].nameValue : @"";
     NSString *surnameScript = ([MRDataManager sharedInstance].surnameValue.length > 0) ? [MRDataManager sharedInstance].surnameValue : @"";
     
-    name = ([MRDataManager sharedInstance].nameSignValue) ? [MRDataManager sharedInstance].nameValue : nil;
-    surName = ([MRDataManager sharedInstance].nameSignValue) ? [MRDataManager sharedInstance].surnameValue : nil;
-    phone = ([MRDataManager sharedInstance].phoneSignValue) ? [MRDataManager sharedInstance].phoneValue : nil;
-    mode = ([MRDataManager sharedInstance].sloganSignValue) ? @"EU" : nil;
+    name = ([MRDataManager sharedInstance].firstNameSignString) ? [MRDataManager sharedInstance].firstNameSignString : nil;
+    surName = ([MRDataManager sharedInstance].secondNameSignString) ? [MRDataManager sharedInstance].secondNameSignString : nil;
+    phone = ([MRDataManager sharedInstance].phoneSignString) ? [MRDataManager sharedInstance].phoneSignString : nil;
+    mode = ([MRDataManager sharedInstance].sloganSignString) ? @"EU" : nil;
 
     //dataBufferString = [nameScript stringByAppendingString:phoneScript];
     dataBufferString = [NSString stringWithFormat:@"%@%@%@", nameScript, surnameScript, phoneScript];
@@ -398,9 +398,6 @@
 -(void) onContinueAfterSenderChecker    {
     [senderChooserView removeFromSuperview];
     
-    NSLog(@"1) %i", [MRDataManager sharedInstance].sendToEmailKey);
-    NSLog(@"2) %i", [MRDataManager sharedInstance].sendToPrintKey);
-    
      isPresentFontsCarousel = NO;
      isPresentImage = YES;
      
@@ -541,7 +538,7 @@
                             withImage:resultingImage2
                          teplateIndex:selectBarcodeIndex
                             fontIndex:selectBarcodeFontIndex
-                               withEu:[MRDataManager sharedInstance].sloganSignValue
+                               withEu:[MRDataManager sharedInstance].sloganSignString
                                  text:@" "
                              subtitle:@"ЭТО ТВОЙ УНИКАЛЬНЫЙ ШТРИХ КОД!"
                             subtitle2:@"ОРИГИНАЛЬНОЕ ИЗОБРАЖЕНИЕ ШТРИХ КОДА ВЫСОКОГО КАЧЕСТВА ТЫ СМОЖЕШЬ НАЙТИ В ПРИЛОЖЕНИИ К ПИСЬМУ!"];

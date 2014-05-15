@@ -69,7 +69,7 @@
                                   titleLabel.frame.size.height);
     [self addSubview:titleLabel];
     
-    fieldView = [[MRRegistrationItemView alloc] initWithPlaceholder:placeholderText];
+    fieldView = [[MRRegistrationItemView alloc] initWithPlaceholder:placeholderText byKey:_key];
     fieldView.delegate = self;
     fieldView.alpha = 0;
     fieldView.frame = CGRectOffset(fieldView.frame, titleLabel.frame.origin.x+DELTA_ANIM_OFFSET, 0);
