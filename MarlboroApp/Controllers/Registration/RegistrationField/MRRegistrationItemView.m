@@ -8,7 +8,7 @@
 
 #import "MRRegistrationItemView.h"
 
-@interface MRRegistrationItemView()
+@interface MRRegistrationItemView() <UITextFieldDelegate>
 
 @end
 
@@ -68,8 +68,22 @@
     [customKeyboard setTextView:titleField];
 }
 
+-(void) textUpdated:(NSNotification *)notification {
+    UITextField * textfield = (UITextField*)notification.object;
+    NSString * text = textfield.text;
+    
+    NSArray *array = [text componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    textfield.text = array[0];
+}
+
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(textUpdated:)
+                                                 name: UITextFieldTextDidChangeNotification
+                                               object:textField];
+    
     if([self.delegate respondsToSelector:@selector(didSelectField:)])
     {
         [self.delegate didSelectField:self];
@@ -80,11 +94,28 @@
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:textField];
+    
     if([self.delegate respondsToSelector:@selector(didEndSelectField:)])
     {
         [self.delegate didEndSelectField:self];
     }
     return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    BOOL _isAllowed = YES;
+    
+    NSString *tempString = [[textField.text stringByReplacingCharactersInRange:range withString:string] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    //NSLog(@"%@", tempString);
+    if ([textField.text isEqualToString:tempString] || [tempString length] > 5)
+    {
+        _isAllowed =  NO;
+    }
+    
+    return   _isAllowed;
 }
 
 -(void) selectField

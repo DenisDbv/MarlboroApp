@@ -103,6 +103,24 @@
                      }];
 }
 
+-(void) simulateClickingByCheck {
+    
+    isCheck = !isCheck;
+    
+    if(isCheck)    {
+        checkImage.hidden = NO;
+        if(_placeholderText.length != 0)
+            [fieldView selectField];
+    } else {
+        checkImage.hidden = YES;
+        [fieldView deselectField];
+        fieldView.titleField.text = @"";
+    }
+    
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, titleLabel.frame.origin.x+titleLabel.frame.size.width, checkButton.bounds.size.height);
+    [self showEditField];
+}
+
 -(void) showCheckImage
 {
     if(isCheck)    {

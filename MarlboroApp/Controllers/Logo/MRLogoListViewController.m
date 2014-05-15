@@ -12,6 +12,7 @@
 #import "LogoSavedView.h"
 #import "PMMailManager.h"
 #import "MRSenderChooser.h"
+#import "UIImage+Resize.h"
 
 #import <MZFormSheetController/MZFormSheetController.h>
 #import <TYMActivityIndicatorView/TYMActivityIndicatorView.h>
@@ -496,6 +497,12 @@
         UIImage *resultingImage2 = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
+        NSLog(@"LOGO SIZE: %@", NSStringFromCGSize(resultingImage2.size));
+        
+        resultingImage = [resultingImage2 resizedImage:CGSizeMake(400, 400) interpolationQuality:kCGInterpolationHigh];
+        
+        NSLog(@"LOGO NEW SIZE: %@", NSStringFromCGSize(resultingImage.size));
+        
         /*[mailManager sendMessageWithTitle:@"Логотип"
                                  subtitle:@"ЭТО ТВОЙ УНИКАЛЬНЫЙ ЛОГОТИП!" // - ЦИФРОВОЙ ПРЕМИУС. ОБОИ ДЛЯ РАБОЧЕГО СТОЛА ВАШЕГО МОБИЛЬНОГО ТЕЛЕФОНА.
                                 subtitle2:@"ОРИГИНАЛЬНОЕ ИЗОБРАЖЕНИЕ ЛОГОТИПА ВЫСОКОГО КАЧЕСТВА ТЫ СМОЖЕШЬ НАЙТИ В ПРИЛОЖЕНИИ К ПИСЬМУ!"
@@ -505,7 +512,7 @@
                                  filename:@"logo.png"
                                   forName:[MRDataManager sharedInstance].nameRegValue];*/
         [mailManager sendDataToServer:eLogo
-                            withImage:resultingImage2
+                            withImage:resultingImage
                          teplateIndex:selectLogoIndex
                             fontIndex:selectLogoFontIndex
                                withEu:[MRDataManager sharedInstance].sloganSignValue

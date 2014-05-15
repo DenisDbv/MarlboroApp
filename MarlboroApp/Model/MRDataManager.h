@@ -17,6 +17,7 @@
 #define PHONE_REG_KEY       @"phoneRegKey"
 #define EMAIL_REG_KEY       @"emailRegKey"
 #define BIRTH_REG_KEY       @"birthRegKey"
+#define COMMENT_REG_KEY       @"commentRegValue"
 
 //Person data
 #define NAME_KEY            @"nameKey"
@@ -33,6 +34,10 @@
 #define SEND_TO_EMAIL_KEY     @"sendToEmailKey"
 #define SEND_TO_PRINT_KEY     @"sendToPrintKey"
 
+#define TSHIRT_SIGN_KEY        @"tshirtSignKey"
+#define LIGHTER_SIGN_KEY      @"lighterSignKey"
+#define FLASHCARD_SIGN_KEY     @"flashCardSignKey"
+
 @interface MRDataManager : NSObject <ABMultitonProtocol>
 
 @property (nonatomic, weak) NSString *nameRegValue;
@@ -41,6 +46,7 @@
 @property (nonatomic, weak) NSString *phoneRegValue;
 @property (nonatomic, weak) NSString *emailRegValue;
 @property (nonatomic, weak) NSString *birthRegValue;
+@property (nonatomic, weak) NSString *commentRegValue;
 
 @property (nonatomic, weak) NSString *nameValue;
 @property (nonatomic, weak) NSString *surnameValue;
@@ -54,6 +60,10 @@
 
 @property (nonatomic) BOOL sendToEmailKey;
 @property (nonatomic) BOOL sendToPrintKey;
+
+@property (nonatomic) BOOL tshirtSignKey;
+@property (nonatomic) BOOL lighterSignKey;
+@property (nonatomic) BOOL flashCardSignKey;
 
 + (instancetype)sharedInstance;
 -(void) setDefaultValue;

@@ -43,6 +43,7 @@
     [userDefaults setValue:@"" forKey:PHONE_REG_KEY];
     [userDefaults setValue:@"denisdbv@gmail.com" forKey:EMAIL_REG_KEY];
     [userDefaults setValue:@"" forKey:BIRTH_REG_KEY];
+    [userDefaults setValue:@"" forKey:COMMENT_REG_KEY];
     
     [userDefaults setValue:@"" forKey:NAME_KEY];
     [userDefaults setValue:@"" forKey:SURNAME_KEY];
@@ -108,6 +109,13 @@
 }
 -(NSString*) birthRegValue  {
     return [userDefaults valueForKey:BIRTH_REG_KEY];
+}
+
+-(void) setCommentRegValue:(NSString *)commentRegValue  {
+    [userDefaults setValue:commentRegValue forKey:COMMENT_REG_KEY];
+}
+-(NSString*) commentRegValue  {
+    return [userDefaults valueForKey:COMMENT_REG_KEY];
 }
 
 -(void) setNameValue:(NSString *)nameValue  {
@@ -178,6 +186,27 @@
 }
 -(BOOL)sendToPrintKey  {
     return [[userDefaults valueForKey:SEND_TO_PRINT_KEY] boolValue];
+}
+
+-(void) setTshirtSignKey:(BOOL)tshirtSignKey    {
+    [userDefaults setValue:[NSNumber numberWithBool:tshirtSignKey] forKey:TSHIRT_SIGN_KEY];
+}
+-(BOOL)tshirtSignKey  {
+    return [[userDefaults valueForKey:TSHIRT_SIGN_KEY] boolValue];
+}
+
+-(void) setLighterSignKey:(BOOL)lighterSignKey  {
+    [userDefaults setValue:[NSNumber numberWithBool:lighterSignKey] forKey:LIGHTER_SIGN_KEY];
+}
+-(BOOL)lighterSignKey   {
+    return [[userDefaults valueForKey:LIGHTER_SIGN_KEY] boolValue];
+}
+
+-(void) setFlashCardSignKey:(BOOL)flashCardSignKey  {
+    [userDefaults setValue:[NSNumber numberWithBool:flashCardSignKey] forKey:FLASHCARD_SIGN_KEY];
+}
+-(BOOL)flashCardSignKey   {
+    return [[userDefaults valueForKey:FLASHCARD_SIGN_KEY] boolValue];
 }
 
 -(void) save

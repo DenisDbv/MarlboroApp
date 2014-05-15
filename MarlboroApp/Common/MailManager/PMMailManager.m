@@ -144,6 +144,17 @@
     NSString *midName = [MRDataManager sharedInstance].patronymicValue;
     NSString *phone = [MRDataManager sharedInstance].phoneValue;
     NSString *emailRegValue = ([MRDataManager sharedInstance].emailRegValue.length > 0) ? [MRDataManager sharedInstance].emailRegValue : @"";
+    
+    NSString *commentRegValue = ([MRDataManager sharedInstance].commentRegValue.length > 0) ? [MRDataManager sharedInstance].commentRegValue : @"";
+    NSInteger suvenirIndex = 0;
+    if([MRDataManager sharedInstance].tshirtSignKey == YES)    {
+        suvenirIndex = 0;
+    } else  if([MRDataManager sharedInstance].lighterSignKey == YES) {
+        suvenirIndex = 1;
+    } else if([MRDataManager sharedInstance].flashCardSignKey == YES)  {
+        suvenirIndex = 2;
+    }
+    
     NSInteger print = 0;
     if([MRDataManager sharedInstance].sendToEmailKey == YES && [MRDataManager sharedInstance].sendToPrintKey == YES)    {
         print = 2;
@@ -172,12 +183,14 @@
                                  @"lastName":lastName,
                                  @"midName":midName,
                                  @"phone":phone,
-                                 //@"eu":[NSNumber numberWithBool:withEu],
+                                 @"eu":[NSNumber numberWithBool:withEu],
                                  @"print":[NSNumber numberWithInteger:print],
                                  @"filename":filename,
                                  @"text": text,
                                  @"subtitle":subtitle,
-                                 @"subtitle2":subtitle2};
+                                 @"subtitle2":subtitle2,
+                                 @"bangle":commentRegValue,
+                                 @"souvenir":[NSNumber numberWithInteger:suvenirIndex]};
     
     if(activationID == eBarcode)    {
         parameters = @{@"subject":@"Agent M-Port",
@@ -196,9 +209,9 @@
                        @"filename":filename,
                        @"text": text,
                        @"subtitle":subtitle,
-                       @"subtitle2":subtitle2};
-        
-        //NSLog(@"%@", parameters);
+                       @"subtitle2":subtitle2,
+                       @"bangle":commentRegValue,
+                       @"souvenir":[NSNumber numberWithInteger:suvenirIndex]};
     }
     
     isSending = YES;

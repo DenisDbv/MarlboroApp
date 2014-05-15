@@ -28,6 +28,7 @@
     MRRegistrationItemView *phoneField;
     MRRegistrationItemView *emailField;
     MRRegistrationItemView *dateBirthField;
+    MRRegistrationItemView *commentField;
     
     MRRegistrationItemView *selectedField;
 }
@@ -92,13 +93,14 @@
 -(void) configureItems
 {
     nameField = [[MRRegistrationItemView alloc] initWithPlaceholder:@"ИМЯ"];
-    secondNameField = [[MRRegistrationItemView alloc] initWithPlaceholder:@"ФАМИЛИЯ"];
-    sexField = [[MRRegistrationItemView alloc] initWithPlaceholder:@"ПОЛ"];
-    phoneField = [[MRRegistrationItemView alloc] initWithPlaceholder:@"ТЕЛЕФОН"];
+    //secondNameField = [[MRRegistrationItemView alloc] initWithPlaceholder:@"ФАМИЛИЯ"];
+    //sexField = [[MRRegistrationItemView alloc] initWithPlaceholder:@"ПОЛ"];
+    //phoneField = [[MRRegistrationItemView alloc] initWithPlaceholder:@"ТЕЛЕФОН"];
     emailField = [[MRRegistrationItemView alloc] initWithPlaceholder:@"E-MAIL"];
-    dateBirthField = [[MRRegistrationItemView alloc] initWithPlaceholder:@"ДАТА РОЖДЕНИЯ"];
+    commentField = [[MRRegistrationItemView alloc] initWithPlaceholder:@"НОМЕР БРАСЛЕТА"];
+    //dateBirthField = [[MRRegistrationItemView alloc] initWithPlaceholder:@"ДАТА РОЖДЕНИЯ"];
     //fieldsArray = @[nameField, secondNameField, sexField, phoneField, emailField, dateBirthField];
-    fieldsArray = @[nameField, emailField];
+    fieldsArray = @[nameField, emailField, commentField];
     
     for(MRRegistrationItemView *fieldView in fieldsArray)   {
         fieldView.delegate = self;
@@ -157,7 +159,7 @@
     }*/
     
     [UIView animateWithDuration:0.3 animations:^{
-        self.tableView.frame = CGRectMake(tableViewRect.origin.x, 239.0-100.0, tableViewRect.size.width, tableViewRect.size.height);
+        self.tableView.frame = CGRectMake(tableViewRect.origin.x, 152.0-50.0, tableViewRect.size.width, tableViewRect.size.height);
     }];
     
     self.continueButton.hidden = YES;
@@ -167,7 +169,7 @@
 {
     CGRect tableViewRect = self.tableView.frame;
     [UIView animateWithDuration:0.3 animations:^{
-        self.tableView.frame = CGRectMake(tableViewRect.origin.x, 239.0, tableViewRect.size.width, tableViewRect.size.height);
+        self.tableView.frame = CGRectMake(tableViewRect.origin.x, 152.0, tableViewRect.size.width, tableViewRect.size.height);
         nameField.alpha = 1;
         secondNameField.alpha = 1;
         emailField.alpha = 1;
@@ -303,6 +305,7 @@
     [[MRDataManager sharedInstance] setPhoneRegValue:phoneField.titleField.text];
     [[MRDataManager sharedInstance] setEmailRegValue:emailField.titleField.text];
     [[MRDataManager sharedInstance] setBirthRegValue:dateBirthField.titleField.text];
+    [[MRDataManager sharedInstance] setCommentRegValue:commentField.titleField.text];
     
     [[MRDataManager sharedInstance] save];
 }

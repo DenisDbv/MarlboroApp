@@ -195,7 +195,7 @@
         [(UITextView *)textView setInputView:self];
     else if ([textView isKindOfClass:[UITextField class]])
         [(UITextField *)textView setInputView:self];
-    
+
     _textView = textView;
 }
 
